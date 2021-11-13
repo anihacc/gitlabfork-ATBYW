@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "atbyw:block/jmx/glowing_canvas_block"
+      }
+    ]
+  }
+}

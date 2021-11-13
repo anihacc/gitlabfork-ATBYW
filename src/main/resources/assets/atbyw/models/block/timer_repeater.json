@@ -1,0 +1,58 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"bottom": "minecraft:block/smooth_stone",
+		"top": "atbyw:block/timer_repeater",
+		"frame": "atbyw:block/timer_repeater_frame",
+		"particle": "atbyw:block/timer_repeater"
+	},
+	"jmx": {
+		"textures": {
+			"layered_textures": [
+				{ "jmx_tex": "atbyw:block/timer_repeater" }
+			]
+		},
+		"materials": {
+			"jmx_mat": {
+				"layers": [
+					{ "layer": "cutout_mipped" },
+					{ "layer": "cutout_mipped", "emissive": true, "ambient_occlusion": false, "diffuse": false }
+				]
+			}
+		}
+	},
+	"elements": [
+		{
+			"from": [2.5, 2, 2.5],
+			"to": [13.5, 3, 13.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2.5, 2, 1.5]},
+			"faces": {
+				"north": {"uv": [11,  0,  0,  1], "texture": "#frame"},
+				"east":  {"uv": [10,  0, 11, 11], "texture": "#frame", "rotation": 90 },
+				"south": {"uv": [ 0, 10, 11, 11], "texture": "#frame"},
+				"west":  {"uv": [ 0,  0,  1, 11], "texture": "#frame", "rotation": 270 },
+				"up":    {"uv": [ 0,  0, 11, 11], "texture": "#frame"}
+			}
+		},
+		{
+			"from": [0, 0, 0], 
+			"to": [16, 2, 16],
+			"faces": {
+				"north": {"uv": [16,  0,  0,  2], "texture": "#top", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" , "cullface": "north"},
+				"east":  {"uv": [14, 16, 16,  0], "texture": "#top", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" , "cullface": "east", "rotation": 270 },
+				"south": {"uv": [ 0, 16, 16, 14], "texture": "#top", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" , "cullface": "south"},
+				"west":  {"uv": [ 0, 16,  2,  0], "texture": "#top", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" , "cullface": "west", "rotation": 90 },
+				"up":    {"uv": [ 0,  0, 16, 16], "texture": "#top", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" },
+				"down":  {"uv": [ 0, 16, 16,  0], "texture": "#bottom", "jmx_tex0": "#jmx_tex0", "jmx_tex1": "#jmx_tex1", "jmx_material": "#jmx_mat" , "cullface": "down"}
+			}
+		},
+		{
+			"from": [3.5, 1.75, 3.5],
+			"to": [12.5, 2.75, 12.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2.5, 2, 1.5]},
+			"faces": {
+				"up": {"uv": [0, 11, 1, 12], "texture": "#frame"}
+			}
+		}
+	]
+}

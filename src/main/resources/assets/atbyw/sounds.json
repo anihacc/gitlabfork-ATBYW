@@ -1,0 +1,21 @@
+{
+    "block.spike_trap.extend": {
+        "subtitle": "subtitles.atbyw.spike_trap.extend",
+        "sounds": [
+            "atbyw:spike_trap_extend_a",
+            "atbyw:spike_trap_extend_b"
+        ]
+    },
+    "block.spike_trap.retract": {
+        "subtitle": "subtitles.atbyw.spike_trap.retract",
+        "sounds": [
+            "atbyw:spike_trap_retract"
+        ]
+    },
+    "block.redstone_lantern.shrink": {
+        "subtitle": "subtitles.atbyw.redstone_lantern.shrink",
+        "sounds": [
+            "atbyw:redstone_lantern_shrink"
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "data_type": "dp_item_ops:block_to_block",
+    "tag_used": {
+        "tag": "fabric:shovels",
+        "damage": 1
+    },
+    "targets": {
+        "atbyw:grass_block_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        },
+        "atbyw:mycelium_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        },
+        "atbyw:dirt_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        },
+        "atbyw:coarse_dirt_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        },
+        "atbyw:rooted_dirt_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        },
+        "atbyw:podzol_slab": {
+            "result": "atbyw:grass_path_slab",
+            "sound": "minecraft:item.shovel.flatten"
+        }
+    }
+}

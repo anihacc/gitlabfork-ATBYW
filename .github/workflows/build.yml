@@ -1,0 +1,34 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-20.04] # TODO: add windows/mac support
+        java: [16]
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: adopt
+          java-version: ${{ matrix.java }}
+      - name: checkout repository
+        uses: actions/checkout@v2
+      - name: validate gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: setup jdk ${{ matrix.java }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: set environment variables
+        run: export GITHUB_ACTIONS="prospector pls fix"
+      - name: build
+        run: ./gradlew build
+      - name: capture build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifacts
+          path: build/libs/

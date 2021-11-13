@@ -1,0 +1,112 @@
+{
+  "variants": {
+    "facing=east,piece=1": {
+      "model": "atbyw:block/iron_ladder_1",
+      "y": 90
+    },
+    "facing=east,piece=2": {
+      "model": "atbyw:block/iron_ladder_2",
+      "y": 90
+    },
+    "facing=east,piece=3": {
+      "model": "atbyw:block/iron_ladder_3",
+      "y": 90
+    },
+    "facing=east,piece=4": {
+      "model": "atbyw:block/iron_ladder_4",
+      "y": 90
+    },
+    "facing=east,piece=5": {
+      "model": "atbyw:block/iron_ladder_5",
+      "y": 90
+    },
+    "facing=east,piece=6": {
+      "model": "atbyw:block/iron_ladder_6",
+      "y": 90
+    },
+    "facing=east,piece=7": {
+      "model": "atbyw:block/iron_ladder_7",
+      "y": 90
+    },
+
+    "facing=north,piece=1": {
+      "model": "atbyw:block/iron_ladder_1"
+    },
+    "facing=north,piece=2": {
+      "model": "atbyw:block/iron_ladder_2"
+    },
+    "facing=north,piece=3": {
+      "model": "atbyw:block/iron_ladder_3"
+    },
+    "facing=north,piece=4": {
+      "model": "atbyw:block/iron_ladder_4"
+    },
+    "facing=north,piece=5": {
+      "model": "atbyw:block/iron_ladder_5"
+    },
+    "facing=north,piece=6": {
+      "model": "atbyw:block/iron_ladder_6"
+    },
+    "facing=north,piece=7": {
+      "model": "atbyw:block/iron_ladder_7"
+    },
+
+    "facing=south,piece=1": {
+      "model": "atbyw:block/iron_ladder_1",
+      "y": 180
+    },
+    "facing=south,piece=2": {
+      "model": "atbyw:block/iron_ladder_2",
+      "y": 180
+    },
+    "facing=south,piece=3": {
+      "model": "atbyw:block/iron_ladder_3",
+      "y": 180
+    },
+    "facing=south,piece=4": {
+      "model": "atbyw:block/iron_ladder_4",
+      "y": 180
+    },
+    "facing=south,piece=5": {
+      "model": "atbyw:block/iron_ladder_5",
+      "y": 180
+    },
+    "facing=south,piece=6": {
+      "model": "atbyw:block/iron_ladder_6",
+      "y": 180
+    },
+    "facing=south,piece=7": {
+      "model": "atbyw:block/iron_ladder_7",
+      "y": 180
+    },
+
+    "facing=west,piece=1": {
+      "model": "atbyw:block/iron_ladder_1",
+      "y": 270
+    },
+    "facing=west,piece=2": {
+      "model": "atbyw:block/iron_ladder_2",
+      "y": 270
+    },
+    "facing=west,piece=3": {
+      "model": "atbyw:block/iron_ladder_3",
+      "y": 270
+    },
+    "facing=west,piece=4": {
+      "model": "atbyw:block/iron_ladder_4",
+      "y": 270
+    },
+    "facing=west,piece=5": {
+      "model": "atbyw:block/iron_ladder_5",
+      "y": 270
+    },
+    "facing=west,piece=6": {
+      "model": "atbyw:block/iron_ladder_6",
+      "y": 270
+    },
+    "facing=west,piece=7": {
+      "model": "atbyw:block/iron_ladder_7",
+      "y": 270
+    }
+  }
+}

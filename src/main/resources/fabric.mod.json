@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "atbyw",
+  "version": "${version}",
+  "name": "All The Blocks You Want (ATBYW)",
+  "description": "All The Blocks You Want is a Minecraft Fabric mod that aims to make Minecraft's block lineup more rich and varied, it adds building blocks, utility blocks and redstone components of all sorts.",
+  "authors": [
+    "Azagwen"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/atbyw",
+    "sources": "https://github.com/Azagwen/ATBYW",
+    "issues": "https://github.com/Azagwen/ATBYW/issues"
+  },
+
+  "license": "MIT",
+  "icon": "assets/atbyw/icon.png",
+
+  "environment": "*",
+  "accessWidener": "atbyw.accesswidener",
+  "entrypoints": {
+    "main": [
+      "net.azagwen.atbyw.main.AtbywMain"
+    ],
+    "client": [
+        "net.azagwen.atbyw.client.AtbywClient"
+    ],
+    "dynamiclights": [
+      "net.azagwen.atbyw.main.DynamicLights"
+    ]
+  },
+  "mixins": [
+    "atbyw.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.10.8",
+    "fabric": "*",
+    "minecraft": "~1.17"
+  }
+}

@@ -1,0 +1,40 @@
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# fabric
+
+minecraft
+!src/main/resources/data/minecraft
+/run/
+/server_run/
+**/bbmodels/
+**/ref/
+**/.ref/
+**/old/
+**/.old/
+**/.temp/
+/curseforge_resources/
+/src/main/java/net/azagwen/atbyw/testing/

@@ -1,0 +1,604 @@
+{
+  "multipart": [
+    {
+      "when": {"facing": "east", "length": 0, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 90}
+    },
+    {
+      "when": {"facing": "east", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_7", "y": 90}
+    },
+
+
+    {
+      "when": {"facing": "north", "length": 0, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "north", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1"}
+    },
+    {
+      "when": {"facing": "north", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2"}
+    },
+    {
+      "when": {"facing": "north", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3"}
+    },
+    {
+      "when": {"facing": "north", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3"}
+    },
+    {
+      "when": {"facing": "north", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4"}
+    },
+    {
+      "when": {"facing": "north", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5"}
+    },
+    {
+      "when": {"facing": "north", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6"}
+    },
+    {
+      "when": {"facing": "north", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_7"}
+    },
+
+
+    {
+      "when": {"facing": "south", "length": 0, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 180}
+    },
+    {
+      "when": {"facing": "south", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_7", "y": 180}
+    },
+
+
+    {
+      "when": {"facing": "west", "length": 0, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 1, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_1", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 2, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_2", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 3, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_3", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 4, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_4", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 5, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_5", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 6, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_6", "y": 270}
+    },
+    {
+      "when": {"facing": "west", "length": 7, "extended":  false},
+      "apply": {"model": "atbyw:block/iron_ladder_7", "y": 270}
+    },
+
+
+    {
+      "when": {"facing": "east", "extended":  true},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 90}
+    },
+    {
+      "when": {"facing": "north", "extended":  true},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin"}
+    },
+    {
+      "when": {"facing": "south", "extended":  true},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 180}
+    },
+    {
+      "when": {"facing": "west", "extended":  true},
+      "apply": {"model": "atbyw:block/iron_ladder_0_origin", "y": 270}
+    }
+  ]
+}

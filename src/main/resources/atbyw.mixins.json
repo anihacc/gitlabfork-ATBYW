@@ -1,0 +1,33 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.azagwen.atbyw.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "DebugChunkGeneratorMixin",
+        "block_behavior.FenceBlockMixin",
+        "block_behavior.PaneBlockMixin",
+        "block_behavior.RedstoneWireBlockMixin",
+        "block_behavior.SnowBlockMixin",
+        "block_behavior.SpreadableBlockMixin",
+        "block_behavior.TransparentBlockMixin",
+        "block_behavior.WallBlockMixin",
+        "bookshelf_behavior.EnchantingTableBlockMixin",
+        "bookshelf_behavior.EnchantmentScreenHandlerMixin",
+        "datagen.RecipeManagerMixin",
+        "datagen.ServerAdvancementLoaderMixin",
+        "sign.BlockEntityTypeMixin"
+    ],
+    "client": [
+        "client.CreativeInventoryScreenMixin",
+        "client.InGameHudMixin",
+        "client.ItemModelLoaderMixin",
+        "client.ModelLoaderMixin",
+        "client.TexturedRenderLayersMixin",
+        "sign.client.SignBlockEntityRendererMixin",
+        "sign.client.SignEditScreenMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+  }
+}
