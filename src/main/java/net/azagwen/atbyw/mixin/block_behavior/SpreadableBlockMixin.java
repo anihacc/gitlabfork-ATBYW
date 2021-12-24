@@ -1,6 +1,6 @@
 package net.azagwen.atbyw.mixin.block_behavior;
 
-import net.azagwen.atbyw.block.slabs.SpreadableSlabBlock;
+import net.azagwen.atbyw.block.slab.SpreadableSlabBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SpreadableBlock;
 import net.minecraft.block.enums.SlabType;

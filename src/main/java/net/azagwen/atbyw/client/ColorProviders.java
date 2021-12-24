@@ -6,7 +6,7 @@ import net.azagwen.atbyw.block.registry.RedstoneBlockRegistry;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.azagwen.atbyw.block.RedstonePipeBlock;
 import net.azagwen.atbyw.block.entity.CanvasBlockEntity;
-import net.azagwen.atbyw.block.slabs.FallingSlabBlock;
+import net.azagwen.atbyw.block.slab.FallingSlabBlock;
 import net.azagwen.atbyw.block.stairs.FallingStairsBlock;
 import net.azagwen.atbyw.item.AtbywItems;
 import net.azagwen.atbyw.item.SimpleColoredItem;

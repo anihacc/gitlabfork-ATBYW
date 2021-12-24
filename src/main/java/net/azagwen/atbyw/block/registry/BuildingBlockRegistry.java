@@ -4,7 +4,7 @@ import com.google.common.collect.Sets;
 import net.azagwen.atbyw.block.CarvedPumpkinBlockSubClass;
 import net.azagwen.atbyw.block.ShatteredGlassBlock;
 import net.azagwen.atbyw.block.SurfaceFacingBlock;
-import net.azagwen.atbyw.block.slabs.*;
+import net.azagwen.atbyw.block.slab.*;
 import net.azagwen.atbyw.block.stairs.*;
 import net.azagwen.atbyw.util.AtbywUtils;
 import net.azagwen.atbyw.util.naming.WoodNames;
@@ -25,6 +25,7 @@ public class BuildingBlockRegistry extends AtbywBlocks {
     public static final Block DUMMY_MYCELIUM = new MyceliumBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).ticksRandomly().breakByTool(FabricToolTags.SHOVELS).strength(0.6F).sounds(BlockSoundGroup.GRASS));
 
     public static final Set<Block> SHATTERED_GLASS_SET = Sets.newHashSet();
+
     public static final Block GRANITE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE).requiresTool().breakByTool(FabricToolTags.PICKAXES));
     public static final Block DIORITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE).requiresTool().breakByTool(FabricToolTags.PICKAXES));
     public static final Block ANDESITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE).requiresTool().breakByTool(FabricToolTags.PICKAXES));
@@ -39,7 +40,7 @@ public class BuildingBlockRegistry extends AtbywBlocks {
     public static final Block CACTUS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB).breakByTool(FabricToolTags.AXES));
     public static final Block CACTUS_STAIRS = new StairsBlockSubClass(CACTUS_PLANKS, FabricBlockSettings.copyOf(Blocks.OAK_STAIRS).breakByTool(FabricToolTags.AXES));
     public static final Block GRASS_BLOCK_STAIRS = new SpreadableStairsBlock(DUMMY_GRASS_BLOCK, Blocks.GRASS_BLOCK, FabricBlockSettings.copyOf(DUMMY_GRASS_BLOCK));
-    public static final Block DIRT_STAIRS = new TickingDirtStairsBlock(TICKING_DIRT, FabricBlockSettings.copyOf(TICKING_DIRT));
+    public static final Block DIRT_STAIRS = new DirtStairsBlock(TICKING_DIRT, FabricBlockSettings.copyOf(TICKING_DIRT));
     public static final Block COARSE_DIRT_STAIRS = new StairsBlockSubClass(Blocks.COARSE_DIRT, FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS).strength(0.5F).sounds(BlockSoundGroup.GRAVEL).ticksRandomly());
     public static final Block PODZOL_STAIRS = new StairsBlockSubClass(Blocks.PODZOL, FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).breakByTool(FabricToolTags.SHOVELS).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block ROOTED_DIRT_STAIRS = new StairsBlockSubClass(Blocks.ROOTED_DIRT, FabricBlockSettings.copyOf(Blocks.ROOTED_DIRT).breakByTool(FabricToolTags.SHOVELS));
@@ -49,7 +50,7 @@ public class BuildingBlockRegistry extends AtbywBlocks {
     public static final Block WARPED_NYLIUM_STAIRS = new NyliumStairsBlock(Blocks.WARPED_NYLIUM, FabricBlockSettings.copyOf(Blocks.WARPED_NYLIUM).requiresTool().breakByTool(FabricToolTags.PICKAXES));
     public static final Block NETHERRACK_STAIRS = new NetherrackStairsBlock(Blocks.NETHERRACK, FabricBlockSettings.copyOf(Blocks.NETHERRACK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
     public static final Block GRASS_BLOCK_SLAB = new SpreadableSlabBlock(Blocks.GRASS_BLOCK, FabricBlockSettings.copyOf(DUMMY_GRASS_BLOCK));
-    public static final Block DIRT_SLAB = new TickingDirtSlabBlock(FabricBlockSettings.copyOf(TICKING_DIRT));
+    public static final Block DIRT_SLAB = new DirtSlabBlock(FabricBlockSettings.copyOf(TICKING_DIRT));
     public static final Block COARSE_DIRT_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS));
     public static final Block PODZOL_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).breakByTool(FabricToolTags.SHOVELS));
     public static final Block ROOTED_DIRT_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.ROOTED_DIRT).breakByTool(FabricToolTags.SHOVELS));

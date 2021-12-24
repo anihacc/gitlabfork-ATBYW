@@ -4,3 +4,15 @@ but can still be accessed outside of it, these are :
 - bookshelf fabric common tags "c:bookshelves" (block & item tag)
 - large_chain_transition_bottom (block & item tag)
 - large_chain_transition_top (block & item tag)
+
+===================================================================================================================================================
+Precision of what all of the tags are used for:
+
+- shroomstick_replaceable_ground    >   Blocks tag, Determines what Shroom sticks should replace on-ground
+- shroomstick_replaceable_water     >   Blocks tag, Determines what Shroom sticks should replace underwater
+- large_chain_transition_bottom     >   Blocks tag, Determines what blocks will cause big chains to transition to smaller chains from the top
+- large_chain_transition_top        >   Blocks tag, Determines what blocks will cause big chains to transition to smaller chains from the bottom
+- connects_to_pipes                 >   Blocks tag, Determines what blocks Redstone pipes will forcefully connect to
+- connects_to_pipes_and_updates     >   Blocks tag, Determines what blocks Redstone pipes will forcefully connect to, before updating the connected block
+- kills_grass                       >   Blocks tag, Determines what blocks should kill grass when placed on Grass Slabs and Stairs
+- spares_grass                      >   Blocks tag, Determines what blocks should spare grass when placed on Grass Slabs and Stairs

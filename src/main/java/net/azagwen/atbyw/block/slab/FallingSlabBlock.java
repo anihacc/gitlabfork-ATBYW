@@ -1,8 +1,7 @@
-package net.azagwen.atbyw.block.slabs;
+package net.azagwen.atbyw.block.slab;
 
 import net.azagwen.atbyw.block.entity.FallingSlabEntity;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;

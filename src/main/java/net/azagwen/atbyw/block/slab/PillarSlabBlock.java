@@ -1,4 +1,4 @@
-package net.azagwen.atbyw.block.slabs;
+package net.azagwen.atbyw.block.slab;
 
 import net.azagwen.atbyw.block.state.AtbywProperties;
 import net.azagwen.atbyw.block.state.PillarSlabType;

@@ -80,8 +80,6 @@ public class DatagenTags {
 
 
     public static void init() {
-        AtbywItemGroup.registerTags();
-
         createBlockTag(ATBYW_RESOURCE_PACK, ATBYW, "large_chain_transition_bottom", LARGE_CHAIN_TRANSITION_BOTTOM);
         createBlockTag(ATBYW_RESOURCE_PACK, ATBYW, "large_chain_transition_top", LARGE_CHAIN_TRANSITION_TOP);
 

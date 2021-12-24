@@ -1,0 +1,8 @@
+{
+    "_comment": "Will mostly include blocks that match the simulated conditions to spare grass, but shouldn't according to vanilla behavior",
+    "replace": false,
+    "values": [
+        "minecraft:tinted_glass",
+        "minecraft:glowstone"
+    ]
+}

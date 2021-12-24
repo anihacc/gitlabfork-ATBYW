@@ -18,6 +18,8 @@ public class Tags {
         public static final Tag<Block> LARGE_CHAIN_TRANSITION_TOP = registerBlockTag("large_chain_transition_top");
         public static final Tag<Block> CONNECTS_TO_PIPES = registerBlockTag("connects_to_pipes");
         public static final Tag<Block> CONNECTS_TO_PIPES_AND_UPDATES = registerBlockTag("connects_to_pipes_and_updates");
+        public static final Tag<Block> KILLS_GRASS = registerBlockTag("kills_grass");
+        public static final Tag<Block> SPARES_GRASS = registerBlockTag("spares_grass");
     }
 
     public static class ItemTags {
@@ -28,6 +30,8 @@ public class Tags {
         public static final Tag<Item> LARGE_CHAIN_TRANSITION_TOP = blockItemTag(BlockTags.LARGE_CHAIN_TRANSITION_TOP);
         public static final Tag<Item> CONNECTS_TO_PIPES = blockItemTag(BlockTags.CONNECTS_TO_PIPES);
         public static final Tag<Item> CONNECTS_TO_PIPES_AND_UPDATES = blockItemTag(BlockTags.CONNECTS_TO_PIPES_AND_UPDATES);
+        public static final Tag<Item> KILLS_GRASS = blockItemTag(BlockTags.KILLS_GRASS);
+        public static final Tag<Item> SPARES_GRASS = blockItemTag(BlockTags.SPARES_GRASS);
     }
 
     private Tags() {

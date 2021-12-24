@@ -196,9 +196,9 @@ public class TintingTableBlockEntity extends LockableContainerBlockEntity implem
         super.readNbt(nbt);
         this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         Inventories.readNbt(nbt, this.inventory);
-        this.redAmount = nbt.getByte("RedAmount");
-        this.greenAmount = nbt.getByte("GreenAmount");
-        this.blueAmount = nbt.getByte("BlueAmount");
+        this.redAmount = nbt.getInt("RedAmount");
+        this.greenAmount = nbt.getInt("GreenAmount");
+        this.blueAmount = nbt.getInt("BlueAmount");
         this.mode = nbt.getByte("Mode");
     }
 
@@ -206,9 +206,9 @@ public class TintingTableBlockEntity extends LockableContainerBlockEntity implem
     public NbtCompound writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, this.inventory);
-        nbt.putByte("RedAmount", (byte) this.redAmount);
-        nbt.putByte("GreenAmount", (byte) this.greenAmount);
-        nbt.putByte("BlueAmount", (byte) this.blueAmount);
+        nbt.putInt("RedAmount", this.redAmount);
+        nbt.putInt("GreenAmount", this.greenAmount);
+        nbt.putInt("BlueAmount", this.blueAmount);
         nbt.putByte("Mode", (byte) this.mode);
         return nbt;
     }

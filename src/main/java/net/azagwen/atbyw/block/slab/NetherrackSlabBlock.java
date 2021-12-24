@@ -1,4 +1,4 @@
-package net.azagwen.atbyw.block.slabs;
+package net.azagwen.atbyw.block.slab;
 
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.BlockState;
@@ -31,7 +31,7 @@ public class NetherrackSlabBlock extends SlabBlockSubClass implements Fertilizab
                     return false;
                 }
 
-                blockPos = (BlockPos)iterator.next();
+                blockPos = iterator.next();
             } while(!world.getBlockState(blockPos).isIn(BlockTags.NYLIUM));
 
             return true;
@@ -45,19 +45,19 @@ public class NetherrackSlabBlock extends SlabBlockSubClass implements Fertilizab
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        var oldState = world.getBlockState(pos);
         var isCrimsonNylium = false;
         var isWarpedNylium = false;
-        var crimsonSlab = BuildingBlockRegistry.CRIMSON_NYLIUM_SLAB;
-        var warpedSlab= BuildingBlockRegistry.WARPED_NYLIUM_SLAB;
         var crimsonStairs = BuildingBlockRegistry.CRIMSON_NYLIUM_STAIRS;
         var warpedStairs = BuildingBlockRegistry.WARPED_NYLIUM_STAIRS;
+        var crimsonSlab = BuildingBlockRegistry.CRIMSON_NYLIUM_SLAB;
+        var warpedSlab = BuildingBlockRegistry.WARPED_NYLIUM_SLAB;
 
         var iterator = BlockPos.iterate(pos.add(-1, -1, -1), pos.add(1, 1, 1)).iterator();
 
         while(iterator.hasNext()) {
-            BlockPos blockPos = (BlockPos)iterator.next();
-            BlockState blockState = world.getBlockState(blockPos);
+            var blockPos = iterator.next();
+            var blockState = world.getBlockState(blockPos);
+
             if (blockState.isOf(warpedStairs) || blockState.isOf(warpedSlab) || blockState.isOf(Blocks.WARPED_NYLIUM)) {
                 isWarpedNylium = true;
             }
@@ -72,11 +72,11 @@ public class NetherrackSlabBlock extends SlabBlockSubClass implements Fertilizab
         }
 
         if (isWarpedNylium && isCrimsonNylium) {
-            world.setBlockState(pos, random.nextBoolean() ? copyStates(warpedStairs.getDefaultState(), oldState) : copyStates(crimsonSlab.getDefaultState(), oldState), 3);
+            world.setBlockState(pos, random.nextBoolean() ? warpedSlab.getStateWithProperties(state) : crimsonSlab.getStateWithProperties(state), 3);
         } else if (isWarpedNylium) {
-            world.setBlockState(pos, copyStates(warpedSlab.getDefaultState(), oldState), 3);
+            world.setBlockState(pos, warpedSlab.getStateWithProperties(state), 3);
         } else if (isCrimsonNylium) {
-            world.setBlockState(pos, copyStates(crimsonSlab.getDefaultState(), oldState), 3);
+            world.setBlockState(pos, crimsonSlab.getStateWithProperties(state), 3);
         }
 
     }

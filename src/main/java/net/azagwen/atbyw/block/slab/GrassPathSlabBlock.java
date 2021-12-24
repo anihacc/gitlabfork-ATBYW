@@ -1,4 +1,4 @@
-package net.azagwen.atbyw.block.slabs;
+package net.azagwen.atbyw.block.slab;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

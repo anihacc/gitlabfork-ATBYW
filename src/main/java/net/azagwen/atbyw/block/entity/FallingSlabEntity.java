@@ -1,6 +1,6 @@
 package net.azagwen.atbyw.block.entity;
 
-import net.azagwen.atbyw.block.slabs.FallingSlabBlock;
+import net.azagwen.atbyw.block.slab.FallingSlabBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.EntityType;

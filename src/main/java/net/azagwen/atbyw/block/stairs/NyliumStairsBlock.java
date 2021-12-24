@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.stairs;
 
+import net.azagwen.atbyw.block.Utils;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,17 +17,13 @@ public class NyliumStairsBlock extends StairsBlockSubClass {
         super(copiedBlock, settings);
     }
 
-    private static boolean stayAlive(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos blockPos = pos.up();
-        BlockState blockState = world.getBlockState(blockPos);
-
-        return !blockState.isSideSolidFullSquare(world, blockPos, Direction.UP);
+    private static boolean stayAlive(WorldView world, BlockPos pos) {
+        return !Utils.simulateIsGrassCovered(world, pos);
     }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!stayAlive(state, world, pos)) {
-            BlockState newState = world.getBlockState(pos);
-
+        if (!stayAlive(world, pos)) {
+            var newState = world.getBlockState(pos);
             world.setBlockState(pos, BuildingBlockRegistry.NETHERRACK_STAIRS.getStateWithProperties(newState));
         }
     }

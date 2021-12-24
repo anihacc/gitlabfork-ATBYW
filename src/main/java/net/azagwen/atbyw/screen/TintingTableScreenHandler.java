@@ -78,7 +78,7 @@ public class TintingTableScreenHandler extends ScreenHandler {
     }
 
     protected void onTakeOutput(PlayerEntity player, ItemStack outputStack) {
-        this.dyeInventory.setStack(0, ItemStack.EMPTY);
+        this.input.setStack(0, ItemStack.EMPTY);
         if (outputStack.getItem() instanceof CanvasBlockItem) {
             player.increaseStat(AtbywStats.COLOR_CANVAS_BLOCK, 1);
         }
@@ -137,7 +137,7 @@ public class TintingTableScreenHandler extends ScreenHandler {
     @Override
     public void onContentChanged(Inventory inventory) {
         this.context.run((world, blockPos) -> {
-            updateResult(this, world, this.player, this.dyeInventory, this.output);
+            updateResult(this, world, this.player, inventory, this.output);
         });
     }
 
