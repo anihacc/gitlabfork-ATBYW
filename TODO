@@ -1,0 +1,16 @@
+--------------------------------------------------------------------------------------------------------------------|-------------------------------|
+ISSUE                                                                                                               | STATUS                        |
+--------------------------------------------------------------------------------------------------------------------|-------------------------------|
+                                                                                                                    |                               |
+CURRENT RELEASE >                                                                                                   |                               |
+- Fix grass stairs and slabs loosing their waterlogging when growing + issues regarding growth when covered         > Fixed 99%                     |
+- Fix bookshelves not working with enchanting                                                                       > Temp fix, needs stress test   |
+                                                                                                                    |                               |
+--------------------------------------------------------------------------------------------------------------------|-------------------------------|
+                                                                                                                    |                               |
+UPCOMING RELEASE >                                                                                                  |                               |
+- Fix redstone pipes self-powering when redstone is on the other side of the block they power. (low priority)       >                               |
+- Fix redstone pipes powering redstone dust if it is placed in front of it                                          >                               |
+- Stress test Iron ladders                                                                                          >                               |
+                                                                                                                    |                               |
+

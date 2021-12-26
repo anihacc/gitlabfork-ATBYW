@@ -3,17 +3,12 @@ package net.azagwen.atbyw.group;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.azagwen.atbyw.block.registry.DecorationBlockRegistry;
 import net.azagwen.atbyw.block.registry.RedstoneBlockRegistry;
-import net.azagwen.atbyw.datagen.arrp.DatagenTags;
 import net.azagwen.atbyw.item.AtbywItems;
-import net.azagwen.atbyw.main.Tags;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-import static net.azagwen.atbyw.datagen.arrp.AtbywRRP.ATBYW_RESOURCE_PACK;
 import static net.azagwen.atbyw.main.AtbywMain.*;
 
 // This code was originally taken from https://github.com/Lemonszz/gubbins/blob/master/src/main/java/party/lemons/gubbins/mixin/client/CreativeInventoryScreenMixin.java,

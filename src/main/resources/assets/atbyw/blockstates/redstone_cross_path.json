@@ -2,17 +2,7 @@
   "multipart": [
     {
       "when": {
-        "x": false,
-        "z": false
-      },
-      "apply": {
-        "model": "atbyw:block/redstone_cross_path_dot"
-      }
-    },
-    {
-      "when": {
-        "powered_x": false,
-        "x": true
+        "powered_x": false
       },
       "apply": {
         "model": "atbyw:block/redstone_cross_path_x"
@@ -20,8 +10,7 @@
     },
     {
       "when": {
-        "powered_x": true,
-        "x": true
+        "powered_x": true
       },
       "apply": {
         "model": "atbyw:block/redstone_cross_path_on_x"
@@ -30,8 +19,7 @@
 
     {
       "when": {
-        "powered_z": false,
-        "z": true
+        "powered_z": false
       },
       "apply": {
         "model": "atbyw:block/redstone_cross_path_z"
@@ -39,8 +27,7 @@
     },
     {
       "when": {
-        "powered_z": true,
-        "z": true
+        "powered_z": true
       },
       "apply": {
         "model": "atbyw:block/redstone_cross_path_on_z"

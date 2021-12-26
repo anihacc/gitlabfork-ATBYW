@@ -12,7 +12,6 @@ public class AtbywRRP {
 
     public static void init() {
         LootTables.init();
-        DatagenTags.init();
 
         RRPCallback.EVENT.register(packs -> packs.add(ATBYW_RESOURCE_PACK));
         LOGGER.info("ATBYW RRP Inintiliazed");

@@ -19,14 +19,14 @@ public class AutoJsonWriter {
 
         //Create the File
         if (file.getParentFile().mkdirs()) {
-            AtbywMain.MYS_LOGGER.info(file.getParentFile().getAbsolutePath() + " folders created.");
+            AtbywMain.D_LOGGER.info(file.getParentFile().getAbsolutePath() + " folders created.");
         }
         try {
             if (file.createNewFile()) {
-                AtbywMain.MYS_LOGGER.info(file.getName() + " created.");
+                AtbywMain.D_LOGGER.info(file.getName() + " created.");
             }
         } catch (IOException e) {
-            AtbywMain.MYS_LOGGER.info("Failed to create " + file.getName());
+            AtbywMain.D_LOGGER.info("Failed to create " + file.getName());
             e.printStackTrace();
         }
 
@@ -35,14 +35,14 @@ public class AutoJsonWriter {
             FileWriter writer = new FileWriter(file);
             writer.write(gson.toJson(jsonObject));
             writer.close();
-            AtbywMain.MYS_LOGGER.info("Successfully wrote to " + file.getName());
+            AtbywMain.D_LOGGER.info("Successfully wrote to " + file.getName());
         } catch (IOException e) {
-            AtbywMain.MYS_LOGGER.info("An error occurred writing to " + file.getName());
+            AtbywMain.D_LOGGER.info("An error occurred writing to " + file.getName());
             e.printStackTrace();
         }
     }
 
     public void writeAll() {
-        AtbywMain.MYS_LOGGER.info("JSON :)");
+        AtbywMain.D_LOGGER.info("JSON :)");
     }
 }

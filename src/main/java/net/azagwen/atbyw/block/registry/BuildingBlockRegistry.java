@@ -287,6 +287,17 @@ public class BuildingBlockRegistry extends AtbywBlocks {
     public static final Block RED_CINDER_BLOCKS = new PillarBlock(FabricBlockSettings.copyOf(Blocks.RED_CONCRETE).requiresTool().breakByTool(FabricToolTags.PICKAXES));
     public static final Block BLACK_CINDER_BLOCKS = new PillarBlock(FabricBlockSettings.copyOf(Blocks.BLACK_CONCRETE).requiresTool().breakByTool(FabricToolTags.PICKAXES));
 
+    public static final Block AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block AMETHYST_BRICKS_SLAB = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block AMETHYST_BRICKS_STAIRS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block CHISELED_AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block AMETHYST_WALL = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+
+    public static final Block DRIPSTONE_BLOCK_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block DRIPSTONE_BLOCK_BRICKS_SLAB = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block DRIPSTONE_BLOCK_BRICKS_STAIRS = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+    public static final Block DRIPSTONE_BLOCK_BRICKS_WALL = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool().breakByTool(FabricToolTags.PICKAXES));
+
     private static FabricBlockSettings basaltSettings() {
         return FabricBlockSettings.of(Material.STONE, MapColor.BLACK).requiresTool().breakByTool(FabricToolTags.PICKAXES).strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT);
     }
@@ -315,6 +326,10 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         registerBlock(false, BLOCKS_TAB, "granite_tiles_slab", GRANITE_TILES_SLAB);
         registerBlock(false, BLOCKS_TAB, "diorite_bricks_slab", DIORITE_BRICKS_SLAB);
         registerBlock(false, BLOCKS_TAB, "andesite_bricks_slab", ANDESITE_BRICKS_SLAB);
+        registerBlock( false, BLOCKS_TAB, "dripstone_block_bricks", DRIPSTONE_BLOCK_BRICKS);
+        registerBlock( false, BLOCKS_TAB, "dripstone_block_bricks_slab", DRIPSTONE_BLOCK_BRICKS_SLAB);
+        registerBlock( false, BLOCKS_TAB, "dripstone_block_bricks_stairs", DRIPSTONE_BLOCK_BRICKS_STAIRS);
+        registerBlock( false, BLOCKS_TAB, "dripstone_block_bricks_wall", DRIPSTONE_BLOCK_BRICKS_WALL);
         registerBlock(false, BLOCKS_TAB, "raw_cactus_planks", RAW_CACTUS_PLANKS);
         registerBlock(false, BLOCKS_TAB, "cactus_planks", CACTUS_PLANKS);
         registerBlock(false, BLOCKS_TAB, "cactus_slab", CACTUS_SLAB);
@@ -345,6 +360,11 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         registerBlock(false, BLOCKS_TAB, "sand_slab", SAND_SLAB);
         registerBlock(false, BLOCKS_TAB, "red_sand_slab", RED_SAND_SLAB);
         registerBlock(false, BLOCKS_TAB, "gravel_slab", GRAVEL_SLAB);
+        registerBlock( false, BLOCKS_TAB, "amethyst_bricks", AMETHYST_BRICKS);
+        registerBlock( false, BLOCKS_TAB, "amethyst_bricks_slab", AMETHYST_BRICKS_SLAB);
+        registerBlock( false, BLOCKS_TAB, "amethyst_bricks_stairs", AMETHYST_BRICKS_STAIRS);
+        registerBlock( false, BLOCKS_TAB, "chiseled_amethyst_bricks", CHISELED_AMETHYST_BRICKS);
+        registerBlock( false, BLOCKS_TAB, "amethyst_wall", AMETHYST_WALL);
         registerBlocks(false, BLOCKS_TAB, "log_stairs", WoodNames.getNamesOverworld(), OAK_LOG_STAIRS, SPRUCE_LOG_STAIRS, BIRCH_LOG_STAIRS, JUNGLE_LOG_STAIRS, ACACIA_LOG_STAIRS, DARK_OAK_LOG_STAIRS);
         registerBlocks(false, BLOCKS_TAB, "stem_stairs", WoodNames.getNamesNether(), CRIMSON_STEM_STAIRS, WARPED_STEM_STAIRS);
         registerBlocks(false, BLOCKS_TAB, "stripped", "log_stairs", WoodNames.getNamesOverworld(), STRIPPED_OAK_LOG_STAIRS, STRIPPED_SPRUCE_LOG_STAIRS, STRIPPED_BIRCH_LOG_STAIRS, STRIPPED_JUNGLE_LOG_STAIRS, STRIPPED_ACACIA_LOG_STAIRS, STRIPPED_DARK_OAK_LOG_STAIRS);
@@ -401,6 +421,5 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         registerBlocks(false, BLOCKS_TAB, "concrete_stairs", AtbywUtils.dyeColorNames(), WHITE_CONCRETE_STAIRS, ORANGE_CONCRETE_STAIRS, MAGENTA_CONCRETE_STAIRS, LIGHT_BLUE_CONCRETE_STAIRS, YELLOW_CONCRETE_STAIRS, LIME_CONCRETE_STAIRS, PINK_CONCRETE_STAIRS, GRAY_CONCRETE_STAIRS, LIGHT_GRAY_CONCRETE_STAIRS, CYAN_CONCRETE_STAIRS, PURPLE_CONCRETE_STAIRS, BLUE_CONCRETE_STAIRS, BROWN_CONCRETE_STAIRS, GREEN_CONCRETE_STAIRS, RED_CONCRETE_STAIRS, BLACK_CONCRETE_STAIRS);
         registerBlocks(false, BLOCKS_TAB, "concrete_slab", AtbywUtils.dyeColorNames(), WHITE_CONCRETE_SLAB, ORANGE_CONCRETE_SLAB, MAGENTA_CONCRETE_SLAB, LIGHT_BLUE_CONCRETE_SLAB, YELLOW_CONCRETE_SLAB, LIME_CONCRETE_SLAB, PINK_CONCRETE_SLAB, GRAY_CONCRETE_SLAB, LIGHT_GRAY_CONCRETE_SLAB, CYAN_CONCRETE_SLAB, PURPLE_CONCRETE_SLAB, BLUE_CONCRETE_SLAB, BROWN_CONCRETE_SLAB, GREEN_CONCRETE_SLAB, RED_CONCRETE_SLAB, BLACK_CONCRETE_SLAB);
         registerBlocks(false, BLOCKS_TAB, "cinder_bricks", AtbywUtils.dyeColorNames(), WHITE_CINDER_BLOCKS, ORANGE_CINDER_BLOCKS, MAGENTA_CINDER_BLOCKS, LIGHT_BLUE_CINDER_BLOCKS, YELLOW_CINDER_BLOCKS, LIME_CINDER_BLOCKS, PINK_CINDER_BLOCKS, GRAY_CINDER_BLOCKS, LIGHT_GRAY_CINDER_BLOCKS, CYAN_CINDER_BLOCKS, PURPLE_CINDER_BLOCKS, BLUE_CINDER_BLOCKS, BROWN_CINDER_BLOCKS, GREEN_CINDER_BLOCKS, RED_CINDER_BLOCKS, BLACK_CINDER_BLOCKS);
-
     }
 }

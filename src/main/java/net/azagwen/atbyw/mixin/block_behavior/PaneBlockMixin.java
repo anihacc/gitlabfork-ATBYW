@@ -14,11 +14,8 @@ public class PaneBlockMixin {
 
     @Inject(method = "connectsTo(Lnet/minecraft/block/BlockState;Z)Z", at =
     @At(value = "HEAD"), cancellable = true)
-    private void connectsTo(BlockState state, boolean bl, CallbackInfoReturnable cbir) {
-        Block block = state.getBlock();
-
-        boolean isFenceDoor = block instanceof FenceDoorBlock;
-        if (isFenceDoor)
+    private void connectsTo(BlockState state, boolean bl, CallbackInfoReturnable<Boolean> cbir) {
+        if (state.getBlock() instanceof FenceDoorBlock)
             cbir.setReturnValue(true);
     }
 }

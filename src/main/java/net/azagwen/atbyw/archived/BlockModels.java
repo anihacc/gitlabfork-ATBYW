@@ -1,5 +1,6 @@
-package net.azagwen.atbyw.datagen.arrp;
+package net.azagwen.atbyw.archived;
 
+import net.azagwen.atbyw.datagen.arrp.AtbywRRP;
 import net.azagwen.atbyw.main.AtbywMain;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;

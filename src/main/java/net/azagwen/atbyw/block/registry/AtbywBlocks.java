@@ -21,7 +21,7 @@ public class AtbywBlocks {
     //TODO: Experiment with World Gen
     //TODO: Port Atbyw Mod Interaction recipes to datagen
 
-    //Blocks to add
+    //Ideas
     //TODO: STATUES Add Bipedal Statues
     //TODO: STATUES Add signing fish function.
     //TODO: STATUES Make slime statues combine-able.
@@ -32,7 +32,7 @@ public class AtbywBlocks {
     //TODO: Add chairs ?
     //TODO: Add step detectors.
     //TODO: Add a chain hook that you can hook items and blocks to.
-    //TODO: Add Iron ladder that can be deployed downwards using redstone
+    //TODO: Add Iron ladder that can be deployed downwards using redstone (Update: Done, might needs proof-testing)
     //TODO: Add carpets that connect together in patterns
     //TODO: Add more blocks exploiting connected textures
     //TODO: Add smooth variants of Deepslathe, Granite, Diorite, Andesite, Tuff...
@@ -42,8 +42,6 @@ public class AtbywBlocks {
     //TODO: Add Stone melter furnace
     //TODO: Add string curtains for doorways
     //TODO: Energized Dropper/Dispenser > Instantly dispenses what it holds out of "anger"
-
-    //TODO: Fix Tinting table not working anymore (bruh I hate it what the fuck)a
 
     public static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return true; }
     public static Boolean never(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return false; }
@@ -72,17 +70,6 @@ public class AtbywBlocks {
     public static final Block SMOOTH_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH
     public static final Block SMOOTH_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH
     public static final Block SMOOTH_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH
-
-    public static final Block AMETHYST_BRICKS = new Block(FabricBlockSettings.of(Material.AMETHYST));               //TODO FINISH
-    public static final Block AMETHYST_BRICKS_SLAB = new Block(FabricBlockSettings.of(Material.AMETHYST));          //TODO FINISH
-    public static final Block AMETHYST_BRICKS_STAIRS = new Block(FabricBlockSettings.of(Material.AMETHYST));        //TODO FINISH
-    public static final Block CHISELED_AMETHYST_BRICKS = new Block(FabricBlockSettings.of(Material.AMETHYST));      //TODO FINISH
-    public static final Block AMETHYST_FENCE = new Block(FabricBlockSettings.of(Material.AMETHYST));                //TODO FINISH
-
-    public static final Block DRIPSTONE_BLOCK_BRICKS = new Block(FabricBlockSettings.of(Material.STONE));           //TODO FINISH
-    public static final Block DRIPSTONE_BLOCK_BRICKS_SLAB = new Block(FabricBlockSettings.of(Material.STONE));      //TODO FINISH
-    public static final Block DRIPSTONE_BLOCK_BRICKS_STAIRS = new Block(FabricBlockSettings.of(Material.STONE));    //TODO FINISH
-    public static final Block DRIPSTONE_BLOCK_BRICKS_WALL = new Block(FabricBlockSettings.of(Material.STONE));      //TODO FINISH
 
     public static final Block CRIMSON_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH
     public static final Block WARPED_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));    //TODO FINISH

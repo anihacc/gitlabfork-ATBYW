@@ -100,10 +100,10 @@ public class RedstoneBlockRegistry extends AtbywBlocks {
         registerBlocks(false, REDSTONE_TAB, "fence_door", WoodNames.getNames(), OAK_FENCE_DOOR, SPRUCE_FENCE_DOOR, BIRCH_FENCE_DOOR, JUNGLE_FENCE_DOOR, ACACIA_FENCE_DOOR, DARK_OAK_FENCE_DOOR, CRIMSON_FENCE_DOOR, WARPED_FENCE_DOOR);
         registerBlock(false, REDSTONE_TAB, "iron_fence_door", IRON_FENCE_DOOR);
 
-        registerBlockOnly("iron_ladder_piece", IRON_LADDER_PIECE);
         registerBlockOnly("iron_spike_trap_spikes", IRON_SPIKE_TRAP_SPIKES);
         registerBlockOnly("gold_spike_trap_spikes", GOLD_SPIKE_TRAP_SPIKES);
         registerBlockOnly("diamond_spike_trap_spikes", DIAMOND_SPIKE_TRAP_SPIKES);
         registerBlockOnly("netherite_spike_trap_spikes", NETHERITE_SPIKE_TRAP_SPIKES);
+        registerBlockOnly("iron_ladder_piece", IRON_LADDER_PIECE);
     }
 }

@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "atbyw:redstone_pipe",
+        "atbyw:redstone_pipe_inverter",
+        "atbyw:redstone_pipe_repeater"
+    ]
+}

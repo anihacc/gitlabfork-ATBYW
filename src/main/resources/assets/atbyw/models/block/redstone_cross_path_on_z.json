@@ -2,7 +2,7 @@
     "parent": "atbyw:block/redstone_cross_path_z",
     "textures": {
         "particle": "atbyw:block/gated_smooth_stone",
-        "all": "atbyw:block/redstone_cross_path"
+        "all": "atbyw:block/redstone_cross_path_on"
     },
     "jmx": {
         "textures": {

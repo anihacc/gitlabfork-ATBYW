@@ -33,16 +33,14 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public class AtbywMain implements ModInitializer {
 	public static final String MINECRAFT = "minecraft";
 	public static final String ATBYW = "atbyw";
 	public static final String ATBYW_MI = "atbyw_mi";
 	public static final Logger LOGGER = LogManager.getLogger("Atbyw Main");
-	public static final Logger MYS_LOGGER = LogManager.getLogger("?");
-	public static final Map<String, Boolean> DEBUGGER_FEATURES = Maps.newHashMap();
+	public static final Logger D_LOGGER = LogManager.getLogger("Atbyw Debug");
+	public static final Map<String, Boolean> DEBUG_FEATURES = Maps.newHashMap();
 
 	//TODO: Fix and Investigate structure issues (very high priority)
 	//TODO: Move LootTables away from ARRP JSON (low priority)
@@ -78,7 +76,7 @@ public class AtbywMain implements ModInitializer {
 
 	private void checkForDebugElement(JsonElement element, String name) {
 		if (element.getAsString().equals(name)) {
-			DEBUGGER_FEATURES.put(name, true);
+			DEBUG_FEATURES.put(name, true);
 		}
 	}
 
@@ -91,15 +89,17 @@ public class AtbywMain implements ModInitializer {
 				var parser = new JsonParser();
 				var json = parser.parse(reader).getAsJsonObject();
 
-				if (json.has("debug")) {
-					DEBUGGER_FEATURES.clear();
-					var debugObj = JsonHelper.getArray(json, "debug");
+				if (json.has("enable_debug")) {
+					DEBUG_FEATURES.clear();
+					var debugObj = JsonHelper.getArray(json, "enable_debug");
 
 					for (var element : debugObj) {
 						this.checkForDebugElement(element, "redstone_cross");
 						this.checkForDebugElement(element, "shroomstick");
 						this.checkForDebugElement(element, "debug_world");
 					}
+
+					D_LOGGER.info("ATBYW Client-Side debug options have been enabled as specified in \"config/atbyw.json\"");
 				}
 			} catch (FileNotFoundException ignored) {
 			}
@@ -108,11 +108,14 @@ public class AtbywMain implements ModInitializer {
 	}
 
 	public static boolean checkDebugEnabled(String key) {
-		return DEBUGGER_FEATURES.containsKey(key) && DEBUGGER_FEATURES.get(key);
+		return DEBUG_FEATURES.containsKey(key) && DEBUG_FEATURES.get(key);
 	}
 
 	@Override
 	public void onInitialize() {
+		var assetWriter = new AutoJsonWriter();
+		assetWriter.writeAll();
+
 		this.tryEnableDebug();
 
 		if (enableModInteractions()) {
@@ -134,18 +137,16 @@ public class AtbywMain implements ModInitializer {
 
 		//Populate debug world with this mod's blocks (dev only)
 		if (checkDebugEnabled("debug_world")) {
-			new AutoJsonWriter().writeAll();
-
-			BLOCK_STATES = StreamSupport.stream(Registry.BLOCK.spliterator(), false).flatMap((block) -> {
-				return block.getStateManager().getStates().stream();
-			}).collect(Collectors.toList());
+			for (var block : Registry.BLOCK.stream().toList()) {
+				if (Registry.BLOCK.getId(block).getNamespace().equals(ATBYW)) {
+					BLOCK_STATES.addAll(block.getStateManager().getStates());
+				}
+			}
 
 			X_SIDE_LENGTH = MathHelper.ceil(MathHelper.sqrt((float)BLOCK_STATES.size()));
 			Z_SIDE_LENGTH = MathHelper.ceil((float)BLOCK_STATES.size() / (float)X_SIDE_LENGTH);
 
-			MYS_LOGGER.info("ATBYW Debug features enabled.");
-		} else {
-			MYS_LOGGER.info("[...]");
+			D_LOGGER.info("ATBYW Debug world replacement enabled.");
 		}
 
 		ATBYW_GROUP = new AtbywItemGroup(AtbywMain.id("atbyw"));
