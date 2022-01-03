@@ -1,7 +1,7 @@
 package net.azagwen.atbyw.mixin.datagen;
 
 import com.google.gson.JsonElement;
-import net.azagwen.atbyw.datagen.RecipeDatagen;
+import net.azagwen.atbyw.datagen.recipe.RecipeDatagen;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.server.ServerAdvancementLoader;

@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import net.azagwen.atbyw.block.registry.DecorationBlockRegistry;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.azagwen.atbyw.block.registry.StatueRegistry;
-import net.azagwen.atbyw.datagen.RecipeDatagen;
+import net.azagwen.atbyw.datagen.recipe.RecipeDatagen;
 import net.azagwen.atbyw.datagen.recipe.util.RecipeData;
 import net.azagwen.atbyw.main.AtbywMain;
 import net.azagwen.atbyw.util.AtbywUtils;

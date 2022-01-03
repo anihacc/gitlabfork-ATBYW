@@ -5,7 +5,7 @@ import net.azagwen.atbyw.block.registry.DecorationBlockRegistry;
 import net.azagwen.atbyw.block.registry.RedstoneBlockRegistry;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.azagwen.atbyw.block.registry.StatueRegistry;
-import net.azagwen.atbyw.datagen.RecipeDatagen;
+import net.azagwen.atbyw.datagen.recipe.RecipeDatagen;
 import net.azagwen.atbyw.datagen.recipe.util.RecipeData;
 import net.azagwen.atbyw.datagen.recipe.util.RecipePatterns;
 import net.azagwen.atbyw.item.AtbywItems;
@@ -24,7 +24,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class RecipeRegistry {
     public static final Logger LOGGER = LogManager.getLogger("Atbyw Recipes");
@@ -48,7 +47,7 @@ public class RecipeRegistry {
     public static Recipe<?> SLIME_STATUE = RecipeDatagen.shapelessRecipe(AtbywMain.id("slime_statue"), "statues", Lists.newArrayList(Blocks.STONE, AtbywItems.SLIME_ESSENCE), StatueRegistry.SLIME_STATUE, 1);
     public static Recipe<?> MAGMA_CUBE_STATUE = RecipeDatagen.shapelessRecipe(AtbywMain.id("magma_cube_statue"), "statues", Lists.newArrayList(Blocks.STONE, AtbywItems.MAGMA_CUBE_ESSENCE), StatueRegistry.MAGMA_CUBE_STATUE, 1);
 
-    public static Recipe<?> registerShapedRecipe(RecipeData recipeData, String[] pattern, Multimap<Character, Ingredient> keys) {
+    public static void registerShapedRecipe(RecipeData recipeData, String[] pattern, Multimap<Character, Ingredient> keys) {
         var recipe = (Recipe<?>) null;
         var suffix = recipeData.suffix();
         var category = recipeData.category();
@@ -66,10 +65,9 @@ public class RecipeRegistry {
         var recipeId = AtbywMain.id(resultId.getPath() + (suffix.equals("") ? "" : ("_" + suffix)));
         recipe = RecipeDatagen.shapedRecipe(recipeId, group, pattern, keys, result.asItem(), count);
         RecipeDatagen.registerRecipe(recipe, category);
-        return recipe;
     }
 
-    public static void init() {
+    public static void registerAll() {
         //Generic patterns
         registerStairPatterns();
         registerSlabPatterns();
@@ -433,7 +431,7 @@ public class RecipeRegistry {
         map.put(new RecipeData("cinder_blocks_wall", DecorationBlockRegistry.BLACK_CINDER_BLOCKS_WALL, count), BuildingBlockRegistry.BLACK_CINDER_BLOCKS);
 
         for (var entry : map.entrySet()) {
-            var pattern = patterns.bricksPattern(entry.getValue());
+            var pattern = patterns.wallPattern(entry.getValue());
             var recipeData = entry.getKey();
             registerShapedRecipe(recipeData, pattern.getFirst(), pattern.getSecond());
         }

@@ -81,9 +81,9 @@ public class AtbywBlocks {
     public static final Block CTM_DEBUG_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.STONE));
 
     public static void init() {
-        BuildingBlockRegistry.init();   //ATBYW BUILDING BLOCKS
-        DecorationBlockRegistry.init(); //ATBYW DECORATION
-        RedstoneBlockRegistry.init();   //ATBYW REDSTONE
+        BuildingBlockRegistry.registerAll();    //ATBYW BUILDING BLOCKS
+        DecorationBlockRegistry.registerAll();  //ATBYW DECORATION
+        RedstoneBlockRegistry.registerAll();    //ATBYW REDSTONE
 
         //ATBYW MISC
         registerBlock(false, MISC_TAB, "dev_block", DEVELOPER_BLOCK);
@@ -92,6 +92,6 @@ public class AtbywBlocks {
         //Item-less blocks
         registerBlockOnly("shroomstick", SHROOMSTICK);
 
-        LOGGER.info("ATBYW Blocks Inintiliazed");
+        LOGGER.info("ATBYW Blocks Initialized");
     }
 }

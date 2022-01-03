@@ -2,7 +2,7 @@ package net.azagwen.atbyw.mixin.datagen;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonElement;
-import net.azagwen.atbyw.datagen.RecipeDatagen;
+import net.azagwen.atbyw.datagen.recipe.RecipeDatagen;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeType;
@@ -21,7 +21,7 @@ import java.util.Map;
 public class RecipeManagerMixin {
 
     @Inject(
-            method = "apply",
+            method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V",
             at = @At(value = "INVOKE", target = "Ljava/util/Map;entrySet()Ljava/util/Set;", ordinal = 1),
             locals = LocalCapture.CAPTURE_FAILHARD
     )

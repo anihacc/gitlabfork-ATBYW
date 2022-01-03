@@ -11,17 +11,17 @@ public interface SimpleColoredItem {
     int DEFAULT_COLOR = Color.WHITE.getRGB();
 
     default boolean hasColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubTag(DISPLAY_KEY);
+        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
         return nbtCompound != null && nbtCompound.contains(COLOR_KEY, 99);
     }
 
     default int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubTag(DISPLAY_KEY);
+        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
         return nbtCompound != null && nbtCompound.contains(COLOR_KEY, 99) ? nbtCompound.getInt(COLOR_KEY) : DEFAULT_COLOR;
     }
 
     default void removeColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubTag(DISPLAY_KEY);
+        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
         if (nbtCompound != null && nbtCompound.contains(COLOR_KEY)) {
             nbtCompound.remove(COLOR_KEY);
         }
@@ -29,6 +29,6 @@ public interface SimpleColoredItem {
     }
 
     default void setColor(ItemStack stack, int color) {
-        stack.getOrCreateSubTag(DISPLAY_KEY).putInt(COLOR_KEY, color);
+        stack.getOrCreateSubNbt(DISPLAY_KEY).putInt(COLOR_KEY, color);
     }
 }

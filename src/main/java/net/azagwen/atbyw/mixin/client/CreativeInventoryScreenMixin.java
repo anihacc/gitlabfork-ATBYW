@@ -57,7 +57,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
                 var yOffset = flipTab ? (this.y + 12) + ((i - 4) * 30) : (this.y + 12) + (i * 30);
                 var tabWidget = new ItemGroupTabWidget(xOffset, yOffset, flipTab, tab, (button)-> {
                     tabbedGroup.setSelectedTab(selectTab);
-                    MinecraftClient.getInstance().openScreen(this);
+                    MinecraftClient.getInstance().setScreen(this);
                     ((ItemGroupTabWidget) button).isSelected = true;
                     selectedSubtab = (ItemGroupTabWidget) button;
                 });
@@ -75,21 +75,21 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
         if(group instanceof AtbywItemGroup) {
             var curseforgeButton = new TexturedButtonWidget(this.x + 175, this.y + 4, 12, 12, 24, 0, 12, MEDIA_ICON_TEXTURE, 64, 64, (button) -> {
-                this.client.openScreen(new ConfirmChatLinkScreen((opened) -> {
+                this.client.setScreen(new ConfirmChatLinkScreen((opened) -> {
                     if (opened) {
                         Util.getOperatingSystem().open(curseforgeLink);
                     }
 
-                    this.client.openScreen(this);
+                    this.client.setScreen(this);
                 }, curseforgeLink, true));
             }, new TranslatableText("itemGroup." + AtbywMain.ATBYW + ".curseforgeLink"));
             var githubButton = new TexturedButtonWidget(this.x + 161, this.y + 4, 12, 12, 12, 0, 12, MEDIA_ICON_TEXTURE, 64, 64, (button) -> {
-                this.client.openScreen(new ConfirmChatLinkScreen((opened) -> {
+                this.client.setScreen(new ConfirmChatLinkScreen((opened) -> {
                     if (opened) {
                         Util.getOperatingSystem().open(githubLink);
                     }
 
-                    this.client.openScreen(this);
+                    this.client.setScreen(this);
                 }, githubLink, true));
             }, new TranslatableText("itemGroup." + AtbywMain.ATBYW + ".githubLink"));
             mediaButtons.add(curseforgeButton);

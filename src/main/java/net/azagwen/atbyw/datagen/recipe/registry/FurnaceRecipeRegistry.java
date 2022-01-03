@@ -2,7 +2,7 @@ package net.azagwen.atbyw.datagen.recipe.registry;
 
 import com.google.common.collect.Maps;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
-import net.azagwen.atbyw.datagen.RecipeDatagen;
+import net.azagwen.atbyw.datagen.recipe.RecipeDatagen;
 import net.azagwen.atbyw.datagen.recipe.util.FurnaceRecipeData;
 import net.azagwen.atbyw.main.AtbywMain;
 import net.azagwen.atbyw.util.AtbywUtils;

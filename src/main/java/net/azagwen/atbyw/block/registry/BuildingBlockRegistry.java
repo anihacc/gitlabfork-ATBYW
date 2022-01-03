@@ -316,7 +316,7 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         }
     }
 
-    public static void init() {
+    public static void registerAll() {
         registerBlock(false, BLOCKS_TAB, "granite_tiles", GRANITE_TILES);
         registerBlock(false, BLOCKS_TAB, "diorite_bricks", DIORITE_BRICKS);
         registerBlock(false, BLOCKS_TAB, "andesite_bricks", ANDESITE_BRICKS);

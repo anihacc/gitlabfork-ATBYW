@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -16,10 +16,6 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
-
-	maven {
-		url 'https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master/'
-	}
 
 	maven {
 		name 'Terraformers'
@@ -63,10 +59,6 @@ dependencies {
 	// You may need to force-disable transitiveness on them.
 
 	//Libraries and APIs
-	//ARRP
-	modImplementation group: "net.devtech", name: "arrp", version: "${project.arrp_version}"	//API
-	include group: "net.devtech", name: "arrp", version: "${project.arrp_version}"				//API
-
 	//LamdDynamicLights
 	modApi "dev.lambdaurora:lambdynamiclights:${project.Lambdynamiclights_version}"				//API
 

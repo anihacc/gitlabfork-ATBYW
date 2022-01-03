@@ -15,6 +15,7 @@
         "block_behavior.WallBlockMixin",
         "bookshelf_behavior.EnchantingTableBlockMixin",
         "bookshelf_behavior.EnchantmentScreenHandlerMixin",
+        "datagen.LootManagerMixin",
         "datagen.RecipeManagerMixin",
         "datagen.ServerAdvancementLoaderMixin",
         "sign.BlockEntityTypeMixin"

@@ -17,7 +17,7 @@ public class CanvasBlockItem extends BlockItem implements DyeableItem {
 
     @Override
     public int getColor(ItemStack stack) {
-        var nbtCompound = stack.getSubTag("display");
+        var nbtCompound = stack.getSubNbt("display");
         var color = Color.WHITE.getRGB();
         if (nbtCompound != null && nbtCompound.contains("color", 99)) {
             color = nbtCompound.getInt("color");

@@ -49,7 +49,7 @@ public class CanvasBlock extends BlockWithEntity {
             var nbt = new NbtCompound();
             nbt.putInt("color", entity.getColor());
             if (!nbt.isEmpty()) {
-                itemStack.putSubTag("display", nbt);
+                itemStack.setSubNbt("display", nbt);
             }
         }
 

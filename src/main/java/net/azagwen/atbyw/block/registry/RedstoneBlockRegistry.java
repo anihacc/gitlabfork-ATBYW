@@ -3,7 +3,6 @@ package net.azagwen.atbyw.block.registry;
 import net.azagwen.atbyw.block.*;
 import net.azagwen.atbyw.block.state.AtbywProperties;
 import net.azagwen.atbyw.block.state.SpikeTrapMaterials;
-import net.azagwen.atbyw.mod_interaction.block.AtbywModInteractionBlocks;
 import net.azagwen.atbyw.util.naming.FlowerNames;
 import net.azagwen.atbyw.util.naming.WoodNames;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -81,7 +80,7 @@ public class RedstoneBlockRegistry extends AtbywBlocks {
         return new FenceDoorBlock(finalSettings);
     }
 
-    public static void init() {
+    public static void registerAll() {
         registerBlock(false, REDSTONE_TAB, "iron_ladder", IRON_LADDER);
         registerBlock(false, REDSTONE_TAB, "redstone_pipe", REDSTONE_PIPE);
         registerBlock(false, REDSTONE_TAB, "redstone_pipe_inverter", REDSTONE_PIPE_INVERTER);
@@ -91,7 +90,6 @@ public class RedstoneBlockRegistry extends AtbywBlocks {
         registerBlock(false, REDSTONE_TAB, "redstone_lantern", REDSTONE_LANTERN);
         registerBlock(false, REDSTONE_TAB, "redstone_jack_o_lantern", REDSTONE_JACK_O_LANTERN);
         registerBlocks(false, REDSTONE_TAB, "bookshelf_toggle", WoodNames.getNames(), OAK_BOOKSHELF_TOGGLE, SPRUCE_BOOKSHELF_TOGGLE, BIRCH_BOOKSHELF_TOGGLE, JUNGLE_BOOKSHELF_TOGGLE, ACACIA_BOOKSHELF_TOGGLE, DARK_OAK_BOOKSHELF_TOGGLE, CRIMSON_BOOKSHELF_TOGGLE, WARPED_BOOKSHELF_TOGGLE);
-        AtbywModInteractionBlocks.initBookshelfToggles();
         registerBlocks(false, REDSTONE_TAB, "pull_switch", FlowerNames.getNames(), DANDELION_PULL_SWITCH, POPPY_PULL_SWITCH, BLUE_ORCHID_PULL_SWITCH, ALLIUM_PULL_SWITCH, AZURE_BLUET_PULL_SWITCH, RED_TULIP_PULL_SWITCH, ORANGE_TULIP_PULL_SWITCH, WHITE_TULIP_PULL_SWITCH, PINK_TULIP_PULL_SWITCH, OXEYE_DAISY_PULL_SWITCH, CORNFLOWER_PULL_SWITCH, LILY_OF_THE_VALLEY_PULL_SWITCH, WITHER_ROSE_PULL_SWITCH);
         registerBlock(false, REDSTONE_TAB, "iron_spike_trap", IRON_SPIKE_TRAP);
         registerBlock(false, REDSTONE_TAB, "gold_spike_trap", GOLD_SPIKE_TRAP);

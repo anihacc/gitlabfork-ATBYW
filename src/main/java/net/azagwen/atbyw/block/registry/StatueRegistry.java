@@ -184,7 +184,7 @@ public class StatueRegistry {
         registerBlock(false, DECO_TAB, String.join("_", "waxed_very_mossy", animal, "statue"), veryMossyWaxed);
     }
 
-    public static void initStatues() {
+    public static void registerAll() {
         registerStatues("axolotl", AXOLOTL_STATUES);
         registerStatues("bat", BAT_STATUES);
         registerStatues("bee", BEE_STATUES);

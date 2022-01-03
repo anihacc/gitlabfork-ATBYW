@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "colors": {
+        "atbyw:redstone_lantern": "#ff3333",
+        "atbyw:redstone_jack_o_lantern": "#ff3333",
+        "atbyw:soul_jack_o_lantern": "#33ccff"
+    }
+}

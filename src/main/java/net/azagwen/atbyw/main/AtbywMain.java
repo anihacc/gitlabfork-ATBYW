@@ -7,14 +7,13 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import net.azagwen.atbyw.block.entity.AtbywBlockEntityTypes;
 import net.azagwen.atbyw.block.registry.AtbywBlocks;
+import net.azagwen.atbyw.datagen.loot.BlockLootRegistry;
 import net.azagwen.atbyw.datagen.recipe.registry.RecipeRegistry;
-import net.azagwen.atbyw.datagen.arrp.AtbywRRP;
 import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
 import net.azagwen.atbyw.group.AtbywItemGroup;
 import net.azagwen.atbyw.item.AtbywItems;
+import net.azagwen.atbyw.mod_interaction.AtbywModInteractions;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
@@ -45,12 +44,13 @@ public class AtbywMain implements ModInitializer {
 	//TODO: Fix and Investigate structure issues (very high priority)
 	//TODO: Move LootTables away from ARRP JSON (low priority)
 
-	public static Identifier id(String path) {
-		return new Identifier(ATBYW, path);
+	public static Identifier id(String path, boolean isModInteraction) {
+		var namespace = isModInteraction ? ATBYW_MI : ATBYW;
+		return new Identifier(namespace, path);
 	}
 
-	public static Identifier miId(String path) {
-		return new Identifier(ATBYW_MI, path);
+	public static Identifier id(String path) {
+		return id(path, false);
 	}
 
 	public static boolean isModLoaded(String ModID) {
@@ -63,14 +63,7 @@ public class AtbywMain implements ModInitializer {
 	public static ArrayList<Item> REDSTONE_TAB = Lists.newArrayList(); 		//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
 	public static ArrayList<Item> MISC_TAB = Lists.newArrayList(); 			//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
 
-	public static boolean enableModInteractions() {
-		boolean a = isModLoaded("betternether");
-		boolean b = isModLoaded("betterend");
-
-		return a || b;
-	}
-
-	public static List<BlockState> BLOCK_STATES;
+	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();
 	public static int X_SIDE_LENGTH;
 	public static int Z_SIDE_LENGTH;
 
@@ -118,22 +111,15 @@ public class AtbywMain implements ModInitializer {
 
 		this.tryEnableDebug();
 
-		if (enableModInteractions()) {
-			FabricLoader.getInstance().getModContainer(ATBYW).map(modContainer -> {
-				return ResourceManagerHelper.registerBuiltinResourcePack(miId("mod_interaction_resources"), modContainer, ResourcePackActivationType.ALWAYS_ENABLED);
-			}).filter(success -> !success).ifPresent(success -> LOGGER.error("Unable to Load \"atbyw_mi/mod_interaction_resources\"."));
-
-			AtbywRRP.init_mi();
-		}
-
 		AtbywSoundEvents.init();
 		AtbywItems.init();
 		AtbywBlocks.init();
-		AtbywRRP.init();
 		AtbywStats.init();
 		AtbywBlockEntityTypes.init();
 		AtbywNetworking.init();
-		RecipeRegistry.init();
+		RecipeRegistry.registerAll();
+		BlockLootRegistry.registerAll();
+		AtbywModInteractions.init();
 
 		//Populate debug world with this mod's blocks (dev only)
 		if (checkDebugEnabled("debug_world")) {

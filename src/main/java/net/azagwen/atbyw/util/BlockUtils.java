@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -120,17 +121,28 @@ public record BlockUtils() {
      *
      *  @param fireproof    if the Block item should resist to fire & Lava.
      *  @param itemTab      the ItemTab list this block should be in.
+     *  @param identifier   Identifier of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, Identifier identifier, Block block) {
+        Item.Settings normalSettings = new Item.Settings();
+        Item.Settings fireproofSettings = new Item.Settings().fireproof();
+
+        Registry.register(Registry.BLOCK, identifier, block);
+        Registry.register(Registry.ITEM, identifier, new BlockItem(block, (fireproof ? fireproofSettings : normalSettings)));
+
+        itemTab.add(block.asItem());
+    }
+
+    /** Registers a block and its block item under the default ATBYW namespace.
+     *
+     *  @param fireproof    if the Block item should resist to fire & Lava.
+     *  @param itemTab      the ItemTab list this block should be in.
      *  @param name         Name of the block (Identifier path).
      *  @param block        The declared Block that will be registered.
      */
     public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, String name, Block block) {
-        Item.Settings normalSettings = new Item.Settings();
-        Item.Settings fireproofSettings = new Item.Settings().fireproof();
-
-        Registry.register(Registry.BLOCK, AtbywMain.id(name), block);
-        Registry.register(Registry.ITEM, AtbywMain.id(name), new BlockItem(block, (fireproof ? fireproofSettings : normalSettings)));
-
-        itemTab.add(block.asItem());
+        registerBlock(fireproof, itemTab, AtbywMain.id(name), block);
     }
 
     /** Will only register blocks, without block items associated to them.
