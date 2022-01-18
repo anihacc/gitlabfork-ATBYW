@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.util.Map;
 
 @Mixin(ServerAdvancementLoader.class)
-public class ServerAdvancementLoaderMixin {
+public class AdvancementsInjector {
 
     @Inject(
             method = "apply",

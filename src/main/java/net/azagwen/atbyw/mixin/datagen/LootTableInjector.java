@@ -13,16 +13,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import java.util.Map;
 
 @Mixin(LootManager.class)
-public class LootManagerMixin {
-
-//    @Inject(
-//            method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V",
-//            at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap;builder()Lcom/google/common/collect/ImmutableMap$Builder;", ordinal = 0),
-//            locals = LocalCapture.CAPTURE_FAILHARD
-//    )
-//    private void onReload(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo ci, ImmutableMap.Builder<Identifier, LootTable> builder) {
-//        LootDatagen.applyLoots(map, builder);
-//    }
+public class LootTableInjector {
 
     @ModifyVariable(at = @At("STORE"), method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V")
     private ImmutableMap.Builder<Identifier, LootTable> onReload(ImmutableMap.Builder<Identifier, LootTable> builder, Map<Identifier, JsonElement> map) {

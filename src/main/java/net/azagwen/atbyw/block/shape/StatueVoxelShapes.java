@@ -8,7 +8,7 @@ import net.minecraft.util.shape.VoxelShapes;
 
 import java.util.*;
 
-import static net.azagwen.atbyw.util.BlockUtils.makeDirectionalShapes;
+import static net.azagwen.atbyw.block.Utils.makeDirectionalShapes;
 
 public class StatueVoxelShapes {
     public static final VoxelShape DEFAULT_OUTLINE = VoxelShapes.fullCube();

@@ -5,7 +5,7 @@
     "compatibilityLevel": "JAVA_8",
     "mixins": [
         "DebugChunkGeneratorMixin",
-        "EatGrassGoalMixin",
+        "MakeNewGrassEdible",
         "block_behavior.FenceBlockMixin",
         "block_behavior.PaneBlockMixin",
         "block_behavior.RedstoneWireBlockMixin",
@@ -15,9 +15,10 @@
         "block_behavior.WallBlockMixin",
         "bookshelf_behavior.EnchantingTableBlockMixin",
         "bookshelf_behavior.EnchantmentScreenHandlerMixin",
-        "datagen.LootManagerMixin",
-        "datagen.RecipeManagerMixin",
-        "datagen.ServerAdvancementLoaderMixin",
+        "datagen.LootTableInjector",
+        "datagen.RecipeInjector",
+        "datagen.AdvancementsInjector",
+        "datagen.MiningLevelSetter",
         "sign.BlockEntityTypeMixin"
     ],
     "client": [

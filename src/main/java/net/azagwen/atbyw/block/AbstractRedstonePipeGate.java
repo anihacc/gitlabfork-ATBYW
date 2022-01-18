@@ -1,9 +1,7 @@
 package net.azagwen.atbyw.block;
 
-import net.azagwen.atbyw.block.registry.AtbywBlocks;
 import net.azagwen.atbyw.block.registry.RedstoneBlockRegistry;
 import net.azagwen.atbyw.main.Tags;
-import net.azagwen.atbyw.util.BlockUtils;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.FluidState;
@@ -165,7 +163,7 @@ public abstract class AbstractRedstonePipeGate extends FacingBlock implements Re
         var currentBlock = currentState.getBlock();
         var connectsToPipes = currentState.isIn(Tags.BlockTags.CONNECTS_TO_PIPES);
         var connectsToPipesAndUpdates = currentState.isIn(Tags.BlockTags.CONNECTS_TO_PIPES_AND_UPDATES);
-        var isFullSquare = BlockUtils.checkFullSquare(direction, world, pos);
+        var isFullSquare = Utils.checkFullSquare(direction, world, pos);
 
         if (connectsToPipes || connectsToPipesAndUpdates || isFullSquare || currentBlock instanceof RedstonePipeComponent) {
             i = world.getEmittedRedstonePower(pos.offset(direction), direction);
@@ -199,7 +197,7 @@ public abstract class AbstractRedstonePipeGate extends FacingBlock implements Re
         var vec3d = new Vec3d(x, y, z);
         for (var direction : Direction.values()) {
             direction = (opposite ? direction.getOpposite() : direction);
-            if (state.get(FACING) == direction && !BlockUtils.checkFullSquare(direction, world, pos) && !(world.getBlockState(pos.offset(direction)).getBlock() instanceof RedstonePipeComponent)) {
+            if (state.get(FACING) == direction && !Utils.checkFullSquare(direction, world, pos) && !(world.getBlockState(pos.offset(direction)).getBlock() instanceof RedstonePipeComponent)) {
                 switch (direction) {
                     case UP -> vec3d = new Vec3d(x + 0.5D, y + 1.1D, z + 0.5D);
                     case DOWN -> vec3d = new Vec3d(x + 0.5D, y + (-0.1D), z + 0.5D);

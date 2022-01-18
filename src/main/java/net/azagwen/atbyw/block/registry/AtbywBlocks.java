@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.registry;
 
+import com.google.common.collect.Lists;
 import net.azagwen.atbyw.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -10,38 +11,20 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
+import java.util.List;
 import java.util.function.ToIntFunction;
 
 import static net.azagwen.atbyw.main.AtbywMain.*;
-import static net.azagwen.atbyw.util.BlockUtils.*;
+import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
 
 public class AtbywBlocks {
-    //TODO: Idea: locks to lock chests & doors
-    //TODO: Experiment with connected models/textures further (Update: going well)
-    //TODO: Experiment with World Gen
-    //TODO: Port Atbyw Mod Interaction recipes to datagen
-
-    //Ideas
-    //TODO: STATUES Add Bipedal Statues
-    //TODO: STATUES Add signing fish function.
-    //TODO: STATUES Make slime statues combine-able.
-    //TODO: Add thin ice (world gen when ready)
-    //TODO: Add Railing Blocks (catwalk handles) || update: WIP
-    //TODO: Add regular ice bricks that melt
-    //TODO: Idea > "dried" coral blocks that keep their colors
-    //TODO: Add chairs ?
-    //TODO: Add step detectors.
-    //TODO: Add a chain hook that you can hook items and blocks to.
-    //TODO: Add Iron ladder that can be deployed downwards using redstone (Update: Done, might needs proof-testing)
-    //TODO: Add carpets that connect together in patterns
-    //TODO: Add more blocks exploiting connected textures
-    //TODO: Add smooth variants of Deepslathe, Granite, Diorite, Andesite, Tuff...
-    //TODO: Add Amethyst bricks
-    //TODO: Add Amethyst Walls/Fences
-    //TODO: Add Cactus Planks & assorted stuff (Update: WIP)
-    //TODO: Add Stone melter furnace
-    //TODO: Add string curtains for doorways
-    //TODO: Energized Dropper/Dispenser > Instantly dispenses what it holds out of "anger"
+    public static final List<Block> AXE_MINEABLE = Lists.newArrayList();
+    public static final List<Block> HOE_MINEABLE = Lists.newArrayList();
+    public static final List<Block> PICKAXE_MINEABLE = Lists.newArrayList();
+    public static final List<Block> SHOVEL_MINEABLE = Lists.newArrayList();
+    public static final List<Block> NEEDS_STONE_TOOL = Lists.newArrayList();
+    public static final List<Block> NEEDS_IRON_TOOL = Lists.newArrayList();
+    public static final List<Block> NEEDS_DIAMOND_TOOL = Lists.newArrayList();
 
     public static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return true; }
     public static Boolean never(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return false; }
@@ -95,3 +78,30 @@ public class AtbywBlocks {
         LOGGER.info("ATBYW Blocks Initialized");
     }
 }
+
+//TODO: Idea: locks to lock chests & doors
+//TODO: Experiment with connected models/textures further (Update: going well)
+//TODO: Experiment with World Gen
+//TODO: Port Atbyw Mod Interaction recipes to datagen
+
+//Ideas
+//TODO: STATUES Add Bipedal Statues
+//TODO: STATUES Add signing fish function.
+//TODO: STATUES Make slime statues combine-able.
+//TODO: Add thin ice (world gen when ready)
+//TODO: Add Railing Blocks (catwalk handles) || update: WIP
+//TODO: Add regular ice bricks that melt
+//TODO: Idea > "dried" coral blocks that keep their colors
+//TODO: Add chairs ?
+//TODO: Add step detectors.
+//TODO: Add a chain hook that you can hook items and blocks to.
+//TODO: Add Iron ladder that can be deployed downwards using redstone (Update: Done, might needs proof-testing)
+//TODO: Add carpets that connect together in patterns
+//TODO: Add more blocks exploiting connected textures
+//TODO: Add smooth variants of Deepslathe, Granite, Diorite, Andesite, Tuff...
+//TODO: Add Amethyst bricks
+//TODO: Add Amethyst Walls/Fences
+//TODO: Add Cactus Planks & assorted stuff (Update: WIP)
+//TODO: Add Stone melter furnace
+//TODO: Add string curtains for doorways
+//TODO: Energized Dropper/Dispenser > Instantly dispenses what it holds out of "anger"

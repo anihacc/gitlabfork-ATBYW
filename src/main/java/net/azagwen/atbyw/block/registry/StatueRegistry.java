@@ -6,13 +6,11 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemGroup;
 
 import java.util.List;
 
-import static net.azagwen.atbyw.util.AtbywUtils.*;
 import static net.azagwen.atbyw.main.AtbywMain.*;
-import static net.azagwen.atbyw.util.BlockUtils.registerBlock;
+import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.registerBlock;
 
 public class StatueRegistry {
     private static final FabricBlockSettings statueSettings = FabricBlockSettings.copyOf(Blocks.STONE).breakByTool(FabricToolTags.PICKAXES).ticksRandomly();

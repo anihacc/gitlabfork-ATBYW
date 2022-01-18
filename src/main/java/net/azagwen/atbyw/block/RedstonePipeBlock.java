@@ -5,7 +5,6 @@ import com.google.common.collect.Sets;
 import net.azagwen.atbyw.block.shape.AxisShape;
 import net.azagwen.atbyw.block.state.Connector;
 import net.azagwen.atbyw.main.Tags.BlockTags;
-import net.azagwen.atbyw.util.BlockUtils;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -104,8 +103,8 @@ public class RedstonePipeBlock extends Block implements Waterloggable, RedstoneP
 
     protected boolean canConnect(Direction direction, BlockView world, BlockPos pos) {
         var state = world.getBlockState(pos.offset(direction));
-        var checkEmitsPower = BlockUtils.checkEmitsPower(direction, world, pos);
-        var checkFullSquare = BlockUtils.checkFullSquare(direction, world, pos);
+        var checkEmitsPower = Utils.checkEmitsPower(direction, world, pos);
+        var checkFullSquare = Utils.checkFullSquare(direction, world, pos);
 
         if (state.getBlock() instanceof RedstonePipeComponent component) {
             switch (component.getType()) {
@@ -257,7 +256,7 @@ public class RedstonePipeBlock extends Block implements Waterloggable, RedstoneP
             var currentBlock = currentState.getBlock();
             var connectsToPipes = currentState.isIn(BlockTags.CONNECTS_TO_PIPES);
             var connectsToPipesAndUpdates = currentState.isIn(BlockTags.CONNECTS_TO_PIPES_AND_UPDATES);
-            var isFullSquare = BlockUtils.checkFullSquare(direction, world, pos);
+            var isFullSquare = Utils.checkFullSquare(direction, world, pos);
 
             if (connectsToPipes || connectsToPipesAndUpdates || isFullSquare || currentBlock instanceof RedstonePipeComponent) {
                 if (state.get(STATES.get(direction))) {
@@ -349,7 +348,7 @@ public class RedstonePipeBlock extends Block implements Waterloggable, RedstoneP
         var z = (double) pos.getZ();
         var vec3d = new Vec3d(x, y, z);
         for (var direction : Direction.values()) {
-            if (state.get(STATES.get(direction)) && !BlockUtils.checkFullSquare(direction, world, pos) && !this.canConnect(direction, world, pos)) {
+            if (state.get(STATES.get(direction)) && !Utils.checkFullSquare(direction, world, pos) && !this.canConnect(direction, world, pos)) {
                 switch (direction) {
                     case UP -> vec3d = new Vec3d(x + 0.5D, y + 1.1D, z + 0.5D);
                     case DOWN -> vec3d = new Vec3d(x + 0.5D, y + (-0.1D), z + 0.5D);

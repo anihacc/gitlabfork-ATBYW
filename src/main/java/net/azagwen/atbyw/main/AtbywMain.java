@@ -13,18 +13,25 @@ import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
 import net.azagwen.atbyw.group.AtbywItemGroup;
 import net.azagwen.atbyw.item.AtbywItems;
 import net.azagwen.atbyw.mod_interaction.AtbywModInteractions;
+import net.azagwen.atbyw.util.AtbywUtils;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tag.BlockTags;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.util.BiConsumer;
+import org.apache.logging.log4j.util.TriConsumer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,15 +41,24 @@ import java.util.List;
 import java.util.Map;
 
 public class AtbywMain implements ModInitializer {
+	public static final Logger LOGGER = LogManager.getLogger("Atbyw Main");
+	public static final Logger D_LOGGER = LogManager.getLogger("Atbyw Debug");
 	public static final String MINECRAFT = "minecraft";
 	public static final String ATBYW = "atbyw";
 	public static final String ATBYW_MI = "atbyw_mi";
-	public static final Logger LOGGER = LogManager.getLogger("Atbyw Main");
-	public static final Logger D_LOGGER = LogManager.getLogger("Atbyw Debug");
+	//Item group and its Sub-tabs
+	public static ItemGroup ATBYW_GROUP;
+	public static ArrayList<Item> BLOCKS_TAB = Lists.newArrayList();
+	public static ArrayList<Item> DECO_TAB = Lists.newArrayList();
+	public static ArrayList<Item> REDSTONE_TAB = Lists.newArrayList();
+	public static ArrayList<Item> MISC_TAB = Lists.newArrayList();
+	//Debug fields (used only for the client-side debug features)
 	public static final Map<String, Boolean> DEBUG_FEATURES = Maps.newHashMap();
+	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();	//List of blocks to populate the debug world
+	public static int X_SIDE_LENGTH;	//Width of the debug world grid
+	public static int Z_SIDE_LENGTH;	//Length of the debug world grid
 
-	//TODO: Fix and Investigate structure issues (very high priority)
-	//TODO: Move LootTables away from ARRP JSON (low priority)
+	//TODO: Fix and Investigate structure issues (on hold)
 
 	public static Identifier id(String path, boolean isModInteraction) {
 		var namespace = isModInteraction ? ATBYW_MI : ATBYW;
@@ -56,16 +72,6 @@ public class AtbywMain implements ModInitializer {
 	public static boolean isModLoaded(String ModID) {
 		return FabricLoader.getInstance().isModLoaded(ModID);
 	}
-
-	public static ItemGroup ATBYW_GROUP;
-	public static ArrayList<Item> BLOCKS_TAB = Lists.newArrayList(); 		//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
-	public static ArrayList<Item> DECO_TAB = Lists.newArrayList(); 			//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
-	public static ArrayList<Item> REDSTONE_TAB = Lists.newArrayList(); 		//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
-	public static ArrayList<Item> MISC_TAB = Lists.newArrayList(); 			//used in (net.azagwen.atbyw.datagen.arrp.AtbywDatagenTags)
-
-	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();
-	public static int X_SIDE_LENGTH;
-	public static int Z_SIDE_LENGTH;
 
 	private void checkForDebugElement(JsonElement element, String name) {
 		if (element.getAsString().equals(name)) {
@@ -134,6 +140,22 @@ public class AtbywMain implements ModInitializer {
 
 			D_LOGGER.info("ATBYW Debug world replacement enabled.");
 		}
+
+		BiConsumer<String, Tag<Block>> consumer = (string, blockTag) -> {
+			LOGGER.warn(string);
+			for (var block : blockTag.values()) {
+				if (AtbywUtils.getBlockID(block).getNamespace().equals(ATBYW)) {
+					LOGGER.info(block);
+				}
+			}
+		};
+
+		ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
+			consumer.accept("AXE MINEABLES", BlockTags.AXE_MINEABLE);
+			consumer.accept("HOE MINEABLES", BlockTags.HOE_MINEABLE);
+			consumer.accept("PICKAXE MINEABLES", BlockTags.PICKAXE_MINEABLE);
+			consumer.accept("SHOVEL MINEABLES", BlockTags.SHOVEL_MINEABLE);
+		});
 
 		ATBYW_GROUP = new AtbywItemGroup(AtbywMain.id("atbyw"));
 

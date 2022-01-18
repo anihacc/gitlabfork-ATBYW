@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Allows Any mob that eats grass to eat from Grass Block Slabs and Grass Block Stairs
  */
 @Mixin(EatGrassGoal.class)
-public class EatGrassGoalMixin {
+public class MakeNewGrassEdible {
     private final @Mutable @Final @Shadow MobEntity mob;
     private final @Mutable @Final @Shadow World world;
     private final @Mutable @Shadow int timer;
@@ -61,7 +61,7 @@ public class EatGrassGoalMixin {
         }
     }
 
-    public EatGrassGoalMixin(MobEntity mob, World world, int timer) {
+    public MakeNewGrassEdible(MobEntity mob, World world, int timer) {
         this.mob = mob;
         this.world = world;
         this.timer = timer;
