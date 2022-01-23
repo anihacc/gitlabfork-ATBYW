@@ -44,6 +44,11 @@ repositories {
 		name "dblsaiko"
 		url "https://maven.dblsaiko.net/"
 	}
+
+	//Crowdin Translate
+//	maven {
+//		url = "https://minecraft.guntram.de/maven/"
+//	}
 }
 
 dependencies {
@@ -66,12 +71,9 @@ dependencies {
 	modImplementation "maven.modrinth:dp_item_ops:${project.datapack_item_ops_version}"			//API + Lib
 	include "maven.modrinth:dp_item_ops:${project.datapack_item_ops_version}"					//API + Lib
 
-	//JMX and FREX
-//	modApi ("grondag:frex-${project.mc_tag}:${project.frex_version}.+") { transitive = false}
-//	include "grondag:frex-${project.mc_tag}:${project.frex_version}.+"
-
-//	modImplementation ("grondag:jmx-${project.mc_tag}:${project.jmx_version}.+") { transitive = false}
-//	include "grondag:jmx-${project.mc_tag}:${project.jmx_version}.+"
+	//Crowdin translate
+//	modImplementation "de.guntram.mcmod:crowdin-translate:1.2"
+//	include "de.guntram.mcmod:crowdin-translate:1.2"
 }
 
 minecraft {

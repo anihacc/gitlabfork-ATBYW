@@ -34,14 +34,15 @@ public class MiningLevelSetter {
     }
 
     private void appendToTag(Map.Entry<Identifier, Tag.Builder> tagEntry, Tag<Block> targetTag, List<Block> blocksToAdd) {
-        if (tagEntry.getKey().equals(((Tag.Identified<Block>)targetTag).getId())) {
+        var tag = (Tag.Identified<Block>) targetTag;
+        if (tagEntry.getKey().equals(tag.getId())) {
             var blockCount = 0;
             for (var block : blocksToAdd) {
                 tagEntry.getValue().add(AtbywUtils.getBlockID(block), AtbywMain.ATBYW);
                 blockCount++;
             }
             if (blockCount > 0) {
-                AtbywMain.LOGGER.info("Added {} additional block" + (blockCount > 1 ? "s" : "") + " to " + ((Tag.Identified<Block>) targetTag).getId(), blockCount);
+                AtbywMain.LOGGER.info("Added {} additional block" + (blockCount > 1 ? "s" : "") + " to " + tag.getId(), blockCount);
             }
         }
     }

@@ -22,7 +22,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
@@ -31,7 +30,6 @@ import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.util.BiConsumer;
-import org.apache.logging.log4j.util.TriConsumer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,6 +37,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtbywMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Atbyw Main");
@@ -117,6 +116,7 @@ public class AtbywMain implements ModInitializer {
 
 		this.tryEnableDebug();
 
+		//Registries
 		AtbywSoundEvents.init();
 		AtbywItems.init();
 		AtbywBlocks.init();
@@ -151,14 +151,21 @@ public class AtbywMain implements ModInitializer {
 		};
 
 		ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
-			consumer.accept("AXE MINEABLES", BlockTags.AXE_MINEABLE);
-			consumer.accept("HOE MINEABLES", BlockTags.HOE_MINEABLE);
-			consumer.accept("PICKAXE MINEABLES", BlockTags.PICKAXE_MINEABLE);
-			consumer.accept("SHOVEL MINEABLES", BlockTags.SHOVEL_MINEABLE);
+//			consumer.accept("AXE MINEABLES", BlockTags.AXE_MINEABLE);
+//			consumer.accept("HOE MINEABLES", BlockTags.HOE_MINEABLE);
+//			consumer.accept("PICKAXE MINEABLES", BlockTags.PICKAXE_MINEABLE);
+//			consumer.accept("SHOVEL MINEABLES", BlockTags.SHOVEL_MINEABLE);
 		});
 
 		ATBYW_GROUP = new AtbywItemGroup(AtbywMain.id("atbyw"));
 
+		var blockNumber = new AtomicInteger();
+		for (var block : Registry.BLOCK.stream().toList()) {
+			if (AtbywUtils.getBlockID(block).getNamespace().equals(ATBYW)) {
+				blockNumber.getAndIncrement();
+			}
+		}
+		LOGGER.info("ATBYW registered {} blocks", blockNumber);
 		LOGGER.info("ATBYW Inintiliazed");
 	}
 }

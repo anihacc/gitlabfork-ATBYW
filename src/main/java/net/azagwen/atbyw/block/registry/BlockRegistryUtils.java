@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public record BlockRegistryUtils() {
+    public static int BLOCK_NUMBER;
 
     /** Registers a block without a block item.
      *
@@ -26,6 +27,7 @@ public record BlockRegistryUtils() {
      */
     public static void registerBlockOnly(String name, Block block) {
         Registry.register(Registry.BLOCK, AtbywMain.id(name), block);
+        BLOCK_NUMBER++;
     }
 
     public static void registerBlockOnly(List<Block> requiredTool, String name, Block block) {
@@ -46,6 +48,7 @@ public record BlockRegistryUtils() {
 
         registerBlockOnly(name, block);
         Registry.register(Registry.ITEM, AtbywMain.id(name), new BlockItem(block, (fireproof ? fireproofSettings : normalSettings)));
+        BLOCK_NUMBER++;
     }
 
     //No Item group param
@@ -82,13 +85,18 @@ public record BlockRegistryUtils() {
         if (itemTab != null) {
             itemTab.add(block.asItem());
         }
+        BLOCK_NUMBER++;
     }
 
     public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, String name, Block block) {
-        registerBlock(fireproof, itemTab, name, block);
+        registerBlock(fireproof, itemTab, AtbywMain.id(name), block);
         if (requiredTool != null) {
             requiredTool.add(block);
         }
+    }
+
+    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, String name, Block block) {
+        registerBlock(fireproof, itemTab, null, name, block);
     }
 
     public static void registerBlock(ArrayList<Item> itemTab, List<Block> requiredTool, String name, Block block) {
@@ -107,16 +115,6 @@ public record BlockRegistryUtils() {
         registerBlock(false, null, null, name, block);
     }
 
-    /** Registers a block and its block item under the default ATBYW namespace.
-     *
-     *  @param fireproof    if the Block item should resist to fire & Lava.
-     *  @param itemTab      the ItemTab list this block should be in.
-     *  @param name         Name of the block (Identifier path).
-     *  @param block        The declared Block that will be registered.
-     */
-    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, String name, Block block) {
-        registerBlock(fireproof, itemTab, AtbywMain.id(name), block);
-    }
 
     /** Will only register blocks, without block items associated to them.
      *  Registers a given amount of blocks determined by "block" and "variant_type"'s length,

@@ -8,21 +8,22 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.util.Identifier;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LootDatagen {
     private static final Map<Identifier, LootTable> LOOT_TABLES = new Object2ObjectOpenHashMap<>();
 
     //Used in net.azagwen.atbyw.mixin.datagen.LootManagerMixin
     public static void applyLoots(Map<Identifier, JsonElement> map, ImmutableMap.Builder<Identifier, LootTable> builder) {
-        var lootCount = new int[]{0};
+        var lootCount = new AtomicInteger();
         LOOT_TABLES.forEach((identifier, lootTable) -> {
             if (!map.containsKey(identifier)) {
                 builder.put(identifier, lootTable);
-                lootCount[0]++;
+                lootCount.getAndIncrement();
             }
         });
 
-        AtbywMain.LOGGER.info("Loaded {} additional loot table" + (lootCount[0] > 1 ? "s" : ""), lootCount[0]);
+        AtbywMain.LOGGER.info("Loaded {} additional loot table" + (lootCount.get() > 1 ? "s" : ""), lootCount);
     }
 
     public static void registerLoot(LootTable lootTable, Identifier identifier, String category) {

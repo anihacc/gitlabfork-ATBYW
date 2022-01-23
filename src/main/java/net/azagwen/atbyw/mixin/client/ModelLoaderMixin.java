@@ -28,6 +28,10 @@ public abstract class ModelLoaderMixin {
 
     @Inject(method = "putModel", at = @At("HEAD"), cancellable = true)
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
+        this.putAtbywModels(id, unbakedModel, ci);
+    }
+
+    private void putAtbywModels(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
         if (id instanceof ModelIdentifier modelId && !(unbakedModel instanceof AtbywUnbakedModel)) {
             if (modelId.getNamespace().equals(AtbywMain.ATBYW)) {
                 if (!modelId.getVariant().equals("inventory")) {

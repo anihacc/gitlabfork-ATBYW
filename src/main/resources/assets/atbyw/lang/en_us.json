@@ -588,6 +588,7 @@
   "itemGroup.subTab.atbyw.misc": "Miscellaneous",
   "itemGroup.atbyw.curseforgeLink": "Curseforge Page",
   "itemGroup.atbyw.githubLink": "Github Repository",
+  "itemGroup.atbyw.gitlabLink": "GitLab Repository",
 
   "block.atbyw.redstone_lantern.power_intensity": "Power Intensity: %d",
 

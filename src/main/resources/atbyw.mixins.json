@@ -6,6 +6,8 @@
     "mixins": [
         "DebugChunkGeneratorMixin",
         "MakeNewGrassEdible",
+        "accessor.HandledScreenAccessor",
+        "accessor.ScreenAccessor",
         "block_behavior.FenceBlockMixin",
         "block_behavior.PaneBlockMixin",
         "block_behavior.RedstoneWireBlockMixin",
@@ -15,14 +17,14 @@
         "block_behavior.WallBlockMixin",
         "bookshelf_behavior.EnchantingTableBlockMixin",
         "bookshelf_behavior.EnchantmentScreenHandlerMixin",
-        "datagen.LootTableInjector",
-        "datagen.RecipeInjector",
         "datagen.AdvancementsInjector",
+        "datagen.LootTableInjector",
         "datagen.MiningLevelSetter",
+        "datagen.RecipeInjector",
         "sign.BlockEntityTypeMixin"
     ],
     "client": [
-        "client.CreativeInventoryScreenMixin",
+        "client.handleCreativeTabs",
         "client.InGameHudMixin",
         "client.ItemModelLoaderMixin",
         "client.ModelLoaderMixin",
