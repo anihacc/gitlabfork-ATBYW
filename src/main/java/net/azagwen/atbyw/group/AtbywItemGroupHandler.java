@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ConfirmChatLinkScreen;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen.CreativeScreenHandler;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemGroup;
@@ -18,7 +19,7 @@ import java.util.List;
 
 //This handler is used in the creative inventory mixin
 public class AtbywItemGroupHandler {
-    public static final Identifier MEDIA_ICON_TEXTURE = AtbywMain.id("textures/gui/info_button.png");
+    public static final Identifier MEDIA_ICON_TEXTURE = AtbywMain.id("textures/gui/info_button_large.png");
     public final String curseforgeLink = "https://www.curseforge.com/minecraft/mc-mods/atbyw";
     public final String gitlabLink = "https://gitlab.com/Azagwen/ATBYW";
     public final String githubLink = "https://github.com/Azagwen/ATBYW";
@@ -33,16 +34,14 @@ public class AtbywItemGroupHandler {
     }
 
     public void renderAtbywItemGroup(MatrixStack matrixStack, int mouseX, int mouseY) {
-        this.tabButtons.forEach(button -> {
-            if(button.isHovered()) {
-                this.creativeScreen.renderTooltip(matrixStack, button.getMessage(), mouseX, mouseY);
-            }
-        });
-        this.mediaButtons.forEach(button -> {
-            if(button.isHovered()) {
-                this.creativeScreen.renderTooltip(matrixStack, button.getMessage(), mouseX, mouseY);
-            }
-        });
+        this.tabButtons.forEach(button -> this.renderToolTip(matrixStack, mouseX, mouseY, button));
+        this.mediaButtons.forEach(button -> this.renderToolTip(matrixStack, mouseX, mouseY, button));
+    }
+
+    private void renderToolTip(MatrixStack matrixStack, int mouseX, int mouseY, ButtonWidget button) {
+        if(button.isHovered()) {
+            this.creativeScreen.renderTooltip(matrixStack, button.getMessage(), mouseX, mouseY);
+        }
     }
 
     public void handleAtbywItemGroup(ItemGroup group) {

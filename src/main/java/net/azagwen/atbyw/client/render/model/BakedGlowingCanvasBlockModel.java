@@ -1,10 +1,14 @@
 package net.azagwen.atbyw.client.render.model;
 
 import com.google.common.collect.Maps;
+import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.model.BakedModel;
+import net.minecraft.client.render.model.BuiltinBakedModel;
+import net.minecraft.client.render.model.json.ModelOverrideList;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.util.math.BlockPos;
@@ -20,8 +24,8 @@ public class BakedGlowingCanvasBlockModel extends ForwardingBakedModel {
     private static final SpriteIdentifier FACE_TEXTURE = SpriteRegistry.GLOWING_CANVAS_BLOCK_SURFACE;
     private static final SpriteIdentifier EDGE_TEXTURE = SpriteRegistry.GLOWING_CANVAS_BLOCK_EDGES;
 
-    public BakedGlowingCanvasBlockModel(BakedModel baseModel) {
-        this.wrapped = baseModel;
+    public BakedGlowingCanvasBlockModel() {
+        this.wrapped = new BuiltinBakedModel(ModelTransformation.NONE, ModelOverrideList.EMPTY, FACE_TEXTURE.getSprite(), false);
     }
 
     //░░░░░░░░░░
@@ -106,11 +110,13 @@ public class BakedGlowingCanvasBlockModel extends ForwardingBakedModel {
         var from = new Vec3f(0.0F, 0.0F, 0.0F);
         var to = new Vec3f(16.0F, 16.0F, 16.0F);
         var faceDataMap = Maps.<Direction, Face>newHashMap();
+        var renderer = RendererAccess.INSTANCE.getRenderer();
+        var material = renderer.materialFinder().emissive(0, true).disableDiffuse(0, true).find();
 
         for (var direction : Direction.values()) {
             faceDataMap.put(direction, new Face(0, 0, 16, 16, faceSprite, true, direction));
         }
-        ModelUtil.emitBox(emitter, from, to, faceDataMap, false, true, 0);
+        ModelUtil.emitBox(emitter, from, to, faceDataMap, material, true, 0);
 
         for (var direction : Direction.values()) {
             switch (direction) {
@@ -118,7 +124,7 @@ public class BakedGlowingCanvasBlockModel extends ForwardingBakedModel {
                 case NORTH, SOUTH -> this.putFaceDataOnZ(faceDataMap, edgeSprite, direction);
                 case EAST, WEST -> this.putFaceDataOnX(faceDataMap, edgeSprite, direction);
             }
-            ModelUtil.emitBox(emitter, from, to, faceDataMap, false, true, 0);
+            ModelUtil.emitBox(emitter, from, to, faceDataMap, material, true, 0);
         }
     }
 }

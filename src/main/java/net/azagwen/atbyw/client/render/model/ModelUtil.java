@@ -1,6 +1,6 @@
 package net.azagwen.atbyw.client.render.model;
 
-import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
+import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
@@ -150,12 +150,16 @@ public class ModelUtil {
         emitter.sprite(3, spriteIndex, u2, v1);
     }
 
-    public static void emitTexturedData(QuadEmitter emitter, boolean emissive, boolean shaded) {
-        var renderer = RendererAccess.INSTANCE.getRenderer();
-
-        emitter.material(renderer.materialFinder().emissive(0, emissive).disableDiffuse(0, !shaded).find());
+    public static void emitTexturedData(QuadEmitter emitter, @Nullable RenderMaterial material) {
+        if (material != null) {
+            emitter.material(material);
+        }
         emitter.spriteColor(0, -1, -1, -1, -1);
         emitter.emit();
+    }
+
+    public static void emitTexturedData(QuadEmitter emitter) {
+        emitTexturedData(emitter, null);
     }
 
     /**
@@ -167,7 +171,7 @@ public class ModelUtil {
      * @param to        3D Vector of the end point.
      * @param faceData  Map of a direction and a Face instance which stores the face data.
      */
-    public static void emitBox(QuadEmitter emitter, Vec3f from, Vec3f to, Map<Direction, Face> faceData, boolean shaded, boolean useTint, int tintIndex) {
+    public static void emitBox(QuadEmitter emitter, Vec3f from, Vec3f to, Map<Direction, Face> faceData, @Nullable RenderMaterial material, boolean useTint, int tintIndex) {
         var xFrom = from.getX();
         var yFrom = from.getY();
         var zFrom = from.getZ();
@@ -178,7 +182,6 @@ public class ModelUtil {
         for (var direction : Direction.values()) {
             if (faceData.containsKey(direction)) {
                 var sprite = faceData.get(direction).sprite();
-                var isFaceEmissive = faceData.get(direction).emissive();
                 var u1 = faceData.get(direction).u1();
                 var v1 = faceData.get(direction).v1();
                 var u2 = faceData.get(direction).u2();
@@ -206,9 +209,17 @@ public class ModelUtil {
                     emitter.colorIndex(tintIndex);
                 }
                 setUvOnSprite(emitter, sprite, u1, v1, u2, v2);
-                emitTexturedData(emitter, isFaceEmissive, shaded);
+                if (material != null) {
+                    emitTexturedData(emitter, material);
+                } else {
+                    emitTexturedData(emitter);
+                }
             }
         }
         faceData.clear();
+    }
+
+    public static void emitBox(QuadEmitter emitter, Vec3f from, Vec3f to, Map<Direction, Face> faceData, boolean useTint, int tintIndex) {
+        emitBox(emitter, from, to, faceData, null, useTint, tintIndex);
     }
 }

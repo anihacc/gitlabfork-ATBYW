@@ -82,7 +82,7 @@ public class AtbywBlocks {
 //TODO: Idea: locks to lock chests & doors
 //TODO: Experiment with connected models/textures further (Update: going well)
 //TODO: Experiment with World Gen
-//TODO: Port Atbyw Mod Interaction recipes to datagen
+//TODO: Port Atbyw Mod Interaction recipes to datagen (Update: no need, Mod interactions cancelled)
 
 //Ideas
 //TODO: STATUES Add Bipedal Statues

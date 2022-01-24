@@ -1,6 +1,7 @@
 package net.azagwen.atbyw.client.render.model;
 
 import net.azagwen.atbyw.block.TimerRepeaterBlock;
+import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
@@ -46,6 +47,9 @@ public class BakedTimerRepeaterDigitModel extends ForwardingBakedModel {
         var powered = state.get(TimerRepeaterBlock.POWERED);
         var sprite = DIGITS_TEXTURE.getSprite();
         var digit = digits[(right ? 1 : 0)];
+        var renderer = RendererAccess.INSTANCE.getRenderer();
+        var emissiveMaterial = renderer.materialFinder().emissive(0, true).disableDiffuse(0, true).find();
+        var normalMaterial = renderer.materialFinder().find();
 
         ModelUtil.setQuad(emitter, Direction.UP, (6.5F + (right ? 2.0F : -2.0F)), 5.5F, (9.5F + (right ? 2.0F : -2.0F)), 10.5F, 13.0F);
         emitter.spriteBake(0, sprite, MutableQuadView.BAKE_ROTATE_NONE);
@@ -54,7 +58,7 @@ public class BakedTimerRepeaterDigitModel extends ForwardingBakedModel {
         var heightAddition = this.offSetDigitV(digit) + (powered ? 12 : 0);
         ModelUtil.setUvOnSprite(emitter, sprite, (widthFactor - 3), heightAddition, widthFactor, (5 + heightAddition));
 
-        ModelUtil.emitTexturedData(emitter, powered, false);
+        ModelUtil.emitTexturedData(emitter, powered ? emissiveMaterial : normalMaterial);
     }
 
     /**

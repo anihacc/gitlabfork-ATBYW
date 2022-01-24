@@ -26,8 +26,8 @@
     "client": [
         "client.handleCreativeTabs",
         "client.InGameHudMixin",
+        "client.InjectBakedModels",
         "client.ItemModelLoaderMixin",
-        "client.ModelLoaderMixin",
         "client.TexturedRenderLayersMixin",
         "sign.client.SignBlockEntityRendererMixin",
         "sign.client.SignEditScreenMixin"

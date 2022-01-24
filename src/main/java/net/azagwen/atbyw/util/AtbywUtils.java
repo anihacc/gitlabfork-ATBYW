@@ -11,6 +11,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -107,6 +108,17 @@ public record AtbywUtils() {
 
     public static Identifier getBlockID(Block block) {
         return Registry.BLOCK.getId(block);
+    }
+
+    public static Identifier getItemConvertibleId(ItemConvertible itemConvertible) {
+        var identifier = new Identifier("");
+
+        if (itemConvertible instanceof Block block)
+            identifier = AtbywUtils.getBlockID(block);
+        if (itemConvertible instanceof Item item)
+            identifier = AtbywUtils.getItemID(item);
+
+        return identifier;
     }
 
     public static Item getItemFromID(Identifier identifier) {

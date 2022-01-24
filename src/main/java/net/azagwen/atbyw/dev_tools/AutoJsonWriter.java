@@ -43,6 +43,5 @@ public class AutoJsonWriter {
     }
 
     public void writeAll() {
-        AtbywMain.D_LOGGER.info("JSON :)");
     }
 }
