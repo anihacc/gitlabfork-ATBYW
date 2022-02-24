@@ -24,7 +24,7 @@ public abstract class InjectBakedModels {
 
     @Inject(method = "putModel", at = @At("HEAD"), cancellable = true)
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
-        this.atbywModelManager.addToExistingModels(id, unbakedModel, ci);
+        BlockModelRegistry.appendToModels(id, unbakedModel, ci, this.atbywModelManager);
     }
 
     @Inject(method = "getBakedModelMap", at = @At("RETURN"), cancellable = true)

@@ -1,6 +1,5 @@
 package net.azagwen.atbyw.mixin.block_behavior;
 
-import net.azagwen.atbyw.block.ShatteredGlassBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.GlassBlock;
@@ -17,15 +16,13 @@ public class TransparentBlockMixin {
 
     @Inject(at = @At("HEAD"), method = "isSideInvisible", cancellable = true)
     public void isSideInvisible(BlockState state, BlockState stateFrom, Direction direction, CallbackInfoReturnable<Boolean> cir) {
-        BuildingBlockRegistry.SHATTERED_GLASS_SET.forEach((block) -> {
-            var shatteredGlass = (ShatteredGlassBlock) block;
-
-            if (state.getBlock() instanceof GlassBlock glassBlock && shatteredGlass.getColor() == null) {
-                cir.setReturnValue(stateFrom.isOf(glassBlock) || stateFrom.isOf(shatteredGlass));
+        BuildingBlockRegistry.SHATTERED_GLASS_MAP.forEach((key, value) -> {
+            if (state.getBlock() instanceof GlassBlock glassBlock && key == null) {
+                cir.setReturnValue(stateFrom.isOf(glassBlock) || stateFrom.isOf(value));
             }
-            if (state.getBlock() instanceof StainedGlassBlock stainedGlassBlock){
-                if (stainedGlassBlock.getColor().equals(shatteredGlass.getColor())) {
-                    cir.setReturnValue(stateFrom.isOf(stainedGlassBlock) || stateFrom.isOf(shatteredGlass));
+            if (state.getBlock() instanceof StainedGlassBlock stainedGlassBlock) {
+                if (stainedGlassBlock.getColor().equals(key)) {
+                    cir.setReturnValue(stateFrom.isOf(stainedGlassBlock) || stateFrom.isOf(value));
                 }
             }
         });

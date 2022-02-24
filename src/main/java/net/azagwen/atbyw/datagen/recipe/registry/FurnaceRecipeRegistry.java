@@ -22,7 +22,7 @@ public class FurnaceRecipeRegistry {
         var exp = recipeData.exp();
         var cookTime = recipeData.cookTime();
 
-        var resultId = AtbywUtils.getItemID(result.asItem());
+        var resultId = AtbywUtils.getId(result.asItem());
         var recipeId = AtbywMain.id(resultId.getPath() + (suffix.equals("") ? "" : ("_" + suffix)));
         recipe = RecipeDatagen.smeltingRecipe(recipeId, group, input, result, exp, cookTime);
         RecipeDatagen.registerRecipe(recipe, category);

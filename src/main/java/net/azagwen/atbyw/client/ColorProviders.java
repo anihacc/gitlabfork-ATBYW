@@ -20,6 +20,11 @@ import java.awt.*;
 
 public class ColorProviders {
 
+    public static void init() {
+        initBlocks();
+        initItems();
+    }
+
     public static void initItems() {
         //Canvas blocks color
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {

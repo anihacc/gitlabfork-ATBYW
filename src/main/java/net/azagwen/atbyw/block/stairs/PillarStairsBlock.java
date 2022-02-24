@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.stairs;
 
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -7,13 +8,21 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.Direction;
 
-public class PillarStairsBlock extends StairsBlockSubClass{
+import java.util.Map;
+
+public class PillarStairsBlock extends AtbywStairsBlock {
     public static final EnumProperty<Direction.Axis> AXIS;
 
     public PillarStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock, settings);
+        this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
+    }
+
+    public PillarStairsBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Block copiedBlock, Settings settings) {
+        super(variantMap, variant, copiedBlock, settings);
         this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
     }
 

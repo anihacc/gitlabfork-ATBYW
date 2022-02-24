@@ -16,6 +16,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Random;
 
 public class FlowerButtonBlock extends PlantBlock {
@@ -37,6 +39,13 @@ public class FlowerButtonBlock extends PlantBlock {
     public FlowerButtonBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false).with(LIT, false).with(TIMER, 0));
+    }
+
+    public FlowerButtonBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Settings settings) {
+        this(settings);
+        if (variant != null) {
+            variantMap.put(variant, this);
+        }
     }
 
     @Override

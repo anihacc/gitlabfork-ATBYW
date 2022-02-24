@@ -1,17 +1,17 @@
 package net.azagwen.atbyw.block.stairs;
 
 import net.azagwen.atbyw.block.Utils;
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class NyliumStairsBlock extends StairsBlockSubClass {
+public class NyliumStairsBlock extends AtbywStairsBlock {
 
     public NyliumStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock, settings);

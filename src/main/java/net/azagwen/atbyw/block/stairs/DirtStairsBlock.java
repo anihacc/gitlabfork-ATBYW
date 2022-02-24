@@ -1,6 +1,7 @@
 package net.azagwen.atbyw.block.stairs;
 
 import net.azagwen.atbyw.block.Utils;
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -13,7 +14,7 @@ import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class DirtStairsBlock extends StairsBlockSubClass {
+public class DirtStairsBlock extends AtbywStairsBlock {
 
     public DirtStairsBlock(Block copiedBlock, FabricBlockSettings settings) {
         super(copiedBlock, settings);

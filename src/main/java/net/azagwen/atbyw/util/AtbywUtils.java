@@ -7,24 +7,22 @@ import com.google.gson.JsonObject;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
 
 import java.awt.*;
 import java.util.List;
-
-import static net.azagwen.atbyw.main.AtbywMain.*;
 
 public record AtbywUtils() {
 
@@ -102,31 +100,26 @@ public record AtbywUtils() {
         return object;
     }
 
-    public static Identifier getItemID(Item item) {
-        return Registry.ITEM.getId(item);
-    }
+    public static Identifier getId(Object object) {
+        var id = (Identifier) null;
 
-    public static Identifier getBlockID(Block block) {
-        return Registry.BLOCK.getId(block);
-    }
+        if (object instanceof Block block)
+            id = Registry.BLOCK.getId(block);
+        if (object instanceof Item item)
+            id = Registry.ITEM.getId(item);
+        if (object instanceof ItemConvertible itemConvertible)
+            id = Registry.ITEM.getId(itemConvertible.asItem());
+        if (object instanceof Entity entity)
+            id = Registry.ENTITY_TYPE.getId(entity.getType());
+        if (object instanceof BlockEntity blockEntity)
+            id = Registry.BLOCK_ENTITY_TYPE.getId(blockEntity.getType());
+        if (object instanceof Enchantment enchantment)
+            id = Registry.ENCHANTMENT.getId(enchantment);
 
-    public static Identifier getItemConvertibleId(ItemConvertible itemConvertible) {
-        var identifier = new Identifier("");
+        if (id == null)
+            throw new IllegalArgumentException("Could not find Identifier of the given Object! Type \"" + Object.class.getName() + "\" not recognized");
 
-        if (itemConvertible instanceof Block block)
-            identifier = AtbywUtils.getBlockID(block);
-        if (itemConvertible instanceof Item item)
-            identifier = AtbywUtils.getItemID(item);
-
-        return identifier;
-    }
-
-    public static Item getItemFromID(Identifier identifier) {
-        return Registry.ITEM.get(identifier);
-    }
-
-    public static Block getBlockFromID(Identifier identifier) {
-        return Registry.BLOCK.get(identifier);
+        return id;
     }
 
     public static Box makeCenteredInflatableBox(BlockPos blockPos, float boxSize, float inflateFac) {

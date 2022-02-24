@@ -1,8 +1,8 @@
 package net.azagwen.atbyw.block.stairs;
 
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BlockHalf;
-import net.minecraft.block.enums.StairShape;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -10,7 +10,7 @@ import net.minecraft.world.BlockView;
 
 import java.util.stream.IntStream;
 
-public class GrassPathStairsBlock extends StairsBlockSubClass {
+public class GrassPathStairsBlock extends AtbywStairsBlock {
     private static final VoxelShape TOP_SHAPE;
     private static final VoxelShape TOP_NORTH_WEST_CORNER_SHAPE;
     private static final VoxelShape TOP_SOUTH_WEST_CORNER_SHAPE;

@@ -17,20 +17,29 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+import java.util.Map;
 import java.util.Random;
 
 public class BookshelfToggleBlock extends HorizontalFacingBlock {
     public static final BooleanProperty POWERED;
 
-    public BookshelfToggleBlock() {
-        super(Settings.copy(Blocks.BOOKSHELF).solidBlock(AtbywBlocks::never));
+    public BookshelfToggleBlock(Settings settings) {
+        super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false).with(FACING, Direction.NORTH));
+    }
+
+    public BookshelfToggleBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Settings settings) {
+        this(settings);
+        if (variant != null) {
+            variantMap.put(variant, this);
+        }
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

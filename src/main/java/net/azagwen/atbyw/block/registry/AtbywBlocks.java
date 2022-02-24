@@ -26,18 +26,9 @@ public class AtbywBlocks {
     public static final List<Block> NEEDS_IRON_TOOL = Lists.newArrayList();
     public static final List<Block> NEEDS_DIAMOND_TOOL = Lists.newArrayList();
 
-    public static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return true; }
-    public static Boolean never(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return false; }
-    public static boolean always(BlockState state, BlockView world, BlockPos pos) { return true; }
-    public static boolean never(BlockState state, BlockView world, BlockPos pos) { return false; }
-
-    static ToIntFunction<BlockState> lightLevelFromState(int litLevel, BooleanProperty isLit) {
-        return (blockState) -> blockState.get(isLit) ? litLevel : 0;
-    }
-
-    static ToIntFunction<BlockState> lightLevelFromState(int divider, IntProperty litLevel, BooleanProperty isLit) {
-        return (blockState) -> blockState.get(isLit) ? ((int) Math.ceil((double) blockState.get(litLevel) / (double) divider)) : 0;
-    }
+    public static final Block DEVELOPER_BLOCK = new DevBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).nonOpaque().breakByHand(true).strength(0.1F).sounds(BlockSoundGroup.BONE));
+    public static final Block SHROOMSTICK = new ShroomStickBlock(FabricBlockSettings.of(AtbywMaterials.SHROOMSTICK).breakByHand(true).breakInstantly().noCollision().nonOpaque().luminance((state) -> 15));
+    public static final Block CTM_DEBUG_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.STONE));
 
     public static final Block PUZZLED_POLISHED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH
     public static final Block PUZZLED_POLISHED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH
@@ -59,9 +50,19 @@ public class AtbywBlocks {
     public static final Block CRIMSON_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));  //TODO FINISH
     public static final Block WARPED_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH
 
-    public static final Block DEVELOPER_BLOCK = new DevBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).nonOpaque().breakByHand(true).strength(0.1F).sounds(BlockSoundGroup.BONE));
-    public static final Block SHROOMSTICK = new ShroomStickBlock(FabricBlockSettings.of(AtbywMaterials.SHROOMSTICK).breakByHand(true).breakInstantly().noCollision().nonOpaque().luminance((state) -> 15));
-    public static final Block CTM_DEBUG_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.STONE));
+
+    public static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return true; }
+    public static Boolean never(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return false; }
+    public static boolean always(BlockState state, BlockView world, BlockPos pos) { return true; }
+    public static boolean never(BlockState state, BlockView world, BlockPos pos) { return false; }
+
+    static ToIntFunction<BlockState> lightLevelFromState(int litLevel, BooleanProperty isLit) {
+        return (blockState) -> blockState.get(isLit) ? litLevel : 0;
+    }
+
+    static ToIntFunction<BlockState> lightLevelFromState(int divider, IntProperty litLevel, BooleanProperty isLit) {
+        return (blockState) -> blockState.get(isLit) ? ((int) Math.ceil((double) blockState.get(litLevel) / (double) divider)) : 0;
+    }
 
     public static void init() {
         BuildingBlockRegistry.registerAll();    //ATBYW BUILDING BLOCKS

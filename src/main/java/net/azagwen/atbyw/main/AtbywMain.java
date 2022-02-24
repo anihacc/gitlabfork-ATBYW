@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import net.azagwen.atbyw.block.entity.AtbywBlockEntityTypes;
 import net.azagwen.atbyw.block.registry.AtbywBlocks;
+import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.azagwen.atbyw.datagen.loot.BlockLootRegistry;
 import net.azagwen.atbyw.datagen.recipe.registry.RecipeRegistry;
 import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
@@ -144,7 +145,7 @@ public class AtbywMain implements ModInitializer {
 		BiConsumer<String, Tag<Block>> consumer = (string, blockTag) -> {
 			LOGGER.warn(string);
 			for (var block : blockTag.values()) {
-				if (AtbywUtils.getBlockID(block).getNamespace().equals(ATBYW)) {
+				if (AtbywUtils.getId(block).getNamespace().equals(ATBYW)) {
 					LOGGER.info(block);
 				}
 			}
@@ -161,7 +162,7 @@ public class AtbywMain implements ModInitializer {
 
 		var blockNumber = new AtomicInteger();
 		for (var block : Registry.BLOCK.stream().toList()) {
-			if (AtbywUtils.getBlockID(block).getNamespace().equals(ATBYW)) {
+			if (AtbywUtils.getId(block).getNamespace().equals(ATBYW)) {
 				blockNumber.getAndIncrement();
 			}
 		}

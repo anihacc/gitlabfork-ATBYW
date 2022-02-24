@@ -2,7 +2,7 @@ package net.azagwen.atbyw.dev_tools.model;
 
 import com.google.gson.JsonObject;
 import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
-import net.azagwen.atbyw.util.naming.WoodNames;
+import net.azagwen.atbyw.util.naming.WoodType;
 
 import java.util.Map;
 
@@ -161,7 +161,7 @@ public class ModelWave000 {
     private void write() {
         var writer = new AutoJsonWriter();
 
-        WoodNames.getNamesOverworld().forEach((name) -> {
+        WoodType.getNamesOverworld().forEach((name) -> {
             writer.write("models/block/" + name + "_log_stairs.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs", logStairsTextures(name + "_log")));
             writer.write("models/block/" + name + "_log_stairs_h_x.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs_h_x", logStairsTextures(name + "_log")));
             writer.write("models/block/" + name + "_log_stairs_h_z.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs_h_z", logStairsTextures(name + "_log")));
@@ -189,7 +189,7 @@ public class ModelWave000 {
             writer.write("blockstates/stripped_" + name + "_log_stairs.json", this.writeColumnStairsBlockState("stripped_" + name + "_log_stairs"));
         });
 
-        WoodNames.getNamesNether().forEach((name) -> {
+        WoodType.getNamesNether().forEach((name) -> {
             writer.write("models/block/" + name + "_stem_stairs.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs", logStairsTextures(name + "_stem")));
             writer.write("models/block/" + name + "_stem_stairs_h_x.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs_h_x", logStairsTextures(name + "_stem")));
             writer.write("models/block/" + name + "_stem_stairs_h_z.json", ModelMethods.modelFromParent("atbyw:block/stairs/template_column_stairs_h_z", logStairsTextures(name + "_stem")));

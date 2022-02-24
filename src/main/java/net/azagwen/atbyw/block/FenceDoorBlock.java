@@ -14,6 +14,7 @@ import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -23,6 +24,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
+import java.util.Map;
+
 public class FenceDoorBlock extends HorizontalFacingBlock {
     public static final BooleanProperty OPEN;
     public static final BooleanProperty POWERED;
@@ -30,10 +33,16 @@ public class FenceDoorBlock extends HorizontalFacingBlock {
     protected static final VoxelShape Z_AXIS_SHAPE;
     protected static final VoxelShape X_AXIS_SHAPE;
 
-
     public FenceDoorBlock(AbstractBlock.Settings settings) {
         super(settings.nonOpaque());
         this.setDefaultState(this.stateManager.getDefaultState().with(OPEN, false).with(POWERED, false));
+    }
+
+    public FenceDoorBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Settings settings) {
+        this(settings);
+        if (variant != null) {
+            variantMap.put(variant, this);
+        }
     }
 
     @Override

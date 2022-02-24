@@ -1,11 +1,14 @@
 package net.azagwen.atbyw.block.registry;
 
 import net.azagwen.atbyw.main.AtbywMain;
+import net.azagwen.atbyw.util.naming.Orderable;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -16,6 +19,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 
 public record BlockRegistryUtils() {
     public static int BLOCK_NUMBER;
@@ -197,5 +202,105 @@ public record BlockRegistryUtils() {
     //No required tool param
     public static void registerBlocks(ArrayList<Item> group, String prefix, String block_name, List<String> variant_type, Block... block) {
         registerBlocks(false, group, null, prefix, block_name, variant_type.toArray(String[]::new), block);
+    }
+
+    /**
+     * Registers a set of "colored" blocks using the input map
+     *
+     * @param fireproof         if the block items should be able to burn or not
+     * @param itemTab           the item tab the blocks should end up in
+     * @param requiredTool      required tool block {@link List} the block should go in
+     * @param miningLevel       mining level block {@link List} the block should go in
+     * @param prefix            prefix for the blocks, will be put BEFORE the variant name (ex: PREFIX_blue_block)
+     * @param namingFunction    {@link Function} that will determine the block's name (ex: if the variant is CRIMSON, name is "stem", else it's "log")
+     * @param blocks            {@link Map} of blocks to register
+     */
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, @Nullable String prefix, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        for (var blockEntry : blocks.entrySet()) {
+            var name = "";
+            if (prefix == null || prefix.isEmpty())
+                name = String.join("_", blockEntry.getKey().asString(), namingFunction.apply(blockEntry.getKey()));
+            else
+                name = String.join("_", prefix, blockEntry.getKey().asString(), namingFunction.apply(blockEntry.getKey()));
+
+            registerBlock(fireproof, itemTab, name, blockEntry.getValue());
+
+            if (requiredTool != null)
+                requiredTool.add(blockEntry.getValue());
+            if (miningLevel != null)
+                miningLevel.add(blockEntry.getValue());
+        }
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, null, null, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, null, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, miningLevel, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable String prefix, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, null, null, prefix, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable String prefix, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, null, prefix, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, null, null, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, requiredTool, null, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, requiredTool, miningLevel, null, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable String prefix, String blockName, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, null, null, prefix, (str) -> blockName, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, null, null, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, null, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, miningLevel, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable String prefix, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, null, null, prefix, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable String prefix, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(false, itemTab, requiredTool, null, prefix, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, null, null, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, requiredTool, null, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, requiredTool, miningLevel, null, namingFunction, blocks);
+    }
+
+    public static void registerColoredBlocks(boolean fireproof, ArrayList<Item> itemTab, @Nullable String prefix, Function<StringIdentifiable, String> namingFunction, Map<StringIdentifiable,Block> blocks) {
+        registerColoredBlocks(fireproof, itemTab, null, null, prefix, namingFunction, blocks);
     }
 }

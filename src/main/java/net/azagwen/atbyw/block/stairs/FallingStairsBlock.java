@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.stairs;
 
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.entity.FallingBlockEntity;
@@ -16,7 +17,7 @@ import net.minecraft.world.WorldAccess;
 import java.awt.*;
 import java.util.Random;
 
-public class FallingStairsBlock extends StairsBlockSubClass implements LandingBlock {
+public class FallingStairsBlock extends AtbywStairsBlock implements LandingBlock {
     private final int colorHash;
     private final Block copiedBlock;
     private final Block slabEquivalent;

@@ -1,7 +1,7 @@
 package net.azagwen.atbyw.client;
 
 import net.azagwen.atbyw.client.render.BlockRenderLayers;
-import net.azagwen.atbyw.client.render.model.AtbywModelManager;
+import net.azagwen.atbyw.client.render.model.BlockModelRegistry;
 import net.azagwen.atbyw.client.render.model.ConnectionType;
 import net.azagwen.atbyw.client.render.model.SpriteRegistry;
 import net.azagwen.atbyw.client.screen.AtbywScreenRegistry;
@@ -26,10 +26,9 @@ public class AtbywClient implements ClientModInitializer {
 
 //        ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new ClientResourceListener());
 
-        AtbywModelManager.initConnectedTextureModels();
+        BlockModelRegistry.init();
         SpriteRegistry.init();
-        ColorProviders.initItems();
-        ColorProviders.initBlocks();
+        ColorProviders.init();
         BlockRenderLayers.init();
         AtbywScreenRegistry.init();
         ConnectionType.init();

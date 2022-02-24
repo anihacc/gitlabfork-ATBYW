@@ -23,61 +23,61 @@ public record RecipePatterns() {
 
     public Pair<String[], Multimap<Character, Ingredient>> stickPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"A", "A"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> stairsPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"  A", " AA", "AAA"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> slabPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"AAA"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> bricksPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"AA", "AA"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> wallPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"AAA", "AAA"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> columnPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"A", "A", "A"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> ladderPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"A A", "AAA", "A A"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> fenceDoorPattern(ItemConvertible ingredient) {
         var pattern = new String[] {"A A", "A A", "A A"};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> hollowStarPattern(ItemConvertible ingredient) {
         var pattern = new String[] {" A ", "A A", " A "};
-        return oneIngredientPattern(pattern, ingredient);
+        return this.oneIngredientPattern(pattern, ingredient);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> dyingRingPattern(ItemConvertible ingredient, ItemConvertible dye) {
         var pattern = new String[] {"AAA", "ABA", "AAA"};
-        return twoIngredientsPattern(pattern, ingredient, dye);
+        return this.twoIngredientsPattern(pattern, ingredient, dye);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> torchPattern(ItemConvertible coal, ItemConvertible stick) {
         var pattern = new String[] {"A", "B"};
-        return twoIngredientsPattern(pattern, coal, stick);
+        return this.twoIngredientsPattern(pattern, coal, stick);
     }
 
     public Pair<String[], Multimap<Character, Ingredient>> bookshelfPattern(ItemConvertible planks, ItemConvertible book) {
         var pattern = new String[] {"AAA", "BBB", "AAA"};
-        return twoIngredientsPattern(pattern, planks, book);
+        return this.twoIngredientsPattern(pattern, planks, book);
     }
 }

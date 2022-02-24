@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block;
 
+import net.azagwen.atbyw.block.shape.DirectionalShape;
 import net.azagwen.atbyw.main.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -29,15 +30,8 @@ public record Utils() {
      *  @return        Array of all 4 directions combined from the input arrays.
      */
     public static VoxelShape[] makeDirectionalShapes(double xMin, double yMin, double zMin, double xMax, double yMax, double zMax) {
-        var xMax2 = invert(zMax);
-        var zMin2 = invert(zMin);
-
-        var NORTH = Block.createCuboidShape(xMin , yMin, zMin , xMax , yMax, zMax );
-        var SOUTH = Block.createCuboidShape(xMin , yMin, xMax2, xMax , yMax, zMin2);
-        var EAST  = Block.createCuboidShape(xMax2, yMin, xMin , zMin2, yMax, xMax );
-        var WEST  = Block.createCuboidShape(zMin , yMin, xMin , zMax , yMax, xMax );
-
-        return new VoxelShape[] {NORTH, SOUTH, EAST, WEST};
+        var shape = new DirectionalShape(xMin, yMin, zMin, xMax, yMax, zMax);
+        return new VoxelShape[] {shape.north, shape.south, shape.east, shape.west};
     }
 
     public static Direction getDirectionFromTwoPos(BlockPos start, BlockPos end) {

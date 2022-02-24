@@ -26,22 +26,22 @@ public class AxisShape {
     }
 
     public VoxelShape xShape(boolean isWest) {
-        var eastShape = Block.createCuboidShape(minDepthMirror, minRadius, minRadius, maxDepthMirror, maxRadius, maxRadius);
-        var westShape = Block.createCuboidShape(minDepth, minRadius, minRadius, maxDepth, maxRadius, maxRadius);
+        var eastShape = Block.createCuboidShape(this.minDepthMirror, this.minRadius, this.minRadius, this.maxDepthMirror, this.maxRadius, this.maxRadius);
+        var westShape = Block.createCuboidShape(this.minDepth, this.minRadius, this.minRadius, this.maxDepth, this.maxRadius, this.maxRadius);
 
         return isWest ? westShape : eastShape;
     }
 
     public VoxelShape yShape(boolean isDown) {
-        var upShape = Block.createCuboidShape(minRadius, minDepthMirror, minRadius, maxRadius, maxDepthMirror, maxRadius);
-        var downShape = Block.createCuboidShape(minRadius, minDepth, minRadius, maxRadius, maxDepth, maxRadius);
+        var upShape = Block.createCuboidShape(this.minRadius, this.minDepthMirror, this.minRadius, this.maxRadius, this.maxDepthMirror, this.maxRadius);
+        var downShape = Block.createCuboidShape(this.minRadius, this.minDepth, this.minRadius, this.maxRadius, this.maxDepth, this.maxRadius);
 
         return isDown ? downShape : upShape;
     }
 
     public VoxelShape zShape(boolean isSouth) {
-        var northShape = Block.createCuboidShape(minRadius, minRadius, minDepth, maxRadius, maxRadius, maxDepth);
-        var southShape = Block.createCuboidShape(minRadius, minRadius, minDepthMirror, maxRadius, maxRadius, maxDepthMirror);
+        var northShape = Block.createCuboidShape(this.minRadius, this.minRadius, this.minDepth, this.maxRadius, this.maxRadius, this.maxDepth);
+        var southShape = Block.createCuboidShape(this.minRadius, this.minRadius, this.minDepthMirror, this.maxRadius, this.maxRadius, this.maxDepthMirror);
 
         return isSouth ? southShape : northShape;
     }

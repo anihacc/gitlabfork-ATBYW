@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.stairs;
 
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.Random;
 
-public class NetherrackStairsBlock extends StairsBlockSubClass implements Fertilizable {
+public class NetherrackStairsBlock extends AtbywStairsBlock implements Fertilizable {
 
     public NetherrackStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock, settings);

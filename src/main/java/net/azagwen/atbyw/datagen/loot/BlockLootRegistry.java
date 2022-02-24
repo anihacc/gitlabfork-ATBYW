@@ -156,7 +156,7 @@ public class BlockLootRegistry {
     }
 
     public static void registerSimpleMiscLoot(Block drop, Function<Block, LootTable> lootTableSupplier) {
-        registerBlockLoot(lootTableSupplier.apply(drop), AtbywUtils.getBlockID(drop));
+        registerBlockLoot(lootTableSupplier.apply(drop), AtbywUtils.getId(drop));
     }
 
     public static void registerAll() {
@@ -500,7 +500,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks) {
             var lootTable = dropsSelf(block);
-            var lootTableId = AtbywUtils.getBlockID(block);
+            var lootTableId = AtbywUtils.getId(block);
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -518,7 +518,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks) {
             var lootTable = dropsSilkTouch(block);
-            var lootTableId = AtbywUtils.getBlockID(block);
+            var lootTableId = AtbywUtils.getId(block);
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -559,7 +559,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks.cellSet()) {
             var lootTable = dropsSilkTouchAlternatives(block.getRowKey(), block.getColumnKey(), block.getValue());
-            var lootTableId = AtbywUtils.getBlockID(block.getRowKey());
+            var lootTableId = AtbywUtils.getId(block.getRowKey());
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -651,7 +651,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks) {
             var lootTable = slabLootTable(block);
-            var lootTableId = AtbywUtils.getBlockID(block);
+            var lootTableId = AtbywUtils.getId(block);
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -665,7 +665,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks) {
             var lootTable = silkTouchSlabLootTable(block);
-            var lootTableId = AtbywUtils.getBlockID(block);
+            var lootTableId = AtbywUtils.getId(block);
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -681,7 +681,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks.entrySet()) {
             var lootTable = silkTouchAlternativesSlabLootTable(block.getValue(), block.getKey());
-            var lootTableId = AtbywUtils.getBlockID(block.getKey());
+            var lootTableId = AtbywUtils.getId(block.getKey());
             registerBlockLoot(lootTable, lootTableId);
         }
     }
@@ -700,7 +700,7 @@ public class BlockLootRegistry {
 
         for (var block : blocks) {
             var lootTable = fenceDoorLootTable(block);
-            var lootTableId = AtbywUtils.getBlockID(block);
+            var lootTableId = AtbywUtils.getId(block);
             registerBlockLoot(lootTable, lootTableId);
         }
     }

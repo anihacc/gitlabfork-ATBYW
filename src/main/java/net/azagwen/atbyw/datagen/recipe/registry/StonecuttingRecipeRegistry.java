@@ -23,7 +23,7 @@ public class StonecuttingRecipeRegistry {
         var result = recipeData.result();
         var count = recipeData.count();
 
-        var resultId = AtbywUtils.getItemID(result.asItem());
+        var resultId = AtbywUtils.getId(result.asItem());
         var recipeId = AtbywMain.id(resultId.getPath() + (suffix.equals("") ? "" : ("_" + suffix)));
         recipe = RecipeDatagen.stonecuttingRecipe(recipeId, group, input, result, count);
         RecipeDatagen.registerRecipe(recipe, category);

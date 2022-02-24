@@ -16,12 +16,12 @@ import static net.azagwen.atbyw.util.AtbywUtils.*;
 public class AtbywBlockEntityTypes<T extends BlockEntity>{
 
     public static <T extends BlockEntity> BlockEntityType<T> create(FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
-        Type<?> type = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, getBlockID(block).getPath());
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, getBlockID(block), FabricBlockEntityTypeBuilder.create(factory, block).build(type));
+        Type<?> type = Util.getChoiceType(TypeReferences.BLOCK_ENTITY, getId(block).getPath());
+        return Registry.register(Registry.BLOCK_ENTITY_TYPE, getId(block), FabricBlockEntityTypeBuilder.create(factory, block).build(type));
     }
 
     public static <T extends BlockEntity> BlockEntityType<T> create(FabricBlockEntityTypeBuilder.Factory<T> factory, Block... blocks) {
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, getBlockID(blocks[0]), FabricBlockEntityTypeBuilder.create(factory, blocks).build(null));
+        return Registry.register(Registry.BLOCK_ENTITY_TYPE, getId(blocks[0]), FabricBlockEntityTypeBuilder.create(factory, blocks).build(null));
     }
 
     public static BlockEntityType<CanvasBlockEntity> CANVAS_BLOCK_ENTITY;

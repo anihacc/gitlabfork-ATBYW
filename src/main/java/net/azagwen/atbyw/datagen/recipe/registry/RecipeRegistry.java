@@ -61,7 +61,7 @@ public class RecipeRegistry {
             }
         }
 
-        var resultId = AtbywUtils.getItemID(result.asItem());
+        var resultId = AtbywUtils.getId(result.asItem());
         var recipeId = AtbywMain.id(resultId.getPath() + (suffix.equals("") ? "" : ("_" + suffix)));
         recipe = RecipeDatagen.shapedRecipe(recipeId, group, pattern, keys, result.asItem(), count);
         RecipeDatagen.registerRecipe(recipe, category);
@@ -549,7 +549,7 @@ public class RecipeRegistry {
         for (var color : DyeColor.values()) {
             for (var entry : dyeingMap.entrySet()) {
                 var recipeData = entry.getKey();
-                if (AtbywUtils.getItemID(recipeData.result().asItem()).getPath().contains(color.asString())) {
+                if (AtbywUtils.getId(recipeData.result().asItem()).getPath().contains(color.asString())) {
                     var pattern = patterns.dyingRingPattern(entry.getValue(), DyeItem.byColor(color));
                     registerShapedRecipe(recipeData, pattern.getFirst(), pattern.getSecond());
                 }

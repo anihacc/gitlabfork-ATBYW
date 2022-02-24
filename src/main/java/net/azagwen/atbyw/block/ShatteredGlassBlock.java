@@ -1,12 +1,12 @@
 package net.azagwen.atbyw.block;
 
-import net.azagwen.atbyw.block.extensions.BlockExt;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.azagwen.atbyw.block.extensions.AtbywBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.Stainable;
 import net.minecraft.util.DyeColor;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -14,20 +14,17 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Set;
 
-public class ShatteredGlassBlock extends BlockExt implements Stainable {
+public class ShatteredGlassBlock extends AtbywBlock implements Stainable {
     private final Block copiedBlock;
     private final DyeColor color;
 
-    public ShatteredGlassBlock(Set<Block> set, Block copiedBlock, Settings settings) {
-        this(set, null, copiedBlock, settings);
-    }
-
-    public ShatteredGlassBlock(Set<Block> set, @Nullable DyeColor color, Block copiedBlock, Settings settings) {
-        super(set, settings);
+    public ShatteredGlassBlock(Map<StringIdentifiable, Block> variantMap, @Nullable DyeColor variant, Block copiedBlock, Settings settings) {
+        super(variantMap, variant, settings);
         this.copiedBlock = copiedBlock;
-        this.color = color;
+        this.color = variant;
     }
 
     @Override

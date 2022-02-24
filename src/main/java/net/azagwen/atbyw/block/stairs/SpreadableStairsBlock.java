@@ -1,11 +1,11 @@
 package net.azagwen.atbyw.block.stairs;
 
 import net.azagwen.atbyw.block.Utils;
+import net.azagwen.atbyw.block.extensions.AtbywStairsBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +13,7 @@ import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class SpreadableStairsBlock extends StairsBlockSubClass {
+public class SpreadableStairsBlock extends AtbywStairsBlock {
     private final Block fullBlockEquivalent;
 
     public SpreadableStairsBlock(Block copiedBlock, Block fullBlockEquivalent, Settings settings) {

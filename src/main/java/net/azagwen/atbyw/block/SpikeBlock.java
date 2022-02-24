@@ -21,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
@@ -30,8 +29,6 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Map;
-
-import static net.azagwen.atbyw.util.AtbywUtils.getBlockFromID;
 
 public class SpikeBlock extends Block implements Waterloggable {
     public static final Map<SpikeTrapMaterial, Block> SPIKE_MAP = Maps.newHashMap();
@@ -43,7 +40,6 @@ public class SpikeBlock extends Block implements Waterloggable {
         super(settings);
         this.material = material;
         this.setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false));
-
         SPIKE_MAP.put(material, this);
     }
 
@@ -87,7 +83,7 @@ public class SpikeBlock extends Block implements Waterloggable {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        boolean isEntityPlayerAndCreative = entity instanceof PlayerEntity && ((PlayerEntity) entity).isCreative();
+        boolean isEntityPlayerAndCreative = entity instanceof PlayerEntity player && player.isCreative();
 
         if (entity instanceof LivingEntity && !isEntityImmune(entity) && !isEntityPlayerAndCreative) {
             ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 40, this.material.getEffectAmplifier()));

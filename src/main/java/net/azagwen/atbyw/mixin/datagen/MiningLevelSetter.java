@@ -38,11 +38,11 @@ public class MiningLevelSetter {
         if (tagEntry.getKey().equals(tag.getId())) {
             var blockCount = 0;
             for (var block : blocksToAdd) {
-                tagEntry.getValue().add(AtbywUtils.getBlockID(block), AtbywMain.ATBYW);
+                tagEntry.getValue().add(AtbywUtils.getId(block), AtbywMain.ATBYW);
                 blockCount++;
             }
             if (blockCount > 0) {
-                AtbywMain.LOGGER.info("Added {} additional block" + (blockCount > 1 ? "s" : "") + " to " + tag.getId(), blockCount);
+                AtbywMain.LOGGER.info("Added {} additional block{} to {}", blockCount, blockCount > 1 ? "s" : "", tag.getId());
             }
         }
     }

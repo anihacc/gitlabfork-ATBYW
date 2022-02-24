@@ -1,11 +1,12 @@
 package net.azagwen.atbyw.util.naming;
 
 import com.google.common.collect.Lists;
+import net.minecraft.util.StringIdentifiable;
 
 import java.util.Arrays;
 import java.util.List;
 
-public enum FlowerNames {
+public enum FlowerType implements StringIdentifiable, Orderable {
     DANDELION(0, "dandelion"),
     POPPY(1, "poppy"),
     BLUE_ORCHID(2, "blue_orchid"),
@@ -23,7 +24,7 @@ public enum FlowerNames {
     private final int id;
     private final String name;
 
-    FlowerNames(int id, String name) {
+    FlowerType(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -36,12 +37,12 @@ public enum FlowerNames {
         return id;
     }
 
-    public static FlowerNames getById(int id) {
-        return Arrays.stream(FlowerNames.values()).toList().get(id);
+    public static FlowerType getById(int id) {
+        return Arrays.stream(FlowerType.values()).toList().get(id);
     }
 
     public static String getNameByID(int id) {
-        return Arrays.stream(FlowerNames.values()).toList().get(id).getName();
+        return Arrays.stream(FlowerType.values()).toList().get(id).getName();
     }
 
     public static List<String> getNamesInRange(int min, int max) {
@@ -55,10 +56,20 @@ public enum FlowerNames {
 
     public static List<String> getNames() {
         var names = Lists.<String>newArrayList();
-        for (FlowerNames value : FlowerNames.values()) {
+        for (FlowerType value : FlowerType.values()) {
             names.add(value.getName());
         }
 
         return names;
+    }
+
+    @Override
+    public String asString() {
+        return this.name;
+    }
+
+    @Override
+    public int getHighestId() {
+        return WITHER_ROSE.getId();
     }
 }
