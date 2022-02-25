@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "atbyw:block/dripstone_bricks_top",
+        "side": "atbyw:block/dripstone_bricks"
+    }
+}

@@ -76,7 +76,7 @@ public class AtbywBlocks {
         //Item-less blocks
         registerBlockOnly("shroomstick", SHROOMSTICK);
 
-        LOGGER.info("ATBYW Blocks Initialized");
+        LOGGER.info("ATBYW Blocks Initialized ({} Blocks registered)", BLOCK_NUMBER);
     }
 }
 

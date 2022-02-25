@@ -52,7 +52,7 @@ public class AtbywMain implements ModInitializer {
 	public static ArrayList<Item> DECO_TAB = Lists.newArrayList();
 	public static ArrayList<Item> REDSTONE_TAB = Lists.newArrayList();
 	public static ArrayList<Item> MISC_TAB = Lists.newArrayList();
-	//Debug fields (used only for the client-side debug features)
+	//Debug fields (used only for client-side debug features)
 	public static final Map<String, Boolean> DEBUG_FEATURES = Maps.newHashMap();
 	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();	//List of blocks to populate the debug world
 	public static int X_SIDE_LENGTH;	//Width of the debug world grid
@@ -160,13 +160,6 @@ public class AtbywMain implements ModInitializer {
 
 		ATBYW_GROUP = new AtbywItemGroup(AtbywMain.id("atbyw"));
 
-		var blockNumber = new AtomicInteger();
-		for (var block : Registry.BLOCK.stream().toList()) {
-			if (AtbywUtils.getId(block).getNamespace().equals(ATBYW)) {
-				blockNumber.getAndIncrement();
-			}
-		}
-		LOGGER.info("ATBYW registered {} blocks", blockNumber);
 		LOGGER.info("ATBYW Inintiliazed");
 	}
 }

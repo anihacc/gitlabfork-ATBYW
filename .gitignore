@@ -38,3 +38,4 @@ minecraft
 **/.temp/
 /curseforge_resources/
 /src/main/java/net/azagwen/atbyw/testing/
+/src/main/resources/assets/atbyw/textures/block/temp/
