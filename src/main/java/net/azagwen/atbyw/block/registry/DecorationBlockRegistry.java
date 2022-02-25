@@ -146,7 +146,7 @@ public class DecorationBlockRegistry extends AtbywBlocks {
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "quartz_column", QUARTZ_COLUMN);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "prismarine_column", PRISMARINE_COLUMN);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "blackstone_column", BLACKSTONE_COLUMN);
-        registerBlock(AXE_MINEABLE, "acacia_railing", ACACIA_RAILING);
+        registerBlock(null, AXE_MINEABLE, "acacia_railing", ACACIA_RAILING);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "terracotta_bricks_wall", TERRACOTTA_BRICKS_WALL);
         registerColoredBlocks(DECO_TAB, PICKAXE_MINEABLE, "terracotta_bricks_wall", TERRACOTTA_BRICKS_WALL_MAP);
         registerColoredBlocks(DECO_TAB, PICKAXE_MINEABLE, "cinder_blocks_wall", CINDER_BLOCKS_WALL_MAP);

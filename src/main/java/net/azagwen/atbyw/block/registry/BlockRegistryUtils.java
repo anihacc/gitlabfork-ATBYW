@@ -22,8 +22,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public record BlockRegistryUtils() {
+public record BlockRegistryUtils(Function<String, Identifier> identifierFunction) {
     public static int BLOCK_NUMBER;
+    private static Function<String, Identifier> IDENTIFIER_FUNC;
+
+    public BlockRegistryUtils {
+        setIdentifierFunc(this.identifierFunction());
+    }
+
+    private static void setIdentifierFunc(Function<String, Identifier> function) {
+        IDENTIFIER_FUNC = function;
+    }
+
+    /** Registers a block without a block item.
+     *
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param miningLevel   the material of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name     Name of the block (path)
+     *  @param block    The Block field
+     */
+    public static void registerBlockOnly(@Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, String name, Block block) {
+        Registry.register(Registry.BLOCK, IDENTIFIER_FUNC.apply(name), block);
+
+        if (requiredTool != null) {
+            requiredTool.add(block);
+        }
+        if (miningLevel != null) {
+            miningLevel.add(block);
+        }
+        BLOCK_NUMBER++;
+    }
 
     /** Registers a block without a block item.
      *
@@ -31,13 +59,17 @@ public record BlockRegistryUtils() {
      *  @param block    The Block field
      */
     public static void registerBlockOnly(String name, Block block) {
-        Registry.register(Registry.BLOCK, AtbywMain.id(name), block);
-        BLOCK_NUMBER++;
+        registerBlockOnly(null, null, name, block);
     }
 
+    /** Registers a block without a block item.
+     *
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name     Name of the block (path)
+     *  @param block    The Block field
+     */
     public static void registerBlockOnly(List<Block> requiredTool, String name, Block block) {
-        registerBlockOnly(name, block);
-        requiredTool.add(block);
+        registerBlockOnly(requiredTool, null, name, block);
     }
 
     /** Registers a block and its block item.
@@ -47,40 +79,32 @@ public record BlockRegistryUtils() {
      *  @param name         Name of the block (Identifier path).
      *  @param block        The declared Block that will be registered.
      */
-    public static void registerBlock(boolean fireproof, @Nullable ItemGroup group, String name, Block block) {
+    public static void registerBlock(boolean fireproof, @Nullable ItemGroup group, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, String name, Block block) {
         Item.Settings normalSettings = group != null ? new Item.Settings().group(group) : new Item.Settings();
         Item.Settings fireproofSettings = group != null ? new Item.Settings().group(group).fireproof() : new Item.Settings().fireproof();
 
-        registerBlockOnly(name, block);
-        Registry.register(Registry.ITEM, AtbywMain.id(name), new BlockItem(block, (fireproof ? fireproofSettings : normalSettings)));
+        Registry.register(Registry.BLOCK, IDENTIFIER_FUNC.apply(name), block);
+        Registry.register(Registry.ITEM, IDENTIFIER_FUNC.apply(name), new BlockItem(block, (fireproof ? fireproofSettings : normalSettings)));
+
+        if (requiredTool != null) {
+            requiredTool.add(block);
+        }
+        if (miningLevel != null) {
+            miningLevel.add(block);
+        }
         BLOCK_NUMBER++;
-    }
-
-    //No Item group param
-    public static void registerBlock(boolean fireproof, String name, Block block) {
-        registerBlock(fireproof, (ItemGroup) null, name, block);
-    }
-
-    //Required tool param
-    public static void registerBlock(boolean fireproof, @Nullable ItemGroup group, String name, List<Block> requiredTool, Block block) {
-        registerBlock(fireproof, group, name, block);
-        requiredTool.add(block);
-    }
-
-    //Required tool param, No Item group param
-    public static void registerBlock(boolean fireproof, String name, List<Block> requiredTool, Block block) {
-        registerBlock(fireproof, (ItemGroup) null, name, block);
-        requiredTool.add(block);
     }
 
     /** Registers a block and its block item.
      *
      *  @param fireproof    if the Block item should resist to fire & Lava.
      *  @param itemTab      the ItemTab list this block should be in.
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param miningLevel   the material of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
      *  @param identifier   Identifier of the block.
      *  @param block        The declared Block that will be registered.
      */
-    public static void registerBlock(boolean fireproof, @Nullable ArrayList<Item> itemTab, Identifier identifier, Block block) {
+    public static void registerBlock(boolean fireproof, @Nullable ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, @Nullable List<Block> miningLevel, Identifier identifier, Block block) {
         Item.Settings normalSettings = new Item.Settings();
         Item.Settings fireproofSettings = new Item.Settings().fireproof();
 
@@ -90,34 +114,82 @@ public record BlockRegistryUtils() {
         if (itemTab != null) {
             itemTab.add(block.asItem());
         }
-        BLOCK_NUMBER++;
-    }
-
-    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, @Nullable List<Block> requiredTool, String name, Block block) {
-        registerBlock(fireproof, itemTab, AtbywMain.id(name), block);
         if (requiredTool != null) {
             requiredTool.add(block);
         }
+        if (miningLevel != null) {
+            miningLevel.add(block);
+        }
+        BLOCK_NUMBER++;
     }
 
-    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, String name, Block block) {
-        registerBlock(fireproof, itemTab, null, name, block);
-    }
-
-    public static void registerBlock(ArrayList<Item> itemTab, List<Block> requiredTool, String name, Block block) {
-        registerBlock(false, itemTab, requiredTool, name, block);
-    }
-
+    /** Registers a block and its block item.
+     *
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
     public static void registerBlock(ArrayList<Item> itemTab, String name, Block block) {
-        registerBlock(false, itemTab, null, name, block);
+        registerBlock(false, itemTab, null, null, IDENTIFIER_FUNC.apply(name), block);
     }
 
-    public static void registerBlock(List<Block> requiredTool, String name, Block block) {
-        registerBlock(false, null, requiredTool, name, block);
+    /** Registers a block and its block item.
+     *
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(ArrayList<Item> itemTab, List<Block> requiredTool, String name, Block block) {
+        registerBlock(false, itemTab, requiredTool, null, IDENTIFIER_FUNC.apply(name), block);
     }
 
-    public static void registerBlock(String name, Block block) {
-        registerBlock(false, null, null, name, block);
+    /** Registers a block and its block item.
+     *
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param miningLevel  the material of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(ArrayList<Item> itemTab, List<Block> requiredTool, List<Block> miningLevel, String name, Block block) {
+        registerBlock(false, itemTab, requiredTool, miningLevel, IDENTIFIER_FUNC.apply(name), block);
+    }
+
+    /** Registers a block and its block item.
+     *
+     *  @param fireproof    if the Block item should resist to fire & Lava.
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, String name, Block block) {
+        registerBlock(fireproof, itemTab, null, null, IDENTIFIER_FUNC.apply(name), block);
+    }
+
+    /** Registers a block and its block item.
+     *
+     *  @param fireproof    if the Block item should resist to fire & Lava.
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, List<Block> requiredTool, String name, Block block) {
+        registerBlock(fireproof, itemTab, requiredTool, null, IDENTIFIER_FUNC.apply(name), block);
+    }
+
+    /** Registers a block and its block item.
+     *
+     *  @param fireproof    if the Block item should resist to fire & Lava.
+     *  @param itemTab      the ItemTab list this block should be in.
+     *  @param requiredTool the type of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param miningLevel   the material of tool required to break this block (must be a {@link List} of blocks, will be treated like a tag)
+     *  @param name         the name of the block.
+     *  @param block        The declared Block that will be registered.
+     */
+    public static void registerBlock(boolean fireproof, ArrayList<Item> itemTab, List<Block> requiredTool, List<Block> miningLevel, String name, Block block) {
+        registerBlock(fireproof, itemTab, requiredTool, miningLevel, IDENTIFIER_FUNC.apply(name), block);
     }
 
     /**
