@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.extensions;
 
+import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
@@ -10,18 +11,16 @@ import java.util.Map;
 import java.util.Set;
 
 public class AtbywStairsBlock extends StairsBlock {
+    public static final AtbywBlockContainer ATBYW_STAIRS = new AtbywBlockContainer();
 
     public AtbywStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock.getDefaultState(), settings);
+        ATBYW_STAIRS.add(this);
     }
 
-    public AtbywStairsBlock(Set<Block> set, Block copiedBlock, Settings settings) {
-        super(copiedBlock.getDefaultState(), settings);
-        set.add(this);
-    }
 
     public AtbywStairsBlock(Map<StringIdentifiable, Block> variantMap, @Nullable StringIdentifiable variant, Block copiedBlock, Settings settings) {
-        super(copiedBlock.getDefaultState(), settings);
+        this(copiedBlock, settings);
         if (variant != null) {
             variantMap.put(variant, this);
         }

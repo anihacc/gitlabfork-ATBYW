@@ -1,6 +1,7 @@
 package net.azagwen.atbyw.block.slab;
 
 import net.azagwen.atbyw.block.Utils;
+import net.azagwen.atbyw.block.extensions.AtbywSlabBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -13,7 +14,7 @@ import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class SpreadableSlabBlock extends SlabBlockSubClass {
+public class SpreadableSlabBlock extends AtbywSlabBlock {
     private final Block fullBlockEquivalent;
 
     public SpreadableSlabBlock(Block copiedBlock, Settings settings) {

@@ -7,7 +7,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import net.azagwen.atbyw.block.entity.AtbywBlockEntityTypes;
 import net.azagwen.atbyw.block.registry.AtbywBlocks;
-import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
+import net.azagwen.atbyw.block.registry.containers.ItemTabContainer;
 import net.azagwen.atbyw.datagen.loot.BlockLootRegistry;
 import net.azagwen.atbyw.datagen.recipe.registry.RecipeRegistry;
 import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
@@ -21,7 +21,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
@@ -35,10 +34,8 @@ import org.apache.logging.log4j.util.BiConsumer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtbywMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Atbyw Main");
@@ -48,10 +45,10 @@ public class AtbywMain implements ModInitializer {
 	public static final String ATBYW_MI = "atbyw_mi";
 	//Item group and its Sub-tabs
 	public static ItemGroup ATBYW_GROUP;
-	public static ArrayList<Item> BLOCKS_TAB = Lists.newArrayList();
-	public static ArrayList<Item> DECO_TAB = Lists.newArrayList();
-	public static ArrayList<Item> REDSTONE_TAB = Lists.newArrayList();
-	public static ArrayList<Item> MISC_TAB = Lists.newArrayList();
+	public static ItemTabContainer BLOCKS_TAB = new ItemTabContainer();
+	public static ItemTabContainer DECO_TAB = new ItemTabContainer();
+	public static ItemTabContainer REDSTONE_TAB = new ItemTabContainer();
+	public static ItemTabContainer MISC_TAB = new ItemTabContainer();
 	//Debug fields (used only for client-side debug features)
 	public static final Map<String, Boolean> DEBUG_FEATURES = Maps.newHashMap();
 	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();	//List of blocks to populate the debug world

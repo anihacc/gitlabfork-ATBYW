@@ -19,7 +19,7 @@
         "bookshelf_behavior.EnchantmentScreenHandlerMixin",
         "datagen.AdvancementsInjector",
         "datagen.LootTableInjector",
-        "datagen.MiningLevelSetter",
+        "datagen.AppendToVanillaTags",
         "datagen.RecipeInjector",
         "sign.BlockEntityTypeMixin"
     ],

@@ -19,7 +19,7 @@ import java.util.Map;
 
 import static net.azagwen.atbyw.main.AtbywMain.REDSTONE_TAB;
 import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
-import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.registerBlockOnly;
+import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.registerBlock;
 
 public class RedstoneBlockRegistry extends AtbywBlocks {
     public static final Map<StringIdentifiable, Block> BOOKSHELF_TOGGLE_MAP = Maps.newLinkedHashMap();
@@ -119,10 +119,10 @@ public class RedstoneBlockRegistry extends AtbywBlocks {
         registerBlock(REDSTONE_TAB, PICKAXE_MINEABLE, "iron_fence_door", IRON_FENCE_DOOR);
 
         //Item-less blocks
-        registerBlockOnly(PICKAXE_MINEABLE, "iron_spike_trap_spikes", IRON_SPIKE_TRAP_SPIKES);
-        registerBlockOnly(PICKAXE_MINEABLE, "gold_spike_trap_spikes", GOLD_SPIKE_TRAP_SPIKES);
-        registerBlockOnly(PICKAXE_MINEABLE, "diamond_spike_trap_spikes", DIAMOND_SPIKE_TRAP_SPIKES);
-        registerBlockOnly(PICKAXE_MINEABLE, "netherite_spike_trap_spikes", NETHERITE_SPIKE_TRAP_SPIKES);
-        registerBlockOnly(PICKAXE_MINEABLE, "iron_ladder_piece", IRON_LADDER_PIECE);
+        BlockRegistryUtils.registerBlock(PICKAXE_MINEABLE, "iron_spike_trap_spikes", IRON_SPIKE_TRAP_SPIKES);
+        BlockRegistryUtils.registerBlock(PICKAXE_MINEABLE, "gold_spike_trap_spikes", GOLD_SPIKE_TRAP_SPIKES);
+        BlockRegistryUtils.registerBlock(PICKAXE_MINEABLE, "diamond_spike_trap_spikes", DIAMOND_SPIKE_TRAP_SPIKES);
+        BlockRegistryUtils.registerBlock(PICKAXE_MINEABLE, "netherite_spike_trap_spikes", NETHERITE_SPIKE_TRAP_SPIKES);
+        BlockRegistryUtils.registerBlock(PICKAXE_MINEABLE, "iron_ladder_piece", IRON_LADDER_PIECE);
     }
 }

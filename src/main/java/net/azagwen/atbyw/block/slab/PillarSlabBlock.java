@@ -19,11 +19,6 @@ public class PillarSlabBlock extends AtbywSlabBlock {
     public static final EnumProperty<PillarSlabType> TOP_TYPE;
     public static final EnumProperty<PillarSlabType> BOTTOM_TYPE;
 
-    public PillarSlabBlock(Settings settings) {
-        super(settings);
-        this.setDefaultState(super.getDefaultState().with(BOTTOM_TYPE, PillarSlabType.Y).with(TOP_TYPE, PillarSlabType.NONE));
-    }
-
     public PillarSlabBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Settings settings) {
         super(variantMap, variant, settings);
         this.setDefaultState(super.getDefaultState().with(BOTTOM_TYPE, PillarSlabType.Y).with(TOP_TYPE, PillarSlabType.NONE));

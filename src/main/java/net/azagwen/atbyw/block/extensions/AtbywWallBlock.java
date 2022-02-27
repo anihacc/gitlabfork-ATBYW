@@ -1,6 +1,7 @@
 package net.azagwen.atbyw.block.extensions;
 
 import com.google.common.collect.ImmutableMap;
+import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
 import net.azagwen.atbyw.block.shape.DirectionalShape;
 import net.azagwen.atbyw.block.state.AtbywProperties;
 import net.minecraft.block.Block;
@@ -24,6 +25,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class AtbywWallBlock extends WallBlock {
+    public static final AtbywBlockContainer ATBYW_WALLS = new AtbywBlockContainer();
     public static final BooleanProperty POST_SLAB;
     private static final VoxelShape POST_SHAPE;
     private static final DirectionalShape LOW_SHAPE;
@@ -39,6 +41,7 @@ public class AtbywWallBlock extends WallBlock {
         this.setDefaultState(super.getDefaultState().with(POST_SLAB, true));
         this.outlineShapeMap.set(this.getShapeMap(POST_SHAPE, null, LOW_SHAPE, TALL_SHAPE));
         this.collisionShapeMap.set(this.getShapeMap(POST_COLLISION_SHAPE, null, LOW_COLLISION_SHAPE, TALL_COLLISION_SHAPE));
+        ATBYW_WALLS.add(this);
     }
 
     public AtbywWallBlock(Map<StringIdentifiable, Block> variantMap, StringIdentifiable variant, Settings settings) {

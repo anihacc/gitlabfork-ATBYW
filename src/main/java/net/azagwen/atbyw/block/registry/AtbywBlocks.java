@@ -2,6 +2,9 @@ package net.azagwen.atbyw.block.registry;
 
 import com.google.common.collect.Lists;
 import net.azagwen.atbyw.block.*;
+import net.azagwen.atbyw.block.registry.containers.MiningLevelContainer;
+import net.azagwen.atbyw.block.registry.containers.RequiredToolContainer;
+import net.azagwen.atbyw.main.AtbywMain;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
@@ -11,44 +14,43 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
-import java.util.List;
 import java.util.function.ToIntFunction;
 
 import static net.azagwen.atbyw.main.AtbywMain.*;
 import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
 
 public class AtbywBlocks {
-    public static final List<Block> AXE_MINEABLE = Lists.newArrayList();
-    public static final List<Block> HOE_MINEABLE = Lists.newArrayList();
-    public static final List<Block> PICKAXE_MINEABLE = Lists.newArrayList();
-    public static final List<Block> SHOVEL_MINEABLE = Lists.newArrayList();
-    public static final List<Block> NEEDS_STONE_TOOL = Lists.newArrayList();
-    public static final List<Block> NEEDS_IRON_TOOL = Lists.newArrayList();
-    public static final List<Block> NEEDS_DIAMOND_TOOL = Lists.newArrayList();
+    public static final RequiredToolContainer AXE_MINEABLE = new RequiredToolContainer();
+    public static final RequiredToolContainer HOE_MINEABLE = new RequiredToolContainer();
+    public static final RequiredToolContainer PICKAXE_MINEABLE = new RequiredToolContainer();
+    public static final RequiredToolContainer SHOVEL_MINEABLE = new RequiredToolContainer();
+    public static final MiningLevelContainer NEEDS_STONE_TOOL = new MiningLevelContainer();
+    public static final MiningLevelContainer NEEDS_IRON_TOOL = new MiningLevelContainer();
+    public static final MiningLevelContainer NEEDS_DIAMOND_TOOL = new MiningLevelContainer();
 
     public static final Block DEVELOPER_BLOCK = new DevBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).nonOpaque().breakByHand(true).strength(0.1F).sounds(BlockSoundGroup.BONE));
     public static final Block SHROOMSTICK = new ShroomStickBlock(FabricBlockSettings.of(AtbywMaterials.SHROOMSTICK).breakByHand(true).breakInstantly().noCollision().nonOpaque().luminance((state) -> 15));
     public static final Block CTM_DEBUG_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.STONE));
 
-    public static final Block PUZZLED_POLISHED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH
-    public static final Block PUZZLED_POLISHED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH
-    public static final Block PUZZLED_POLISHED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));        //TODO FINISH
-    public static final Block PUZZLED_POLISHED_BLACKSTONE = new Block(FabricBlockSettings.of(Material.STONE));      //TODO FINISH
-    public static final Block PUZZLED_POLISHED_DEEPSLATE = new Block(FabricBlockSettings.of(Material.STONE));       //TODO FINISH
+    public static final Block PUZZLED_POLISHED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH OR CANCEL
+    public static final Block PUZZLED_POLISHED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));         //TODO FINISH OR CANCEL
+    public static final Block PUZZLED_POLISHED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));        //TODO FINISH OR CANCEL
+    public static final Block PUZZLED_POLISHED_BLACKSTONE = new Block(FabricBlockSettings.of(Material.STONE));      //TODO FINISH OR CANCEL
+    public static final Block PUZZLED_POLISHED_DEEPSLATE = new Block(FabricBlockSettings.of(Material.STONE));       //TODO FINISH OR CANCEL
 
-    public static final Block COBBLED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH
-    public static final Block COBBLED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH
-    public static final Block COBBLED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));                 //TODO FINISH
+    public static final Block COBBLED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH OR CANCEL
+    public static final Block COBBLED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH OR CANCEL
+    public static final Block COBBLED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));                 //TODO FINISH OR CANCEL
 
-    public static final Block SMOOTH_DEEPSLATE = new Block(FabricBlockSettings.of(Material.STONE));                 //TODO FINISH
-    public static final Block SMOOTH_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH
-    public static final Block SMOOTH_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH
-    public static final Block SMOOTH_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH
+    public static final Block SMOOTH_DEEPSLATE = new Block(FabricBlockSettings.of(Material.STONE));                 //TODO FINISH OR CANCEL
+    public static final Block SMOOTH_GRANITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH OR CANCEL
+    public static final Block SMOOTH_DIORITE = new Block(FabricBlockSettings.of(Material.STONE));                   //TODO FINISH OR CANCEL
+    public static final Block SMOOTH_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE));                  //TODO FINISH OR CANCEL
 
-    public static final Block CRIMSON_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH
-    public static final Block WARPED_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));    //TODO FINISH
-    public static final Block CRIMSON_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));  //TODO FINISH
-    public static final Block WARPED_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH
+    public static final Block CRIMSON_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH OR CANCEL
+    public static final Block WARPED_NYLIUM_MOSS_BLOCK = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));    //TODO FINISH OR CANCEL
+    public static final Block CRIMSON_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));  //TODO FINISH OR CANCEL
+    public static final Block WARPED_NYLIUM_MOSS_CARPET = new Block(FabricBlockSettings.of(Material.MOSS_BLOCK));   //TODO FINISH OR CANCEL
 
 
     public static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) { return true; }
@@ -65,16 +67,17 @@ public class AtbywBlocks {
     }
 
     public static void init() {
+        BlockRegistryUtils.setIdentifierFunc(AtbywMain::id);
         BuildingBlockRegistry.registerAll();    //ATBYW BUILDING BLOCKS
         DecorationBlockRegistry.registerAll();  //ATBYW DECORATION
         RedstoneBlockRegistry.registerAll();    //ATBYW REDSTONE
 
         //ATBYW MISC
-        registerBlock(false, MISC_TAB, "dev_block", DEVELOPER_BLOCK);
-        registerBlock(false, MISC_TAB, "ctm_debug_block", CTM_DEBUG_BLOCK);
+        registerBlock(MISC_TAB, "dev_block", DEVELOPER_BLOCK);
+        registerBlock(MISC_TAB, "ctm_debug_block", CTM_DEBUG_BLOCK);
 
         //Item-less blocks
-        registerBlockOnly("shroomstick", SHROOMSTICK);
+        BlockRegistryUtils.registerBlock("shroomstick", SHROOMSTICK);
 
         LOGGER.info("ATBYW Blocks Initialized ({} Blocks registered)", BLOCK_NUMBER);
     }

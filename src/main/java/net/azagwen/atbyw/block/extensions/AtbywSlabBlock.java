@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.extensions;
 
+import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlabBlock;
@@ -11,18 +12,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class AtbywSlabBlock extends SlabBlock {
+    public static final AtbywBlockContainer ATBYW_SLABS = new AtbywBlockContainer();
 
     public AtbywSlabBlock(Settings settings) {
         super(settings);
-    }
-
-    public AtbywSlabBlock(Set<Block> set, Settings settings) {
-        super(settings);
-        set.add(this);
+        ATBYW_SLABS.add(this);
     }
 
     public AtbywSlabBlock(Map<StringIdentifiable, Block> variantMap, @Nullable StringIdentifiable variant, Settings settings) {
-        super(settings);
+        this(settings);
         if (variant != null) {
             variantMap.put(variant, this);
         }

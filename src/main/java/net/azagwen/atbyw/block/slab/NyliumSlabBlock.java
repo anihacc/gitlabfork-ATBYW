@@ -1,7 +1,9 @@
 package net.azagwen.atbyw.block.slab;
 
 import net.azagwen.atbyw.block.Utils;
+import net.azagwen.atbyw.block.extensions.AtbywSlabBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
+import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
@@ -11,10 +13,12 @@ import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class NyliumSlabBlock extends SlabBlockSubClass {
+public class NyliumSlabBlock extends AtbywSlabBlock {
+    public static final AtbywBlockContainer NYLIUM_SLABS = new AtbywBlockContainer();
 
     public NyliumSlabBlock(Settings settings) {
         super(settings);
+        NYLIUM_SLABS.add(this);
     }
 
     private static boolean stayAlive(BlockState state, WorldView world, BlockPos pos) {

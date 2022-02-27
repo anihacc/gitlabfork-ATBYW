@@ -1,5 +1,6 @@
 package net.azagwen.atbyw.block.slab;
 
+import net.azagwen.atbyw.block.extensions.AtbywSlabBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class NetherrackSlabBlock extends SlabBlockSubClass implements Fertilizable {
+public class NetherrackSlabBlock extends AtbywSlabBlock implements Fertilizable {
 
     public NetherrackSlabBlock(Settings settings) {
         super(settings);
