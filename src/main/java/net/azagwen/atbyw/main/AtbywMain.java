@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 import net.azagwen.atbyw.block.entity.AtbywBlockEntityTypes;
 import net.azagwen.atbyw.block.registry.AtbywBlocks;
 import net.azagwen.atbyw.block.registry.containers.ItemTabContainer;
+import net.azagwen.atbyw.datagen.TagDatagen;
 import net.azagwen.atbyw.datagen.loot.BlockLootRegistry;
 import net.azagwen.atbyw.datagen.recipe.registry.RecipeRegistry;
 import net.azagwen.atbyw.dev_tools.AutoJsonWriter;
@@ -45,10 +46,10 @@ public class AtbywMain implements ModInitializer {
 	public static final String ATBYW_MI = "atbyw_mi";
 	//Item group and its Sub-tabs
 	public static ItemGroup ATBYW_GROUP;
-	public static ItemTabContainer BLOCKS_TAB = new ItemTabContainer();
-	public static ItemTabContainer DECO_TAB = new ItemTabContainer();
-	public static ItemTabContainer REDSTONE_TAB = new ItemTabContainer();
-	public static ItemTabContainer MISC_TAB = new ItemTabContainer();
+	public static ItemTabContainer BLOCKS_TAB = new ItemTabContainer("blocks_tab");
+	public static ItemTabContainer DECO_TAB = new ItemTabContainer("decoration_tab");
+	public static ItemTabContainer REDSTONE_TAB = new ItemTabContainer("redstone_tab");
+	public static ItemTabContainer MISC_TAB = new ItemTabContainer("misc_tab");
 	//Debug fields (used only for client-side debug features)
 	public static final Map<String, Boolean> DEBUG_FEATURES = Maps.newHashMap();
 	public static List<BlockState> BLOCK_STATES = Lists.newArrayList();	//List of blocks to populate the debug world
@@ -139,21 +140,7 @@ public class AtbywMain implements ModInitializer {
 			D_LOGGER.info("ATBYW Debug world replacement enabled.");
 		}
 
-		BiConsumer<String, Tag<Block>> consumer = (string, blockTag) -> {
-			LOGGER.warn(string);
-			for (var block : blockTag.values()) {
-				if (AtbywUtils.getId(block).getNamespace().equals(ATBYW)) {
-					LOGGER.info(block);
-				}
-			}
-		};
-
-		ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
-//			consumer.accept("AXE MINEABLES", BlockTags.AXE_MINEABLE);
-//			consumer.accept("HOE MINEABLES", BlockTags.HOE_MINEABLE);
-//			consumer.accept("PICKAXE MINEABLES", BlockTags.PICKAXE_MINEABLE);
-//			consumer.accept("SHOVEL MINEABLES", BlockTags.SHOVEL_MINEABLE);
-		});
+		ServerLifecycleEvents.SERVER_STARTED.register((server) -> TagDatagen.printAppendLogs());
 
 		ATBYW_GROUP = new AtbywItemGroup(AtbywMain.id("atbyw"));
 

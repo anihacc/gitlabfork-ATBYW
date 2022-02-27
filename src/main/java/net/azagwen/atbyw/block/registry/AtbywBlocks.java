@@ -20,13 +20,13 @@ import static net.azagwen.atbyw.main.AtbywMain.*;
 import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
 
 public class AtbywBlocks {
-    public static final RequiredToolContainer AXE_MINEABLE = new RequiredToolContainer();
-    public static final RequiredToolContainer HOE_MINEABLE = new RequiredToolContainer();
-    public static final RequiredToolContainer PICKAXE_MINEABLE = new RequiredToolContainer();
-    public static final RequiredToolContainer SHOVEL_MINEABLE = new RequiredToolContainer();
-    public static final MiningLevelContainer NEEDS_STONE_TOOL = new MiningLevelContainer();
-    public static final MiningLevelContainer NEEDS_IRON_TOOL = new MiningLevelContainer();
-    public static final MiningLevelContainer NEEDS_DIAMOND_TOOL = new MiningLevelContainer();
+    public static final RequiredToolContainer AXE_MINEABLE = new RequiredToolContainer("axe_mineable");
+    public static final RequiredToolContainer HOE_MINEABLE = new RequiredToolContainer("hoe_mineable");
+    public static final RequiredToolContainer PICKAXE_MINEABLE = new RequiredToolContainer("pickaxe_mineable");
+    public static final RequiredToolContainer SHOVEL_MINEABLE = new RequiredToolContainer("shovel_mineable");
+    public static final MiningLevelContainer NEEDS_STONE_TOOL = new MiningLevelContainer("needs_stone_tool");
+    public static final MiningLevelContainer NEEDS_IRON_TOOL = new MiningLevelContainer("needs_iron_tool");
+    public static final MiningLevelContainer NEEDS_DIAMOND_TOOL = new MiningLevelContainer("needs_diamond_tool");
 
     public static final Block DEVELOPER_BLOCK = new DevBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).nonOpaque().breakByHand(true).strength(0.1F).sounds(BlockSoundGroup.BONE));
     public static final Block SHROOMSTICK = new ShroomStickBlock(FabricBlockSettings.of(AtbywMaterials.SHROOMSTICK).breakByHand(true).breakInstantly().noCollision().nonOpaque().luminance((state) -> 15));

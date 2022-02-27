@@ -4,12 +4,14 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 
-import java.util.ArrayList;
-
 /**
  * Safe-typing class for storing a list of {@link Item}s
  */
-public class AtbywItemContainer extends ArrayList<Item> {
+public class AtbywItemContainer extends AtbywContainer<Item> {
+
+    public AtbywItemContainer(String name) {
+        super(name, "item");
+    }
 
     public void add(ItemConvertible itemConvertible) {
         if (itemConvertible.asItem() != null) {
@@ -18,7 +20,7 @@ public class AtbywItemContainer extends ArrayList<Item> {
     }
 
     public AtbywBlockContainer getAsBlockContainer() {
-        var container = new AtbywBlockContainer();
+        var container = new AtbywBlockContainer(this.name);
         for (var item : this) {
             if (item instanceof BlockItem blockItem){
                 container.add(blockItem);

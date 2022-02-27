@@ -8,13 +8,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
 public class NyliumSlabBlock extends AtbywSlabBlock {
-    public static final AtbywBlockContainer NYLIUM_SLABS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer NYLIUM_SLABS = new AtbywBlockContainer("nylium_slabs");
 
     public NyliumSlabBlock(Settings settings) {
         super(settings);

@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class AtbywStairsBlock extends StairsBlock {
-    public static final AtbywBlockContainer ATBYW_STAIRS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer ATBYW_STAIRS = new AtbywBlockContainer("atbyw_stairs");
 
     public AtbywStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock.getDefaultState(), settings);

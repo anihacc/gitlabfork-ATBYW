@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 public class AtbywLadderBlock extends LadderBlock {
-    public static final AtbywBlockContainer ATBYW_LADDERS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer ATBYW_LADDERS = new AtbywBlockContainer("atbyw_ladders");
 
     public AtbywLadderBlock(Settings settings) {
         super(settings);

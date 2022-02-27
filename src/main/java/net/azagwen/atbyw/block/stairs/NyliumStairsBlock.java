@@ -13,7 +13,7 @@ import net.minecraft.world.WorldView;
 import java.util.Random;
 
 public class NyliumStairsBlock extends AtbywStairsBlock {
-    public static final AtbywBlockContainer NYLIUM_STAIRS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer NYLIUM_STAIRS = new AtbywBlockContainer("nylium_stairs");
 
     public NyliumStairsBlock(Block copiedBlock, Settings settings) {
         super(copiedBlock, settings);

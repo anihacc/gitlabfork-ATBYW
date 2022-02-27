@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class AtbywSlabBlock extends SlabBlock {
-    public static final AtbywBlockContainer ATBYW_SLABS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer ATBYW_SLABS = new AtbywBlockContainer("atbyw_slabs");
 
     public AtbywSlabBlock(Settings settings) {
         super(settings);

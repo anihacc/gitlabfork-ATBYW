@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class AtbywWallBlock extends WallBlock {
-    public static final AtbywBlockContainer ATBYW_WALLS = new AtbywBlockContainer();
+    public static final AtbywBlockContainer ATBYW_WALLS = new AtbywBlockContainer("atbyw_walls");
     public static final BooleanProperty POST_SLAB;
     private static final VoxelShape POST_SHAPE;
     private static final DirectionalShape LOW_SHAPE;
