@@ -6,6 +6,14 @@
 
   "block.atbyw.dev_block": "Aza Block",
 
+  "block.atbyw.dripstone_bricks": "Dripstone Bricks",
+  "block.atbyw.dripstone_bricks_stairs": "Dripstone Bricks Stairs",
+  "block.atbyw.dripstone_bricks_slab": "Dripstone Bricks Slab",
+
+  "block.atbyw.amethyst_bricks": "Amethyst Bricks",
+  "block.atbyw.amethyst_bricks_stairs": "Amethyst Bricks Stairs",
+  "block.atbyw.amethyst_bricks_slab": "Amethyst Bricks Slab",
+
   "block.atbyw.iron_ladder": "Iron Ladder",
 
   "block.atbyw.raw_cactus_planks": "Raw Cactus Planks",

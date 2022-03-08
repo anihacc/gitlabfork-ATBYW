@@ -1,0 +1,11 @@
+{
+    "parent": "atbyw:block/template_enhanced_pillar_south",
+    "textures": {
+        "particle": "atbyw:block/dripstone_bricks_top",
+        "top": "atbyw:block/dripstone_bricks_top",
+        "side_0": "atbyw:block/dripstone_bricks",
+        "side_90": "atbyw:block/dripstone_bricks_90cw",
+        "side_180": "atbyw:block/dripstone_bricks_180cw",
+        "side_270": "atbyw:block/dripstone_bricks_270cw"
+    }
+}

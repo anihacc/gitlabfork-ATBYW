@@ -1,0 +1,104 @@
+{
+    "variants": [
+        "oak",
+        "birch",
+        "spruce",
+        "jungle",
+        "acacia",
+        "dark_oak",
+        "crimson",
+        "warped"
+    ],
+    "rules": [
+        {
+            "apply": {
+                "set": {"model": "atbyw:block/stairs/acacia"}
+            }
+        },
+        {
+            "when": {"shape": "straight"},
+            "apply": {
+                "append": {"model": "_log_stairs"}
+            }
+        },
+        {
+            "when": {"shape": ["inner_right", "inner_left"]},
+            "apply": {
+                "append": {"model": "_log_stairs_inner"}
+            }
+        },
+        {
+            "when": {"shape": ["outer_right", "outer_left"]},
+            "apply": {
+                "append": {"model": "_log_stairs_outer"}
+            }
+        },
+        {
+            "when": {"facing": "north"},
+            "apply": {
+                "set": {"y": 270}
+            }
+        },
+        {
+            "when": {"facing": "east"},
+            "apply": {
+                "set": {"y": 0}
+            }
+        },
+        {
+            "when": {"facing": "south"},
+            "apply": {
+                "set": {"y": 90}
+            }
+        },
+        {
+            "when": {"facing": "west"},
+            "apply": {
+                "set": {"y": 180}
+            }
+        },
+        {
+            "when": {"half": "bottom"},
+            "apply": {
+                "set": {"x": 0}
+            }
+        },
+        {
+            "when": {"half": "top"},
+            "apply": {
+                "shift": {"y": 90},
+                "set": {"x": 180}
+            }
+        },
+        {
+            "when": {"half": "top", "shape": "straight"},
+            "apply": {
+                "shift": {"y": -90}
+            }
+        },
+        {
+            "when": {"shape": ["outer_left", "inner_left"]},
+            "apply": {
+                "shift": {"y": -90}
+            }
+        },
+        {
+            "when": {"axis": "x"},
+            "apply": {
+                "append": {"model": "_h_x"}
+            }
+        },
+        {
+            "when": {"axis": "y"},
+            "apply": {
+                "set": {"uvlock": true}
+            }
+        },
+        {
+            "when": {"axis": "z"},
+            "apply": {
+                "append": {"model": "_h_z"}
+            }
+        }
+    ]
+}

@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "atbyw:block/dripstone_bricks"
+    "facing=east": {
+      "model": "atbyw:block/dripstone_bricks_east"
+    },
+    "facing=west": {
+      "model": "atbyw:block/dripstone_bricks_west"
+    },
+    "facing=up": {
+      "model": "atbyw:block/dripstone_bricks_up"
+    },
+    "facing=down": {
+      "model": "atbyw:block/dripstone_bricks_down"
+    },
+    "facing=north": {
+      "model": "atbyw:block/dripstone_bricks_north"
+    },
+    "facing=south": {
+      "model": "atbyw:block/dripstone_bricks_south"
     }
   }
 }

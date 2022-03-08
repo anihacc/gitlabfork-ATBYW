@@ -1,9 +1,8 @@
 package net.azagwen.atbyw.block.registry;
 
-import com.google.common.collect.Lists;
 import net.azagwen.atbyw.block.*;
-import net.azagwen.atbyw.block.registry.containers.MiningLevelContainer;
-import net.azagwen.atbyw.block.registry.containers.RequiredToolContainer;
+import net.azagwen.atbyw.containers.MiningLevelContainer;
+import net.azagwen.atbyw.containers.RequiredToolContainer;
 import net.azagwen.atbyw.main.AtbywMain;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -16,8 +15,9 @@ import net.minecraft.world.BlockView;
 
 import java.util.function.ToIntFunction;
 
+import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.BLOCK_NUMBER;
+import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.registerBlock;
 import static net.azagwen.atbyw.main.AtbywMain.*;
-import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
 
 public class AtbywBlocks {
     public static final RequiredToolContainer AXE_MINEABLE = new RequiredToolContainer("axe_mineable");
@@ -77,7 +77,7 @@ public class AtbywBlocks {
         registerBlock(MISC_TAB, "ctm_debug_block", CTM_DEBUG_BLOCK);
 
         //Item-less blocks
-        BlockRegistryUtils.registerBlock("shroomstick", SHROOMSTICK);
+        registerBlock("shroomstick", SHROOMSTICK);
 
         LOGGER.info("ATBYW Blocks Initialized ({} Blocks registered)", BLOCK_NUMBER);
     }
@@ -89,6 +89,10 @@ public class AtbywBlocks {
 //TODO: Port Atbyw Mod Interaction recipes to datagen (Update: no need, Mod interactions cancelled)
 
 //Ideas
+//? DONE: Add Iron ladder that can be deployed downwards using redstone (Update: Done, might needs proof-testing)
+//? DONE: Add Amethyst bricks
+//? WIP: Add Amethyst Walls/Fences
+
 //TODO: STATUES Add Bipedal Statues
 //TODO: STATUES Add signing fish function.
 //TODO: STATUES Make slime statues combine-able.
@@ -99,12 +103,9 @@ public class AtbywBlocks {
 //TODO: Add chairs ?
 //TODO: Add step detectors.
 //TODO: Add a chain hook that you can hook items and blocks to.
-//TODO: Add Iron ladder that can be deployed downwards using redstone (Update: Done, might needs proof-testing)
 //TODO: Add carpets that connect together in patterns
 //TODO: Add more blocks exploiting connected textures
 //TODO: Add smooth variants of Deepslathe, Granite, Diorite, Andesite, Tuff...
-//TODO: Add Amethyst bricks
-//TODO: Add Amethyst Walls/Fences
 //TODO: Add Cactus Planks & assorted stuff (Update: WIP)
 //TODO: Add Stone melter furnace
 //TODO: Add string curtains for doorways

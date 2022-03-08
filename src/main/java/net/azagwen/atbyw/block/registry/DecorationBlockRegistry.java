@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static net.azagwen.atbyw.block.registry.BlockRegistryUtils.*;
+import static net.azagwen.atbyw.main.AtbywMain.BLOCKS_TAB;
 import static net.azagwen.atbyw.main.AtbywMain.DECO_TAB;
 
 public class DecorationBlockRegistry extends AtbywBlocks {
@@ -97,6 +98,10 @@ public class DecorationBlockRegistry extends AtbywBlocks {
     public static final Block GREEN_CINDER_BLOCKS_WALL = new CinderBlocksWallBlock(CINDER_BLOCKS_WALL_MAP, DyeColor.GREEN, FabricBlockSettings.copyOf(Blocks.GREEN_CONCRETE).requiresTool());
     public static final Block RED_CINDER_BLOCKS_WALL = new CinderBlocksWallBlock(CINDER_BLOCKS_WALL_MAP, DyeColor.RED, FabricBlockSettings.copyOf(Blocks.RED_CONCRETE).requiresTool());
     public static final Block BLACK_CINDER_BLOCKS_WALL = new CinderBlocksWallBlock(CINDER_BLOCKS_WALL_MAP, DyeColor.BLACK, FabricBlockSettings.copyOf(Blocks.BLACK_CONCRETE).requiresTool());
+    public static final Block AMETHYST_BRICKS_WALL = new Block(FabricBlockSettings.copyOf(BuildingBlockRegistry.AMETHYST_BRICKS).requiresTool());
+    public static final Block DRIPSTONE_BRICKS_WALL = new Block(FabricBlockSettings.copyOf(BuildingBlockRegistry.DRIPSTONE_BRICKS).requiresTool());
+
+    public static final Block TEST_MINI_BLOCK = new MiniBlock(FabricBlockSettings.of(Material.STONE));
 
     private static CanvasBlock createCanvasBlock(boolean glowing) {
         return new CanvasBlock(glowing, FabricBlockSettings.of(Material.WOOL).strength(0.5F).sounds(BlockSoundGroup.WOOL));
@@ -121,6 +126,7 @@ public class DecorationBlockRegistry extends AtbywBlocks {
     }
 
     public static void registerAll() {
+        registerBlock(DECO_TAB, "mini_block", TEST_MINI_BLOCK);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "tinting_table", TINTING_TABLE);
         registerCanvasBlock(DECO_TAB, "canvas_block", CANVAS_BLOCK);
         registerCanvasBlock(DECO_TAB, "glowing_canvas_block", GLOWING_CANVAS_BLOCK);
@@ -147,6 +153,8 @@ public class DecorationBlockRegistry extends AtbywBlocks {
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "prismarine_column", PRISMARINE_COLUMN);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "blackstone_column", BLACKSTONE_COLUMN);
         registerBlock(AXE_MINEABLE, "acacia_railing", ACACIA_RAILING);
+        registerBlock(DECO_TAB, PICKAXE_MINEABLE, "dripstone_bricks_wall", DRIPSTONE_BRICKS_WALL);
+        registerBlock(DECO_TAB, PICKAXE_MINEABLE, "amethyst_bricks_wall", AMETHYST_BRICKS_WALL);
         registerBlock(DECO_TAB, PICKAXE_MINEABLE, "terracotta_bricks_wall", TERRACOTTA_BRICKS_WALL);
         registerColoredBlocks(DECO_TAB, PICKAXE_MINEABLE, "terracotta_bricks_wall", TERRACOTTA_BRICKS_WALL_MAP);
         registerColoredBlocks(DECO_TAB, PICKAXE_MINEABLE, "cinder_blocks_wall", CINDER_BLOCKS_WALL_MAP);

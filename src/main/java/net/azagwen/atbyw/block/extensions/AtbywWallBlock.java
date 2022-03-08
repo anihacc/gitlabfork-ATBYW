@@ -1,7 +1,7 @@
 package net.azagwen.atbyw.block.extensions;
 
 import com.google.common.collect.ImmutableMap;
-import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
+import net.azagwen.atbyw.containers.AtbywBlockContainer;
 import net.azagwen.atbyw.block.shape.DirectionalShape;
 import net.azagwen.atbyw.block.state.AtbywProperties;
 import net.minecraft.block.Block;

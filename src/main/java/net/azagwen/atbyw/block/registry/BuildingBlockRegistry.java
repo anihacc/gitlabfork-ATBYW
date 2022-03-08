@@ -302,17 +302,14 @@ public class BuildingBlockRegistry extends AtbywBlocks {
     public static final Block GREEN_CINDER_BLOCKS = new AtbywPillarBlock(CINDER_BRICKS_MAP, DyeColor.GREEN, FabricBlockSettings.copyOf(Blocks.GREEN_CONCRETE).requiresTool());
     public static final Block RED_CINDER_BLOCKS = new AtbywPillarBlock(CINDER_BRICKS_MAP, DyeColor.RED, FabricBlockSettings.copyOf(Blocks.RED_CONCRETE).requiresTool());
     public static final Block BLACK_CINDER_BLOCKS = new AtbywPillarBlock(CINDER_BRICKS_MAP, DyeColor.BLACK, FabricBlockSettings.copyOf(Blocks.BLACK_CONCRETE).requiresTool());
-
     public static final Block AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool());
-    public static final Block AMETHYST_BRICKS_SLAB = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool());
-    public static final Block AMETHYST_BRICKS_STAIRS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool());
-    public static final Block CHISELED_AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool());
-    public static final Block AMETHYST_WALL = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK).requiresTool());
-
-    public static final Block DRIPSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool());
+    public static final Block AMETHYST_BRICKS_SLAB = new Block(FabricBlockSettings.copyOf(AMETHYST_BRICKS).requiresTool());
+    public static final Block AMETHYST_BRICKS_STAIRS = new Block(FabricBlockSettings.copyOf(AMETHYST_BRICKS).requiresTool());
+    public static final Block CHISELED_AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(AMETHYST_BRICKS).requiresTool());
+    public static final Block DRIPSTONE_BRICKS = new SurfaceFacingBlock(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK).requiresTool());
     public static final Block DRIPSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(DRIPSTONE_BRICKS).requiresTool());
     public static final Block DRIPSTONE_BRICKS_STAIRS = new AtbywStairsBlock(DRIPSTONE_BRICKS, FabricBlockSettings.copyOf(DRIPSTONE_BRICKS).requiresTool());
-    public static final Block DRIPSTONE_BRICKS_WALL = new Block(FabricBlockSettings.copyOf(DRIPSTONE_BRICKS).requiresTool());
+    public static final Block CHISELED_DRIPSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(DRIPSTONE_BRICKS).requiresTool());
 
     private static FabricBlockSettings basaltSettings() {
         return FabricBlockSettings.of(Material.STONE, MapColor.BLACK).requiresTool().strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT);
@@ -347,9 +344,9 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "diorite_bricks_slab", DIORITE_BRICKS_SLAB);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "andesite_bricks_slab", ANDESITE_BRICKS_SLAB);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "dripstone_bricks", DRIPSTONE_BRICKS);
+        registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "chiseled_dripstone_bricks", CHISELED_DRIPSTONE_BRICKS);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "dripstone_bricks_slab", DRIPSTONE_BRICKS_SLAB);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "dripstone_bricks_stairs", DRIPSTONE_BRICKS_STAIRS);
-        registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "dripstone_bricks_wall", DRIPSTONE_BRICKS_WALL);
         registerBlock(BLOCKS_TAB, AXE_MINEABLE, "raw_cactus_planks", RAW_CACTUS_PLANKS);
         registerBlock(BLOCKS_TAB, AXE_MINEABLE, "cactus_planks", CACTUS_PLANKS);
         registerBlock(BLOCKS_TAB, AXE_MINEABLE, "cactus_slab", CACTUS_SLAB);
@@ -381,10 +378,9 @@ public class BuildingBlockRegistry extends AtbywBlocks {
         registerBlock(BLOCKS_TAB, SHOVEL_MINEABLE, "red_sand_slab", RED_SAND_SLAB);
         registerBlock(BLOCKS_TAB, SHOVEL_MINEABLE, "gravel_slab", GRAVEL_SLAB);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "amethyst_bricks", AMETHYST_BRICKS);
+        registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "chiseled_amethyst_bricks", CHISELED_AMETHYST_BRICKS);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "amethyst_bricks_slab", AMETHYST_BRICKS_SLAB);
         registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "amethyst_bricks_stairs", AMETHYST_BRICKS_STAIRS);
-        registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "chiseled_amethyst_bricks", CHISELED_AMETHYST_BRICKS);
-        registerBlock(BLOCKS_TAB, PICKAXE_MINEABLE, "amethyst_wall", AMETHYST_WALL);
         registerColoredBlocks(BLOCKS_TAB, AXE_MINEABLE, (str) -> getLogName(str) + "_stairs", LOG_STAIRS_MAP);
         registerColoredBlocks(BLOCKS_TAB, AXE_MINEABLE, "stripped", (str) -> getLogName(str) + "_stairs", STRIPPED_LOG_STAIRS_MAP);
         registerColoredBlocks(BLOCKS_TAB, AXE_MINEABLE, (str) -> getLogName(str) + "_slab", LOG_SLAB_MAP);

@@ -1,0 +1,18 @@
+{
+    "parent": "minecraft:block/block",
+    "elements": [
+        {
+            "name": "west",
+            "from": [0, 0, 0],
+            "to": [16, 16, 16],
+            "faces": {
+                "north": {"uv": [0, 0, 16, 16], "texture": "#side_270"},
+                "east": {"uv": [0, 0, 16, 16], "texture": "#top"},
+                "south": {"uv": [0, 0, 16, 16], "texture": "#side_90"},
+                "west": {"uv": [0, 0, 16, 16], "texture": "#top"},
+                "up": {"uv": [0, 0, 16, 16], "texture": "#side_90"},
+                "down": {"uv": [0, 0, 16, 16], "texture": "#side_90"}
+            }
+        }
+    ]
+}

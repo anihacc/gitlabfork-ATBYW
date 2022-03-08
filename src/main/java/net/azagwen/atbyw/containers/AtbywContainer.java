@@ -1,4 +1,4 @@
-package net.azagwen.atbyw.block.registry.containers;
+package net.azagwen.atbyw.containers;
 
 import java.util.ArrayList;
 

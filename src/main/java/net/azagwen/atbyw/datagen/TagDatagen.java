@@ -1,7 +1,7 @@
 package net.azagwen.atbyw.datagen;
 
 import com.google.common.collect.Maps;
-import net.azagwen.atbyw.block.registry.containers.AtbywContainer;
+import net.azagwen.atbyw.containers.AtbywContainer;
 import net.azagwen.atbyw.main.AtbywMain;
 import net.azagwen.atbyw.util.AtbywUtils;
 import net.minecraft.block.Block;
@@ -42,14 +42,14 @@ public class TagDatagen {
     }
 
     public static String buildLogMessage(String type, int count) {
-        var message = "Added {} additional %1s%2s to {}";
-        return message.replace("%1s", type).replace("%2s", count > 1 ? "s" : "");
+        var message = "Added %1s additional %2s%3s to {}";
+        return message.replace("%1s", String.valueOf(count)).replace("%2s", type).replace("%3s", count > 1 ? "s" : "");
     }
 
     public static void printAppendLogs() {
         TagDatagen.APPEND_TRACKER.forEach((container, identifier) -> {
             if (container.size() > 0){
-                AtbywMain.LOGGER.info(TagDatagen.buildLogMessage(container.type, container.size()), container.size(), identifier);
+                AtbywMain.LOGGER.info(TagDatagen.buildLogMessage(container.type, container.size()), identifier);
             }
         });
     }

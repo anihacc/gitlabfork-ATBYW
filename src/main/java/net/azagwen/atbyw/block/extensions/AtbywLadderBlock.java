@@ -1,6 +1,6 @@
 package net.azagwen.atbyw.block.extensions;
 
-import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
+import net.azagwen.atbyw.containers.AtbywBlockContainer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LadderBlock;

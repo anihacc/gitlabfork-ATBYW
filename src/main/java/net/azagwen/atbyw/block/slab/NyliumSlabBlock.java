@@ -3,7 +3,7 @@ package net.azagwen.atbyw.block.slab;
 import net.azagwen.atbyw.block.Utils;
 import net.azagwen.atbyw.block.extensions.AtbywSlabBlock;
 import net.azagwen.atbyw.block.registry.BuildingBlockRegistry;
-import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
+import net.azagwen.atbyw.containers.AtbywBlockContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;

@@ -1,9 +1,9 @@
 package net.azagwen.atbyw.block.registry;
 
-import net.azagwen.atbyw.block.registry.containers.AtbywBlockContainer;
-import net.azagwen.atbyw.block.registry.containers.ItemTabContainer;
-import net.azagwen.atbyw.block.registry.containers.MiningLevelContainer;
-import net.azagwen.atbyw.block.registry.containers.RequiredToolContainer;
+import net.azagwen.atbyw.containers.AtbywBlockContainer;
+import net.azagwen.atbyw.containers.ItemTabContainer;
+import net.azagwen.atbyw.containers.MiningLevelContainer;
+import net.azagwen.atbyw.containers.RequiredToolContainer;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
