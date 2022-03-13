@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.registry.Registry;
@@ -86,14 +87,16 @@ public record AtbywUtils() {
     public static JsonObject jsonObject(Pair<String, Object>... elements) {
         var object = new JsonObject();
         for (var element : elements) {
-            if (element.getSecond() instanceof Number)
-                object.addProperty(element.getFirst(), (Number) element.getSecond());
-            else if (element.getSecond() instanceof Boolean)
-                object.addProperty(element.getFirst(), (Boolean) element.getSecond());
-            else if (element.getSecond() instanceof Character)
-                object.addProperty(element.getFirst(), (Character) element.getSecond());
-            else if (element.getSecond() instanceof JsonElement)
-                object.add(element.getFirst(), (JsonElement) element.getSecond());
+            if (element.getSecond() instanceof Number number)
+                object.addProperty(element.getFirst(), number);
+            else if (element.getSecond() instanceof Boolean bool)
+                object.addProperty(element.getFirst(), bool);
+            else if (element.getSecond() instanceof Character character)
+                object.addProperty(element.getFirst(), character);
+            else if (element.getSecond() instanceof List<?> list)
+                object.add(element.getFirst(), jsonArray(list.toArray()));
+            else if (element.getSecond() instanceof JsonElement jsonElement)
+                object.add(element.getFirst(), jsonElement);
             else
                 object.addProperty(element.getFirst(), String.valueOf(element.getSecond()));
         }

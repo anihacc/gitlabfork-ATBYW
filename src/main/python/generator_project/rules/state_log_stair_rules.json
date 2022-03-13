@@ -1,36 +1,41 @@
 {
+    "type": "blockstate_variant",
+    "names": {
+        "<variant>_stairs": "",
+        "<prefix><variant>_stairs": "stripped"
+    },
     "variants": [
-        "oak",
-        "birch",
-        "spruce",
-        "jungle",
-        "acacia",
-        "dark_oak",
-        "crimson",
-        "warped"
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
     ],
     "rules": [
         {
             "apply": {
-                "set": {"model": "atbyw:block/stairs/acacia"}
+                "set": {"model": "atbyw:block/stairs/<prefix><variant>"}
             }
         },
         {
             "when": {"shape": "straight"},
             "apply": {
-                "append": {"model": "_log_stairs"}
+                "append": {"model": "_stairs"}
             }
         },
         {
             "when": {"shape": ["inner_right", "inner_left"]},
             "apply": {
-                "append": {"model": "_log_stairs_inner"}
+                "append": {"model": "_stairs_inner"}
             }
         },
         {
             "when": {"shape": ["outer_right", "outer_left"]},
             "apply": {
-                "append": {"model": "_log_stairs_outer"}
+                "append": {"model": "_stairs_outer"}
             }
         },
         {
@@ -85,7 +90,7 @@
         {
             "when": {"axis": "x"},
             "apply": {
-                "append": {"model": "_h_x"}
+                "append": {"model": "_h_z"}
             }
         },
         {
@@ -98,6 +103,46 @@
             "when": {"axis": "z"},
             "apply": {
                 "append": {"model": "_h_z"}
+            }
+        },
+        {
+            "when": {"shape": ["outer_right", "inner_right", "straight"]},
+            "apply": {
+                "swap": {
+                    "model": {
+                        "_h_z": "_h_x"
+                    }
+                }
+            }
+        },
+        {
+            "when": {"half": "top", "shape": ["outer_right", "inner_right", "outer_left", "inner_left"]},
+            "apply": {
+                "swap": {
+                    "model": {
+                        "_h_z": "_h_x"
+                    }
+                }
+            }
+        },
+        {
+            "when": {"axis": "x", "facing": ["north", "south"]},
+            "apply": {
+                "swap": {
+                    "model": {
+                        "_h_z": "_h_x"
+                    }
+                }
+            }
+        },
+        {
+            "when": {"axis": "z", "facing": ["east", "west"]},
+            "apply": {
+                "swap": {
+                    "model": {
+                        "_h_z": "_h_x"
+                    }
+                }
             }
         }
     ]

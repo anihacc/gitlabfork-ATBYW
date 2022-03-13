@@ -79,6 +79,7 @@ public class AtbywItems {
     public static final Item RED_STAINED_GLASS_SHARD = new Item(createSimpleItem());
     public static final Item BLACK_STAINED_GLASS_SHARD = new Item(createSimpleItem());
     public static final Item COLORIZER = new ColorizerItem(createSimpleItem());
+    public static final Item ATBYW_DEBUG_STICK = new AtbywDebugStick(createSimpleItem());
 
     public static void init() {
         registerItem(DECO_TAB, "shroomstick", SHROOMSTICK);
@@ -94,6 +95,7 @@ public class AtbywItems {
         registerItem(MISC_TAB, "large_chain_link", LARGE_CHAIN_LINK);
         registerItem(MISC_TAB, "glass_shard", GLASS_SHARD);
         registerItems(MISC_TAB, "stained_glass_shard", AtbywUtils.dyeColorNames(), WHITE_STAINED_GLASS_SHARD, ORANGE_STAINED_GLASS_SHARD, MAGENTA_STAINED_GLASS_SHARD, LIGHT_BLUE_STAINED_GLASS_SHARD, YELLOW_STAINED_GLASS_SHARD, LIME_STAINED_GLASS_SHARD, PINK_STAINED_GLASS_SHARD, GRAY_STAINED_GLASS_SHARD, LIGHT_GRAY_STAINED_GLASS_SHARD, CYAN_STAINED_GLASS_SHARD, PURPLE_STAINED_GLASS_SHARD, BLUE_STAINED_GLASS_SHARD, BROWN_STAINED_GLASS_SHARD, GREEN_STAINED_GLASS_SHARD, RED_STAINED_GLASS_SHARD, BLACK_STAINED_GLASS_SHARD);
+        registerItem(MISC_TAB, "atbyw_debug_stick", ATBYW_DEBUG_STICK);
 
         LOGGER.info("ATBYW Items Inintiliazed");
     }

@@ -1,8 +1,8 @@
 import json
 
-from argparse import ArgumentParser
 from pathlib import Path
 from itertools import product
+from utils import append_underscore_if_not_empty
 
 
 # Builds a dictionary representing all possible blockstate permutations based on the rules file provided
@@ -44,12 +44,41 @@ op_map = {
     "set": (lambda i, n: n),
     "append": (lambda i, n: f"{i}{n}"),
     "shift": (lambda i, n: i + n),
-    "multiply": (lambda i, n: i * n)
+    "multiply": (lambda i, n: i * n),
+    "replace": (lambda i, n: replace_op(i, n)),
+    "swap": (lambda i, n: swap_op(i, n)),
 }
 
 
+def replace_op(old: str, replacements: dict) -> str:
+    new_str = old
+    for k, v in replacements.items():
+        new_str = new_str.replace(k, v)
+    return new_str
+
+
+def swap_op(old: str, replacements: dict) -> str:
+    new_str = old
+    for k, v in replacements.items():
+        if k in new_str:
+            new_str = new_str.replace(k, v)
+        elif v in new_str:
+            new_str = new_str.replace(v, k)
+    return new_str
+
+
+# replaces every instance of <variant> within the input string
+def replace_variant(string, variant: str) -> str:
+    if isinstance(string, str):
+        new_str = string
+        new_str.replace("<variant>", variant)
+        return new_str
+    else:
+        return string
+
+
 # Apply a rule to a specified permutation's blockstate
-def apply_rule(rule: dict, permutation: dict, blockstate: dict, variant: str) -> dict:
+def apply_rule(rule: dict, permutation: dict, blockstate: dict) -> dict:
     # Return early if the rule should not be applied to this permutation
     if not check_rule(rule, permutation):
         return blockstate
@@ -72,59 +101,61 @@ def generate_key(attributes: dict) -> str:
 
 
 # Entrypoint for the program, making sure the file itself was run directly
-if __name__ == "__main__":
-    # Parse any arguments from the command line for later use
-    parser = ArgumentParser(
-        description="Automatically generate game models for ATBYW-style blocks"
-    )
-    parser.add_argument(
-        '-r', '--rules', 
-        help="The rules file (json formatted) to base variant blockstate generation on",
-        required=True,
-        type=Path
-    )
-    parser.add_argument(
-        '-o', '--output', 
-        help="Where the resulting file should be placed",
-        default="out.json",
-        type=Path
-    )
-    args = parser.parse_args()
-    
+def run(rules: Path, output: Path):
     # Load the contents of the JSON file into memory
-    data = json.load(open(args.rules))
+    data = json.load(open(rules))
     rules = data["rules"]
     variants = data["variants"]
+    names = data["names"]
     del data
 
     for variant in variants:
         # Generate the list of unique values, representing all blockstate permutations
         perm_dict = collect_permutations(rules)
         perm_keys = perm_dict.keys()
+
         # Iterate through all valid permutations, applying the rules to each of them in turn
         blockstate_dict = dict()
-        for p in product(*perm_dict.values()):
-            # Generate the attribute dictionary for ease of use
-            attrib_dict = dict()
-            for i, k in enumerate(perm_keys):
-                attrib_dict[k] = p[i]
 
-            # Initialize the blockstate dictionary
-            blockstate_val = dict()
+        # replace variant keywords with the desired data
+        set_variant = (lambda s: s.replace("<variant>", variant))
 
-            # Apply each of the rules in the rules file to the blockstate
-            for r in rules:
-                blockstate_val = apply_rule(r, attrib_dict, blockstate_val, variant)
+        for name, prefix in names.items():
+            # replace prefix keywords with the desired data
+            set_prefix = (lambda n: n.replace("<prefix>", append_underscore_if_not_empty(prefix)))
 
-            # Generate the key for the blockstate generated prior
-            blockstate_key = generate_key(attrib_dict)
+            # replace all keywords with desired data
+            set_keywords = (lambda n: set_variant(set_prefix(n)))
 
-            # Add the new blockstate to the blockstate dictionary
-            blockstate_dict[blockstate_key] = blockstate_val
+            for p in product(*perm_dict.values()):
+                # Generate the attribute dictionary for ease of use
+                attrib_dict = dict()
+                for i, v in enumerate(perm_keys):
+                    attrib_dict[v] = p[i]
 
-        # Create the dictionary we intend to serialize into JSON
-        final_dict = {"variants": blockstate_dict}
-    
-        # Serialize the data into JSON form
-        final_json = json.dump(final_dict, indent=2, fp=open(f"{variant}_{args.output}", 'w'))
+                # Initialize the blockstate dictionary
+                blockstate_val = dict()
 
+                # Apply each of the rules in the rules file to the blockstate
+                for r in rules:
+                    blockstate_val = apply_rule(r, attrib_dict, blockstate_val)
+
+                # Generate the key for the blockstate generated prior
+                blockstate_key = generate_key(attrib_dict)
+
+                # Add the new blockstate to the blockstate dictionary
+                blockstate_val["model"] = set_keywords(blockstate_val["model"])
+                blockstate_dict[blockstate_key] = blockstate_val
+
+            # Create the dictionary we intend to serialize into JSON
+            final_dict = {"variants": blockstate_dict}
+
+            # Serialize the data into JSON form
+            # first, set the variants and prefixes if there are any
+            new_name = set_keywords(name)
+            # build output path
+            output_path = output / "output" / f"{new_name}.json"
+            # create directories and files
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            json.dump(final_dict, indent=4, fp=open(output_path, 'w'))
+            print(f"File created: {output_path.name}")

@@ -1,0 +1,74 @@
+{
+    "type": "blockstate_multipart",
+    "names": {
+        "<variant>_slab": "",
+        "<prefix><variant>_slab": "stripped"
+    },
+    "variants": [
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
+    ],
+    "rules": [
+        {
+            "apply": {
+                "set": {"model": "atbyw:block/slab/<prefix><variant>"}
+            }
+        },
+        {
+            "when": {
+                "type": ["bottom_x", "double_tx_bx", "double_ty_bx", "double_tz_bx", "bottom_z", "double_tx_bz", "double_ty_bz", "double_tz_bz"]
+            },
+            "apply": {
+                "append": {
+                    "model": "_slab_horizontal"
+                }
+            }
+        },
+        {
+            "when": {
+                "type": ["top_x", "double_tx_bx", "double_tx_by", "double_tx_bz", "top_z", "double_tz_bx", "double_tz_by", "double_tz_bz"]
+            },
+            "apply": {
+                "append": {
+                    "model": "_slab_horizontal_top"
+                }
+            }
+        },
+        {
+            "when": {
+                "type": ["top_y", "double_ty_bx", "double_ty_by", "double_ty_bz"]
+            },
+            "apply": {
+                "append": {
+                    "model": "_slab_top"
+                }
+            }
+        },
+        {
+            "when": {
+                "type": ["bottom_y", "double_tx_by", "double_ty_by", "double_tz_by"]
+            },
+            "apply": {
+                "append": {
+                    "model": "_slab"
+                }
+            }
+        },
+        {
+            "when": {
+                "type": ["top_x", "double_tx_bx", "double_tx_by", "double_tx_bz", "bottom_x", "double_tx_bx", "double_ty_bx", "double_tz_bx"]
+            },
+            "apply": {
+                "set": {
+                    "y": 90
+                }
+            }
+        }
+    ]
+}

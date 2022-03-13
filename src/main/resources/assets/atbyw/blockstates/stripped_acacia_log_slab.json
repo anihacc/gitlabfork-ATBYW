@@ -1,40 +1,40 @@
 {
     "multipart": [
         {
-            "when": { "bottom_type": "x" },
+            "when": { "type": "bottom_x|double_bx_tx|double_bx_ty|double_bx_tz" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab_horizontal",
                 "y": 90
             }
         },
         {
-            "when": { "bottom_type": "y" },
+            "when": { "type": "bottom_y|double_by_tx|double_by_ty|double_by_tz" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab"
             }
         },
         {
-            "when": { "bottom_type": "z" },
+            "when": { "type": "bottom_z|double_bz_tx|double_bz_ty|double_bz_tz" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab_horizontal"
             }
         },
 
         {
-            "when": { "top_type": "x" },
+            "when": { "type": "top_x|double_bx_tx|double_by_tx|double_bz_tx" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab_horizontal_top",
                 "y": 90
             }
         },
         {
-            "when": { "top_type": "y" },
+            "when": { "type": "top_y|double_bx_ty|double_by_ty|double_bz_ty" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab_top"
             }
         },
         {
-            "when": { "top_type": "z" },
+            "when": { "type": "top_z|double_bx_tz|double_by_tz|double_bz_tz" },
             "apply": {
                 "model": "atbyw:block/slab/stripped_acacia_log_slab_horizontal_top"
             }

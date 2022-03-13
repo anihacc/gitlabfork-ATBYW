@@ -1,16 +1,30 @@
-# This is a sample Python script.
+import variant_generator_edited as blockstate_variant_generator
+import multipart_generator as blockstate_multipart_generator
+import os
+import json
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from pathlib import Path
+
+blockstate_variant = "blockstate_variant"
+blockstate_multipart = "blockstate_multipart"
+block_model = "model_block"
+item_model = "model_item"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def check_type(rules_file: Path, output_file: Path, expected_type: str, generator) -> bool:
+    data = json.load(open(rules_file))
+    file_type = data["type"]
+    del data
+    if file_type == expected_type:
+        generator(rules_file, output_file)
+        return True
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    output = Path(os.getcwd())
+    for rule in (Path(os.getcwd()) / "rules").glob("**/*.json"):
+        if not rule.parent.name == "disabled":
+            check_type(rule, output, blockstate_variant, blockstate_variant_generator.run)
+            check_type(rule, output, blockstate_multipart, blockstate_multipart_generator.run)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+

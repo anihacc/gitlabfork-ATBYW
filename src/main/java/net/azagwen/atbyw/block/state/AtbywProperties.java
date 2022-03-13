@@ -23,8 +23,7 @@ public class AtbywProperties extends Properties {
     public static final EnumProperty<LargeChainEnd> CONNECT_BOTTOM;
     public static final EnumProperty<LargeChainEnd> CONNECT_TOP;
     public static final BooleanProperty POST_SLAB;
-    public static final EnumProperty<PillarSlabType> BOTTOM_TYPE;
-    public static final EnumProperty<PillarSlabType> TOP_TYPE;
+    public static final EnumProperty<PillarSlabType> PILLAR_SLAB_TYPE;
     public static final BooleanProperty CENTER;
     public static final IntProperty ROLL;
     public static final DirectionProperty PANEL_FACING;
@@ -56,8 +55,7 @@ public class AtbywProperties extends Properties {
         CONNECT_BOTTOM = EnumProperty.of("connect_bottom", LargeChainEnd.class);
         CONNECT_TOP = EnumProperty.of("connect_top", LargeChainEnd.class);
         POST_SLAB = BooleanProperty.of("post_slab");
-        BOTTOM_TYPE = EnumProperty.of("bottom_type", PillarSlabType.class);
-        TOP_TYPE = EnumProperty.of("top_type", PillarSlabType.class);
+        PILLAR_SLAB_TYPE = EnumProperty.of("type", PillarSlabType.class);
         CENTER = BooleanProperty.of("center");
         ROLL = IntProperty.of("roll", 0, 3);
         PANEL_FACING = DirectionProperty.of("panel_facing", Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.UP, Direction.DOWN);
