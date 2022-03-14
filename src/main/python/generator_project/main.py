@@ -1,5 +1,5 @@
 import variant_generator_edited as blockstate_variant_generator
-import multipart_generator as blockstate_multipart_generator
+import model_child_generator as child_model_generator
 import os
 import json
 
@@ -7,8 +7,8 @@ from pathlib import Path
 
 blockstate_variant = "blockstate_variant"
 blockstate_multipart = "blockstate_multipart"
-block_model = "model_block"
-item_model = "model_item"
+block_model_template = "block_model_template"
+item_model_template = "item_model_template"
 
 
 def check_type(rules_file: Path, output_file: Path, expected_type: str, generator) -> bool:
@@ -25,6 +25,7 @@ if __name__ == '__main__':
     for rule in (Path(os.getcwd()) / "rules").glob("**/*.json"):
         if not rule.parent.name == "disabled":
             check_type(rule, output, blockstate_variant, blockstate_variant_generator.run)
-            check_type(rule, output, blockstate_multipart, blockstate_multipart_generator.run)
+            check_type(rule, output, block_model_template, (lambda r, o: child_model_generator.run(r, o, "block")))
+            check_type(rule, output, item_model_template, (lambda r, o: child_model_generator.run(r, o, "item")))
 
 

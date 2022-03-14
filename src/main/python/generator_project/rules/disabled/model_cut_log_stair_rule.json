@@ -1,0 +1,125 @@
+{
+    "type": "block_model_template",
+    "variants": [
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
+    ],
+    "models": [
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs",
+            "names": {
+                "cut_<variant>_stairs": "",
+                "<prefix>cut_<variant>_stairs": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_h_x",
+            "names": {
+                "cut_<variant>_stairs_h_x": "",
+                "<prefix>cut_<variant>_stairs_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_h_z",
+            "names": {
+                "cut_<variant>_stairs_h_z": "",
+                "<prefix>cut_<variant>_stairs_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_inner",
+            "names": {
+                "cut_<variant>_stairs_inner": "",
+                "<prefix>cut_<variant>_stairs_inner": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_inner_h_x",
+            "names": {
+                "cut_<variant>_stairs_inner_h_x": "",
+                "<prefix>cut_<variant>_stairs_inner_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_inner_h_z",
+            "names": {
+                "cut_<variant>_stairs_inner_h_z": "",
+                "<prefix>cut_<variant>_stairs_inner_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_outer",
+            "names": {
+                "cut_<variant>_stairs_outer": "",
+                "<prefix>cut_<variant>_stairs_outer": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_outer_h_x",
+            "names": {
+                "cut_<variant>_stairs_outer_h_x": "",
+                "<prefix>cut_<variant>_stairs_outer_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_cut_column_stairs_outer_h_z",
+            "names": {
+                "cut_<variant>_stairs_outer_h_z": "",
+                "<prefix>cut_<variant>_stairs_outer_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>",
+                "cut": "atbyw:block/<prefix><variant>_cut"
+            }
+        }
+    ]
+}

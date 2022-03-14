@@ -1,0 +1,116 @@
+{
+    "type": "block_model_template",
+    "variants": [
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
+    ],
+    "models": [
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs",
+            "names": {
+                "<variant>_stairs": "",
+                "<prefix><variant>_stairs": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_h_x",
+            "names": {
+                "<variant>_stairs_h_x": "",
+                "<prefix><variant>_stairs_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_h_z",
+            "names": {
+                "<variant>_stairs_h_z": "",
+                "<prefix><variant>_stairs_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_inner",
+            "names": {
+                "<variant>_stairs_inner": "",
+                "<prefix><variant>_stairs_inner": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_inner_h_x",
+            "names": {
+                "<variant>_stairs_inner_h_x": "",
+                "<prefix><variant>_stairs_inner_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_inner_h_z",
+            "names": {
+                "<variant>_stairs_inner_h_z": "",
+                "<prefix><variant>_stairs_inner_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_outer",
+            "names": {
+                "<variant>_stairs_outer": "",
+                "<prefix><variant>_stairs_outer": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_outer_h_x",
+            "names": {
+                "<variant>_stairs_outer_h_x": "",
+                "<prefix><variant>_stairs_outer_h_x": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        },
+        {
+            "parent": "atbyw:block/stairs/template_column_stairs_outer_h_z",
+            "names": {
+                "<variant>_stairs_outer_h_z": "",
+                "<prefix><variant>_stairs_outer_h_z": "stripped"
+            },
+            "textures": {
+                "top": "minecraft:block/<prefix><variant>_top",
+                "side": "minecraft:block/<prefix><variant>"
+            }
+        }
+    ]
+}

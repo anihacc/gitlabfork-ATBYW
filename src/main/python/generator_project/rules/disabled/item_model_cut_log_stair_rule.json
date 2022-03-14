@@ -1,0 +1,22 @@
+{
+    "type": "item_model_template",
+    "variants": [
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
+    ],
+    "models": [
+        {
+            "parent": "atbyw:block/stairs/<prefix>cut_<variant>_stairs",
+            "names": {
+                "cut_<variant>_stairs": "",
+                "<prefix>cut_<variant>_stairs": "stripped"
+            }
+        }
+    ]
+}

@@ -90,7 +90,7 @@
         {
             "when": {"axis": "x"},
             "apply": {
-                "append": {"model": "_h_z"}
+                "append": {"model": "_h_x"}
             }
         },
         {
@@ -126,17 +126,7 @@
             }
         },
         {
-            "when": {"axis": "x", "facing": ["north", "south"]},
-            "apply": {
-                "swap": {
-                    "model": {
-                        "_h_z": "_h_x"
-                    }
-                }
-            }
-        },
-        {
-            "when": {"axis": "z", "facing": ["east", "west"]},
+            "when": {"axis": ["x" ,"z"], "facing": ["east", "west"]},
             "apply": {
                 "swap": {
                     "model": {

@@ -1,8 +1,5 @@
-import json
-
-from pathlib import Path
 from itertools import product
-from utils import append_underscore_if_not_empty
+from utils import *
 
 
 # Builds a dictionary representing all possible blockstate permutations based on the rules file provided
@@ -32,7 +29,8 @@ def check_rule(rule: dict, permutation: dict) -> bool:
     for k, v in rule["when"].items():
         # If the value is a list, treat it as "or"-like
         if isinstance(v, list):
-            return any([x == permutation[k] for x in v])
+            if not any([x == permutation[k] for x in v]):
+                return False
         # Otherwise, treat it as a single element
         elif v != permutation[k]:
             return False
@@ -109,23 +107,14 @@ def run(rules: Path, output: Path):
     names = data["names"]
     del data
 
-    for variant in variants:
-        # Generate the list of unique values, representing all blockstate permutations
-        perm_dict = collect_permutations(rules)
-        perm_keys = perm_dict.keys()
+    for name, prefix in names.items():
+        for variant in variants:
+            # Generate the list of unique values, representing all blockstate permutations
+            perm_dict = collect_permutations(rules)
+            perm_keys = perm_dict.keys()
 
-        # Iterate through all valid permutations, applying the rules to each of them in turn
-        blockstate_dict = dict()
-
-        # replace variant keywords with the desired data
-        set_variant = (lambda s: s.replace("<variant>", variant))
-
-        for name, prefix in names.items():
-            # replace prefix keywords with the desired data
-            set_prefix = (lambda n: n.replace("<prefix>", append_underscore_if_not_empty(prefix)))
-
-            # replace all keywords with desired data
-            set_keywords = (lambda n: set_variant(set_prefix(n)))
+            # Iterate through all valid permutations, applying the rules to each of them in turn
+            blockstate_dict = dict()
 
             for p in product(*perm_dict.values()):
                 # Generate the attribute dictionary for ease of use
@@ -144,18 +133,11 @@ def run(rules: Path, output: Path):
                 blockstate_key = generate_key(attrib_dict)
 
                 # Add the new blockstate to the blockstate dictionary
-                blockstate_val["model"] = set_keywords(blockstate_val["model"])
+                blockstate_val["model"] = build_name(prefix=prefix, name=blockstate_val["model"], variant=variant)
                 blockstate_dict[blockstate_key] = blockstate_val
 
             # Create the dictionary we intend to serialize into JSON
             final_dict = {"variants": blockstate_dict}
 
             # Serialize the data into JSON form
-            # first, set the variants and prefixes if there are any
-            new_name = set_keywords(name)
-            # build output path
-            output_path = output / "output" / f"{new_name}.json"
-            # create directories and files
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            json.dump(final_dict, indent=4, fp=open(output_path, 'w'))
-            print(f"File created: {output_path.name}")
+            write_json(output, "blockstates", build_name(prefix=prefix, name=name, variant=variant), final_dict)
