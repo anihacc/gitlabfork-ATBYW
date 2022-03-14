@@ -1,13 +1,27 @@
 {
     "type": "language_file",
-    "variants": [
-        "oak_log",
-        "birch_log",
-        "spruce_log",
-        "jungle_log",
-        "acacia_log",
-        "dark_oak_log",
-        "crimson_stem",
-        "warped_stem"
+    "language": "en_us",
+    "translations": [
+        {
+            "variants": [
+                "oak_log",
+                "birch_log",
+                "spruce_log",
+                "jungle_log",
+                "acacia_log",
+                "dark_oak_log",
+                "crimson_stem",
+                "warped_stem"
+            ],
+            "keys": {
+                "block.atbyw.cut_<variant>_stairs": {
+                    "translation": "Cut <variant> Stairs"
+                },
+                "block.atbyw.<prefix>cut_<variant>_stairs": {
+                    "prefix": "stripped",
+                    "translation": "<prefix> Cut <variant> Stairs"
+                }
+            }
+        }
     ]
 }

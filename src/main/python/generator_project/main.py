@@ -1,5 +1,6 @@
 import variant_generator as blockstate_variant_generator
 import model_child_generator as child_model_generator
+import lang_file_generator as lang_generator
 import os
 import json
 
@@ -28,5 +29,6 @@ if __name__ == '__main__':
             check_type(rule, output, blockstate_variant, blockstate_variant_generator.run)
             check_type(rule, output, block_model_template, (lambda r, o: child_model_generator.run(r, o, "block")))
             check_type(rule, output, item_model_template, (lambda r, o: child_model_generator.run(r, o, "item")))
+            check_type(rule, output, language_file, lang_generator.run)
 
 

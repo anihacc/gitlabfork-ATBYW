@@ -1,20 +1,30 @@
 from utils import *
 
 
+# Formats translations as follows: "very cool_block" -> "Very Cool Block"
+def format_translation(prefix: str, translation: str, variant: str) -> str:
+    return append_variant(append_prefix(translation, prefix, False), variant).replace("_", " ").title()
+
+
 # Entrypoint for the program, making sure the file itself was run directly
-def run(rules: Path, output: Path, sub_folder: str):
+def run(rules: Path, output: Path):
     # Load the contents of the JSON file into memory
     data = json.load(open(rules))
-    models = data["models"]
-    variants = data["variants"]
+    translations = data["translations"]
+    lang = data["language"]
     del data
 
-    for variant in variants:
-        for model in models:
-            for name, prefix in model["names"].items():
-                model_dict = dict()
-                model_dict["parent"] = build_name(prefix, model["parent"], variant)
+    # Dict that will host our translations
+    lang_dict = dict()
 
-                # Serialize the data into JSON form
-                file_name = build_name(prefix=prefix, name=name, variant=variant)
-                write_json(output, f"model/{sub_folder}", file_name, model_dict)
+    for translation in translations:
+        for k, content in translation["keys"].items():
+            for variant in translation["variants"]:
+                prefix = get_prefix(content)
+                final_content = format_translation(prefix, content["translation"], variant)
+                new_key = build_name(prefix, k, variant)
+                lang_dict[new_key] = final_content
+
+    # Serialize the data into JSON form
+    file_name = lang
+    write_json(output, "lang", file_name, lang_dict)

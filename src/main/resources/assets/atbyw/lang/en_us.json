@@ -74,6 +74,15 @@
   "block.atbyw.diorite_bricks_slab": "Diorite Bricks Slab",
   "block.atbyw.andesite_bricks_slab": "Andesite Bricks Slab",
 
+  "block.atbyw.cut_oak_log_stairs": "Cut Oak Log Stairs",
+  "block.atbyw.cut_birch_log_stairs": "Cut Birch Log Stairs",
+  "block.atbyw.cut_spruce_log_stairs": "Cut Spruce Log Stairs",
+  "block.atbyw.cut_jungle_log_stairs": "Cut Jungle Log Stairs",
+  "block.atbyw.cut_acacia_log_stairs": "Cut Acacia Log Stairs",
+  "block.atbyw.cut_dark_oak_log_stairs": "Cut Dark Oak Log Stairs",
+  "block.atbyw.cut_crimson_stem_stairs": "Cut Crimson Stem Stairs",
+  "block.atbyw.cut_warped_stem_stairs": "Cut Warped Stem Stairs",
+
   "block.atbyw.oak_log_slab": "Oak Log Slab",
   "block.atbyw.spruce_log_slab": "Spruce Log Slab",
   "block.atbyw.birch_log_slab": "Birch Log Slab",
@@ -82,6 +91,15 @@
   "block.atbyw.dark_oak_log_slab": "Dark Oak Log Slab",
   "block.atbyw.crimson_stem_slab": "Crimson Stem Slab",
   "block.atbyw.warped_stem_slab": "Warped Stem Slab",
+
+  "block.atbyw.stripped_cut_oak_log_stairs": "Stripped Cut Oak Log Stairs",
+  "block.atbyw.stripped_cut_birch_log_stairs": "Stripped Cut Birch Log Stairs",
+  "block.atbyw.stripped_cut_spruce_log_stairs": "Stripped Cut Spruce Log Stairs",
+  "block.atbyw.stripped_cut_jungle_log_stairs": "Stripped Cut Jungle Log Stairs",
+  "block.atbyw.stripped_cut_acacia_log_stairs": "Stripped Cut Acacia Log Stairs",
+  "block.atbyw.stripped_cut_dark_oak_log_stairs": "Stripped Cut Dark Oak Log Stairs",
+  "block.atbyw.stripped_cut_crimson_stem_stairs": "Stripped Cut Crimson Stem Stairs",
+  "block.atbyw.stripped_cut_warped_stem_stairs": "Stripped Cut Warped Stem Stairs",
 
   "block.atbyw.stripped_oak_log_slab": "Stripped Oak Log Slab",
   "block.atbyw.stripped_spruce_log_slab": "Stripped Spruce Log Slab",

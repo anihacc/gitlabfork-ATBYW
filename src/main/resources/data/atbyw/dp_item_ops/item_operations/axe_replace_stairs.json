@@ -36,6 +36,39 @@
         "atbyw:warped_stem_stairs": {
             "result": "atbyw:stripped_warped_stem_stairs",
             "sound": "minecraft:item.axe.strip"
+        },
+
+        "atbyw:cut_oak_log_stairs": {
+            "result": "atbyw:stripped_cut_oak_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_spruce_log_stairs": {
+            "result": "atbyw:stripped_cut_spruce_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_birch_log_stairs": {
+            "result": "atbyw:stripped_cut_birch_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_jungle_log_stairs": {
+            "result": "atbyw:stripped_cut_jungle_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_acacia_log_stairs": {
+            "result": "atbyw:stripped_cut_acacia_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_dark_oak_log_stairs": {
+            "result": "atbyw:stripped_cut_dark_oak_log_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_crimson_stem_stairs": {
+            "result": "atbyw:stripped_cut_crimson_stem_stairs",
+            "sound": "minecraft:item.axe.strip"
+        },
+        "atbyw:cut_warped_stem_stairs": {
+            "result": "atbyw:stripped_cut_warped_stem_stairs",
+            "sound": "minecraft:item.axe.strip"
         }
     }
 }
