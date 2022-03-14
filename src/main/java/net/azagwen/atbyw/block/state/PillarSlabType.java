@@ -5,6 +5,7 @@ import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
+//TODO: add CUT log slabs
 public enum PillarSlabType implements StringIdentifiable {
     BOTTOM_X(SlabType.BOTTOM, Direction.Axis.X, null),
     BOTTOM_Y(SlabType.BOTTOM, Direction.Axis.Y, null),

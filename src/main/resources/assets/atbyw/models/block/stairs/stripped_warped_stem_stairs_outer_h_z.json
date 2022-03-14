@@ -1,8 +1,7 @@
 {
-  "parent": "atbyw:block/stairs/template_column_stairs_outer_h_z",
-  "textures": {
-    "top": "minecraft:block/stripped_warped_stem_top",
-    "side": "minecraft:block/stripped_warped_stem",
-    "cut": "atbyw:block/stripped_warped_stem_cut"
-  }
+    "parent": "atbyw:block/stairs/template_column_stairs_outer_h_z",
+    "textures": {
+        "top": "minecraft:block/stripped_warped_stem_top",
+        "side": "minecraft:block/stripped_warped_stem"
+    }
 }

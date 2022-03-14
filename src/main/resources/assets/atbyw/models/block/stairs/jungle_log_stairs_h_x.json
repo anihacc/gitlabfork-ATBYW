@@ -1,8 +1,7 @@
 {
-  "parent": "atbyw:block/stairs/template_column_stairs_h_x",
-  "textures": {
-    "top": "minecraft:block/jungle_log_top",
-    "side": "minecraft:block/jungle_log",
-    "cut": "atbyw:block/jungle_log_cut"
-  }
+    "parent": "atbyw:block/stairs/template_column_stairs_h_x",
+    "textures": {
+        "top": "minecraft:block/jungle_log_top",
+        "side": "minecraft:block/jungle_log"
+    }
 }
