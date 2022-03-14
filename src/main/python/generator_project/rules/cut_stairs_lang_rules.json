@@ -1,0 +1,13 @@
+{
+    "type": "language_file",
+    "variants": [
+        "oak_log",
+        "birch_log",
+        "spruce_log",
+        "jungle_log",
+        "acacia_log",
+        "dark_oak_log",
+        "crimson_stem",
+        "warped_stem"
+    ]
+}

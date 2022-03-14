@@ -1,4 +1,4 @@
-import variant_generator_edited as blockstate_variant_generator
+import variant_generator as blockstate_variant_generator
 import model_child_generator as child_model_generator
 import os
 import json
@@ -9,6 +9,7 @@ blockstate_variant = "blockstate_variant"
 blockstate_multipart = "blockstate_multipart"
 block_model_template = "block_model_template"
 item_model_template = "item_model_template"
+language_file = "language_file"
 
 
 def check_type(rules_file: Path, output_file: Path, expected_type: str, generator) -> bool:
