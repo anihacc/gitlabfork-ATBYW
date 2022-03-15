@@ -36,4 +36,4 @@ for t, a, p in product(log_types, axis, placement):
 out_dict = {"multipart": multipart_list}
 
 # Save the result
-json.dump(out_dict, indent=4, fp=open("tmp.json", "w"))
+json.dump(out_dict, indent=4, fp=open("../tmp.json", "w"))

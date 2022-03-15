@@ -1,6 +1,5 @@
-import variant_generator as blockstate_variant_generator
-import model_child_generator as child_model_generator
-import lang_file_generator as lang_generator
+from generators import model_child_generator as child_model_generator, lang_file_generator as lang_generator, \
+    variant_generator as blockstate_variant_generator
 import os
 import json
 

@@ -26,5 +26,4 @@ def run(rules: Path, output: Path):
                 lang_dict[new_key] = final_content
 
     # Serialize the data into JSON form
-    file_name = lang
-    write_json(output, "lang", file_name, lang_dict)
+    write_json(output, "lang", lang, lang_dict)
