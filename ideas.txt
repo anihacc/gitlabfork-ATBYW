@@ -1,0 +1,4 @@
+way to turn glow lichen into glow "paste" to apply on blocks and make them glow (generate glowing variant of every block?)
+ghost blocks made with ectoplasma (dropped from ghosts? Skeleton? -> Sculk blocks in 1.19) that can block water and let player through
+double-sided walls that can have different user-defined textures on each side, allowing for different interior and exterior when building with walls.
+redstone clock gate, pretty self-explanatory, modular delay and active times (GUI ?)
