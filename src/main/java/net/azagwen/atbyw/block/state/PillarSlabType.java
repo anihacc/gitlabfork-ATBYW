@@ -26,47 +26,36 @@ public enum PillarSlabType implements StringIdentifiable {
     private final String name;
     private final SlabType slabType;
     private final Direction.Axis bottomAxis, topAxis;
+    @SuppressWarnings("ConstantConditions")
     PillarSlabType(SlabType slabType, @Nullable Direction.Axis bottomAxis, @Nullable Direction.Axis topAxis) {
         this.name = switch (slabType) {
+            // Procedurally stitch names together 😎
             case BOTTOM -> String.format("%s_%s", slabType.asString(), bottomAxis.asString());
             case TOP -> String.format("%s_%s", slabType.asString(), topAxis.asString());
             case DOUBLE -> String.format("%s_b%s_t%s", slabType.asString(), bottomAxis.asString(), topAxis.asString());
         };
-        this.slabType = slabType;
-        this.bottomAxis = bottomAxis;
-        this.topAxis = topAxis;
+        this.slabType = slabType;       // Vanilla Slab Type, used as a base for this slab type, with the added Axis support
+        this.bottomAxis = bottomAxis;   // Axis used for the bottom half of the slab type
+        this.topAxis = topAxis;         // Axis used for the top half of the slab type
     }
 
-    public static PillarSlabType getTypeFromAxis(Direction.Axis topAxis, Direction.Axis bottomAxis, SlabType type) {
-        return switch (type) {
-            case TOP -> switch (topAxis) {
-                case X -> TOP_X;
-                case Y -> TOP_Y;
-                case Z -> TOP_Z;
-            };
-            case BOTTOM -> switch (bottomAxis) {
-                case X -> BOTTOM_X;
-                case Y -> BOTTOM_Y;
-                case Z -> BOTTOM_Z;
-            };
-            case DOUBLE -> switch (topAxis) {
-                case X -> switch (bottomAxis) {
-                    case X -> DOUBLE_BX_TX;
-                    case Y -> DOUBLE_BY_TX;
-                    case Z -> DOUBLE_BZ_TX;
-                };
-                case Y -> switch (bottomAxis) {
-                    case X -> DOUBLE_BX_TY;
-                    case Y -> DOUBLE_BY_TY;
-                    case Z -> DOUBLE_BZ_TY;
-                };
-                case Z -> switch (bottomAxis) {
-                    case X -> DOUBLE_BX_TZ;
-                    case Y -> DOUBLE_BY_TZ;
-                    case Z -> DOUBLE_BZ_TZ;
-                };
-            };
-        };
+    /**
+     * Allows to obtain {@link PillarSlabType} from 3 defining parameters.
+     *
+     * @param topAxis       The top Axis of the desired {@link PillarSlabType}.
+     * @param bottomAxis    The bottom Axis of the desired {@link PillarSlabType}.
+     * @param slabType      The {@link SlabType} of the desired {@link PillarSlabType}.
+     *
+     * @return              The {@link PillarSlabType} that matches the input parameters.
+     */
+    public static PillarSlabType getTypeFromAxis(Direction.Axis topAxis, Direction.Axis bottomAxis, SlabType slabType) {
+        var result = (PillarSlabType) null;
+        for (var item : PillarSlabType.values()) {
+            if (item.topAxis == topAxis && item.bottomAxis == bottomAxis && item.slabType == slabType) {
+                result = item;
+            }
+        }
+        return result;
     }
 
     public SlabType getSlabType() {
@@ -87,5 +76,9 @@ public enum PillarSlabType implements StringIdentifiable {
 
     public String asString() {
         return this.name;
+    }
+
+    public boolean equals(PillarSlabType pillarSlabType) {
+        return pillarSlabType.topAxis == this.topAxis && pillarSlabType.bottomAxis == this.bottomAxis && pillarSlabType.slabType == this.slabType;
     }
 }
